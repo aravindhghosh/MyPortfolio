@@ -25,7 +25,7 @@ export const personalInfo = {
   github: "https://github.com/aravindhghosh",
   twitter: "https://x.com/aravindhghosh", // Update with your Twitter
   instagram: "https://instagram.com/aravindhghosh", // Update with your Instagram
-  youtube: "https://youtube.com/@yourusername", // Update with your YouTube
+  youtube: "https://youtube.com/@ARAVINDHGHOSH", // Update with your YouTube
   facebook: "https://facebook.com/aravindhghosh", // Update with your Facebook
   profileImage: profilePhoto //"https://images.unsplash.com/photo-1573497620166-aef748c8c792?w=400"
 };

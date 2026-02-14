@@ -367,6 +367,19 @@ const Hero = () => {
                 <Mail size={20} />
               </a>
             )}
+            {personalInfo.youtube && (
+              <a
+                href={personalInfo.youtube}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="p-3 rounded-full bg-white/50 dark:bg-slate-900/50 backdrop-blur-sm border border-gray-200 dark:border-slate-700 hover:bg-red-600 hover:text-white hover:border-red-600 transition-all duration-300 transform hover:scale-110 shadow-md hover:shadow-xl"
+                title="YouTube"
+              >
+                <svg className="w-5 h-5" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                  <path d="M23.498 6.186a2.99 2.99 0 0 0-2.104-2.115C19.497 3.5 12 3.5 12 3.5s-7.497 0-9.394.571A2.99 2.99 0 0 0 .502 6.686C0 8.593 0 12 0 12s0 3.407.502 5.314a2.99 2.99 0 0 0 2.104 2.115C4.503 20 12 20 12 20s7.497 0 9.394-.571a2.99 2.99 0 0 0 2.104-2.115C24 15.407 24 12 24 12s0-3.407-.502-5.314zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/>
+                </svg>
+              </a>
+            )}
           </div>
 
           {/* Scroll Indicator */}
