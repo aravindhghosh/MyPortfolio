@@ -1,13 +1,30 @@
-import React from 'react';
+import React, { useRef, useState } from 'react';
 import { ArrowDown, Github, Linkedin, Mail, MapPin } from 'lucide-react';
 import { personalInfo } from '../data/portfolioData';
 import { Button } from './ui/button';
+import GamesLauncher from './GamesLauncher';
 
 const Hero = () => {
+  const [gamesUnlocked, setGamesUnlocked] = useState(() => {
+    if (typeof window === "undefined") return false;
+    return localStorage.getItem("gamesUnlocked") === "true";
+  });
+  const secretClicksRef = useRef(0);
+
   const scrollToContact = () => {
     const element = document.querySelector('#contact');
     if (element) {
       element.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
+  };
+
+  const handleSecretClick = () => {
+    secretClicksRef.current += 1;
+    if (secretClicksRef.current >= 5) {
+      const next = !gamesUnlocked;
+      localStorage.setItem("gamesUnlocked", next ? "true" : "false");
+      setGamesUnlocked(next);
+      secretClicksRef.current = 0;
     }
   };
 
@@ -136,11 +153,11 @@ const Hero = () => {
               </div>
               <div className="grid grid-cols-3 gap-2 md:gap-3 mt-2 md:mt-4">
                 <div className="bg-white/40 rounded-lg p-2 md:p-3 border border-orange-200/30">
-                  <div className="text-orange-600 text-lg md:text-2xl font-bold opacity-70">120</div>
+                  <div className="text-orange-600 text-lg md:text-2xl font-bold opacity-70">145</div>
                   <div className="text-slate-500 text-[10px] md:text-xs opacity-60">km/h</div>
                 </div>
                 <div className="bg-white/40 rounded-lg p-2 md:p-3 border border-red-200/30">
-                  <div className="text-red-600 text-lg md:text-2xl font-bold opacity-70">6.5</div>
+                  <div className="text-red-600 text-lg md:text-2xl font-bold opacity-70">10.8</div>
                   <div className="text-slate-500 text-[10px] md:text-xs opacity-60">0-100s</div>
                 </div>
                 <div className="bg-white/40 rounded-lg p-2 md:p-3 border border-yellow-200/30">
@@ -181,6 +198,26 @@ const Hero = () => {
           </div>
         </div>
 
+        {/* Terminal Card - MORE BLUR & LESS OPACITY */}
+        <div className="absolute bottom-24 right-1/3 w-56 h-36 md:bottom-16 md:right-1/4 md:w-80 md:h-48 animate-float-3d animation-delay-2500 z-0 pointer-events-none hidden sm:block">
+          <div className="relative w-full h-full bg-white/20 backdrop-blur-xl rounded-2xl border border-slate-200/30 shadow-lg transform rotate-1 hover:rotate-0 transition-transform duration-500 opacity-60">
+            <div className="absolute inset-0 bg-gradient-to-br from-slate-50/40 to-transparent rounded-2xl"></div>
+            <div className="p-3 md:p-5">
+              <div className="flex items-center gap-1.5 mb-3">
+                <span className="w-2.5 h-2.5 rounded-full bg-red-400/70"></span>
+                <span className="w-2.5 h-2.5 rounded-full bg-yellow-400/70"></span>
+                <span className="w-2.5 h-2.5 rounded-full bg-emerald-400/70"></span>
+              </div>
+              <div className="space-y-2 text-[10px] md:text-xs font-mono text-slate-700/70">
+                <div>$ git status</div>
+                <div className="text-emerald-600/70">On branch main</div>
+                <div className="text-slate-600/70">nothing to commit, working tree clean</div>
+              </div>
+            </div>
+            <div className="absolute bottom-2 right-3 text-xl md:text-2xl opacity-20">⌘</div>
+          </div>
+        </div>
+
         {/* Floating orbs with glassmorphism - MUCH REDUCED OPACITY */}
         <div className="absolute top-20 left-1/3 w-40 h-40 md:top-32 md:left-1/3 md:w-64 md:h-64 bg-blue-300/15 rounded-full mix-blend-multiply filter blur-3xl animate-orbit"></div>
         <div className="absolute bottom-40 right-1/3 w-48 h-48 md:bottom-32 md:right-1/3 md:w-72 md:h-72 bg-purple-300/15 rounded-full mix-blend-multiply filter blur-3xl animate-orbit animation-delay-2000"></div>
@@ -196,17 +233,31 @@ const Hero = () => {
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 relative z-10">
         <div className="text-center">
-          {/* Profile Image with Glass Effect */}
+          {/* Profile Image with Orbit Ring */}
           <div className="mb-8 inline-block">
-            <div className="relative">
-              <div className="w-32 h-32 sm:w-40 sm:h-40 mx-auto rounded-full overflow-hidden border-4 border-white dark:border-slate-800 shadow-2xl backdrop-blur-sm bg-white/30 dark:bg-slate-900/30 p-1 transform hover:scale-105 transition-transform duration-300">
+            <div className="relative w-40 h-40 sm:w-48 sm:h-48 mx-auto">
+              {/* Big ring */}
+              <div className="absolute inset-0 rounded-full border-2 border-blue-200/70 dark:border-slate-700/80 shadow-[0_0_40px_rgba(59,130,246,0.25)]"></div>
+              {/* Orbiting planets */}
+              <div className="absolute inset-0">
+                <div className="absolute left-1/2 top-1/2 w-3.5 h-3.5 sm:w-4 sm:h-4 rounded-full bg-blue-500/80 shadow-md animate-planet-orbit"></div>
+                <div className="absolute left-1/2 top-1/2 w-2.5 h-2.5 sm:w-3 sm:h-3 rounded-full bg-emerald-500/80 shadow-md animate-planet-orbit-slow"></div>
+                <div className="absolute left-1/2 top-1/2 w-2 h-2 sm:w-2.5 sm:h-2.5 rounded-full bg-amber-400/90 shadow-md animate-planet-orbit-sm"></div>
+              </div>
+              {/* Profile Image */}
+              <div
+                onClick={handleSecretClick}
+                className="absolute inset-3 sm:inset-4 rounded-full overflow-hidden border-4 border-white dark:border-slate-800 shadow-2xl backdrop-blur-sm bg-white/30 dark:bg-slate-900/30 p-1 transform hover:scale-105 transition-transform duration-300 cursor-pointer"
+                title="Secret"
+              >
                 <img
                   src={personalInfo.profileImage}
                   alt={personalInfo.name}
                   className="w-full h-full object-cover rounded-full"
                 />
               </div>
-              <div className="absolute -bottom-2 -right-2 w-12 h-12 bg-gradient-to-r from-blue-600 to-teal-600 rounded-full flex items-center justify-center shadow-lg animate-pulse">
+              {/* Pulse dot */}
+              <div className="absolute -bottom-1 right-6 sm:right-8 w-10 h-10 sm:w-12 sm:h-12 bg-gradient-to-r from-blue-600 to-teal-600 rounded-full flex items-center justify-center shadow-lg animate-pulse">
                 <div className="w-3 h-3 bg-white rounded-full"></div>
               </div>
             </div>
@@ -214,24 +265,28 @@ const Hero = () => {
 
           {/* Name and Title */}
           <h1 className="text-4xl sm:text-5xl md:text-7xl font-bold mb-4 animate-fade-in">
-            <span className="bg-gradient-to-r from-gray-900 via-blue-900 to-gray-900 dark:from-slate-100 dark:via-blue-300 dark:to-slate-100 bg-clip-text text-transparent">
+            <span className="bg-gradient-to-r from-gray-900 via-blue-900 to-gray-900 dark:from-slate-100 dark:via-blue-300 dark:to-slate-100 bg-clip-text text-transparent drop-shadow-[0_2px_16px_rgba(37,99,235,0.25)]">
               {personalInfo.name}
             </span>
           </h1>
 
           <div className="mb-6">
-            <h2 className="text-xl sm:text-2xl md:text-3xl font-semibold text-gray-700 dark:text-slate-200 mb-2">
-              {personalInfo.title}
-            </h2>
-            <p className="text-base sm:text-lg text-gray-600 dark:text-slate-300 max-w-2xl mx-auto">
-              {personalInfo.tagline}
-            </p>
+            <span className="inline-block px-3 sm:px-4 py-2 rounded-xl bg-white/30 dark:bg-slate-900/30 backdrop-blur-sm shadow-[0_8px_30px_rgba(15,23,42,0.08)]">
+              <h2 className="text-xl sm:text-2xl md:text-3xl font-semibold text-gray-700 dark:text-slate-200 mb-2">
+                {personalInfo.title}
+              </h2>
+              <p className="text-base sm:text-lg text-gray-600 dark:text-slate-300 max-w-2xl mx-auto">
+                {personalInfo.tagline}
+              </p>
+            </span>
           </div>
 
           {/* Location */}
-          <div className="flex items-center justify-center gap-2 text-gray-600 dark:text-slate-300 mb-8">
-            <MapPin size={18} className="text-blue-600 dark:text-teal-300" />
-            <span>{personalInfo.location}</span>
+          <div className="mb-8">
+            <span className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-white/30 dark:bg-slate-900/30 backdrop-blur-sm shadow-[0_8px_30px_rgba(15,23,42,0.08)] text-gray-600 dark:text-slate-300">
+              <MapPin size={18} className="text-blue-600 dark:text-teal-300" />
+              <span>{personalInfo.location}</span>
+            </span>
           </div>
 
           {/* CTA Buttons */}
@@ -320,6 +375,7 @@ const Hero = () => {
           </div>
         </div>
       </div>
+      <GamesLauncher unlocked={gamesUnlocked} />
     </section>
   );
 };

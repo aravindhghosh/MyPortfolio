@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import emailjs from '@emailjs/browser';
 import { Mail, Phone, MapPin, Send, Linkedin, Github } from 'lucide-react';
 import { personalInfo } from '../data/portfolioData';
 import { Button } from './ui/button';
@@ -24,15 +25,45 @@ const Contact = () => {
     e.preventDefault();
     setIsSubmitting(true);
 
-    // Simulate form submission (replace with actual API call)
-    setTimeout(() => {
+    const serviceId = process.env.REACT_APP_EMAILJS_SERVICE_ID;
+    const templateId = process.env.REACT_APP_EMAILJS_TEMPLATE_ID;
+    const publicKey = process.env.REACT_APP_EMAILJS_PUBLIC_KEY;
+
+    if (!serviceId || !templateId || !publicKey) {
+      toast({
+        title: "Email not configured",
+        description: "Missing EmailJS keys. Add them to your .env file.",
+      });
+      setIsSubmitting(false);
+      return;
+    }
+
+    try {
+      await emailjs.send(
+        serviceId,
+        templateId,
+        {
+          name: formData.name,
+          email: formData.email,
+          subject: formData.subject,
+          message: formData.message,
+        },
+        publicKey
+      );
+
       toast({
         title: "Message Sent!",
         description: "Thank you for reaching out. I'll get back to you soon!",
       });
       setFormData({ name: '', email: '', subject: '', message: '' });
+    } catch (err) {
+      toast({
+        title: "Send failed",
+        description: "Please try again in a moment.",
+      });
+    } finally {
       setIsSubmitting(false);
-    }, 1000);
+    }
   };
 
   return (

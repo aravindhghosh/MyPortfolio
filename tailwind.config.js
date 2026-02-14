@@ -107,6 +107,14 @@ module.exports = {
 					'66%': { transform: 'translate(-50px, 100px) scale(0.9)' },
 					'100%': { transform: 'translate(0, 0) scale(1)' },
 				},
+				planetOrbit: {
+					'0%': { transform: 'rotate(0deg) translateX(140px) rotate(0deg)' },
+					'100%': { transform: 'rotate(360deg) translateX(140px) rotate(-360deg)' },
+				},
+				planetOrbitSm: {
+					'0%': { transform: 'rotate(0deg) translateX(90px) rotate(0deg)' },
+					'100%': { transform: 'rotate(360deg) translateX(90px) rotate(-360deg)' },
+				},
 				particle: {
 					'0%, 100%': { transform: 'translateY(0) scale(1)', opacity: '0' },
 					'50%': { transform: 'translateY(-100px) scale(1.5)', opacity: '1' },
@@ -134,6 +142,9 @@ module.exports = {
 				'particle': 'particle 6s ease-in-out infinite',
 				'wiggle': 'wiggle 2s ease-in-out infinite',
 				'bounce-slow': 'bounceSlow 3s ease-in-out infinite',
+				'planet-orbit': 'planetOrbit 18s linear infinite',
+				'planet-orbit-slow': 'planetOrbit 26s linear infinite',
+				'planet-orbit-sm': 'planetOrbitSm 16s linear infinite',
 			}
 		}
 	},
