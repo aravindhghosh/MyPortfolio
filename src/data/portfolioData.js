@@ -6,20 +6,24 @@
 // No need to touch any other files.
 
 import profilePhoto from '../assets/images/myprofile.jpg';
+import eduTCEPhoto from '../assets/images/tce.png';
+import eduACPhoto from '../assets/images/americancollege.png';
+import orghcltech from '../assets/images/hcltech.png';
+import orgblueyonder from '../assets/images/blueyonder.png';
 
 export const personalInfo = {
   name: "Aravindhghosh P",
   title: "Automation Developer | DevOps Specialist",
   tagline: "Building scalable automation solutions for cloud infrastructure",
   email: "aravindhghosh@outlook.com",
-  phone: "+91 90427 59427",
+  phone: "Not provided Privacy reasons",
   location: "Madurai, India",
   linkedin: "https://linkedin.com/in/aravindhghosh",
   github: "https://github.com/aravindhghosh",
-  twitter: "https://twitter.com/yourusername", // Update with your Twitter
-  instagram: "https://instagram.com/yourusername", // Update with your Instagram
+  twitter: "https://x.com/aravindhghosh", // Update with your Twitter
+  instagram: "https://instagram.com/aravindhghosh", // Update with your Instagram
   youtube: "https://youtube.com/@yourusername", // Update with your YouTube
-  facebook: "https://facebook.com/yourusername", // Update with your Facebook
+  facebook: "https://facebook.com/aravindhghosh", // Update with your Facebook
   profileImage: profilePhoto //"https://images.unsplash.com/photo-1573497620166-aef748c8c792?w=400"
 };
 
@@ -67,7 +71,7 @@ export const experience = [
   {
     id: 1,
     company: "HCL Tech",
-    companyLogo: "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b8/HCL_Technologies_logo.svg/320px-HCL_Technologies_logo.svg.png",
+    companyLogo: orghcltech, //"https://en.wikipedia.org/wiki/HCLTech#/media/File:HCLTech-new-logo.svg",
     currentRole: "Specialist",
     duration: "August 2020 - Present",
     location: "Madurai, India",
@@ -132,7 +136,7 @@ export const experience = [
   {
     id: 2,
     company: "Blue Yonder India Pvt Ltd",
-    companyLogo: "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d5/Blue_Yonder_logo.svg/320px-Blue_Yonder_logo.svg.png",
+    companyLogo: orgblueyonder, //"https://upload.wikimedia.org/wikipedia/en/d/dd/Blue_Yonder_Logo.png",
     currentRole: "Associate Technical Consultant",
     duration: "January 2020 - August 2020",
     location: "Bengaluru, India",
@@ -424,7 +428,7 @@ export const education = [
     location: "Madurai",
     years: "2017 - 2020",
     cgpa: "8.46",
-    logo: "https://images.unsplash.com/photo-1607237138185-eedd9c632b0b?w=200"
+    logo: eduTCEPhoto //"https://images.unsplash.com/photo-1607237138185-eedd9c632b0b?w=200"
   },
   {
     id: 2,
@@ -433,7 +437,7 @@ export const education = [
     location: "Madurai",
     years: "2014 - 2017",
     cgpa: "8.7",
-    logo: "https://images.unsplash.com/photo-1622604647545-0cada2f34470?w=200"
+    logo: eduACPhoto //"https://images.unsplash.com/photo-1622604647545-0cada2f34470?w=200"
   }
 ];
 
