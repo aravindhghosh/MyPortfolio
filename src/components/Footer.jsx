@@ -105,7 +105,7 @@ const Footer = () => {
         <div className="pt-8 border-t border-gray-800">
           <div className="flex flex-col md:flex-row justify-between items-center gap-4">
             <p className="text-gray-400 text-sm flex items-center gap-1">
-              Made with <Heart size={14} className="text-red-500" /> by {personalInfo.name.split(' ')[0]}
+              Made with <Heart size={14} className="text-red-500" /> by {personalInfo.name.split(' ')[0]} with help of <a href="https://app.emergent.sh/home" className="text-gray-400 hover:text-white transition-colors duration-200 hover:translate-x-1 inline-block">Emergent</a>
             </p>
             <p className="text-gray-400 text-sm">
               © {new Date().getFullYear()} {personalInfo.name}. All rights reserved.

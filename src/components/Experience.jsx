@@ -89,10 +89,10 @@ const ExperienceModal = ({ exp, isOpen, onClose }) => {
           </div>
 
           {/* Overview */}
-          <div className="mb-6">
+          {/* <div className="mb-6">
             <h3 className="text-lg font-semibold text-gray-900 mb-3">Overview</h3>
             <p className="text-gray-700 leading-relaxed">{exp.details.overview}</p>
-          </div>
+          </div> */}
 
           {/* Key Projects */}
           <div className="mb-6">

@@ -10,13 +10,16 @@ import eduTCEPhoto from '../assets/images/tce.png';
 import eduACPhoto from '../assets/images/americancollege.png';
 import orghcltech from '../assets/images/hcltech.png';
 import orgblueyonder from '../assets/images/blueyonder.png';
+import certIBMDSPython from '../assets/images/IBMAppliedDatascienceL2.png';
+import certMSAzureFundamentals from '../assets/images/MicrosoftAzFundamentals.png';
+import certScrumAllianceCSM from '../assets/images/ScrumAllianceCSM.png';
 
 export const personalInfo = {
   name: "Aravindhghosh P",
   title: "Automation Developer | DevOps Specialist",
   tagline: "Building scalable automation solutions for cloud infrastructure",
   email: "aravindhghosh@outlook.com",
-  phone: "Not provided Privacy reasons",
+  phone: "Not provided for Privacy reasons",
   location: "Madurai, India",
   linkedin: "https://linkedin.com/in/aravindhghosh",
   github: "https://github.com/aravindhghosh",
@@ -30,10 +33,10 @@ export const personalInfo = {
 export const about = {
   summary: "Results-driven Automation Developer with 5+ years of experience in cloud infrastructure, CI/CD, and database automation. Proficient in Python, Ansible, GitHub Actions, and Azure, with a strong track record of building automation for monitoring, incident management, and self-service workflows to improve efficiency and delivery.",
   highlights: [
-    "5+ years of experience in automation and cloud infrastructure",
     "Led teams managing automated ticketing with ServiceNow and Ansible",
     "Reduced manual effort by 70% through DR automation in Azure",
-    "Generated $5M+ in cost savings through licensing optimization"
+    "Generated $5M+ in cost savings through licensing optimization",
+    "Actively contributed to Sprint Planning, Retrospectives, Effort Estimation, and conducted Daily Standups as part of Agile delivery."
   ],
   interests: [
     {
@@ -75,7 +78,7 @@ export const experience = [
     currentRole: "Specialist",
     duration: "August 2020 - Present",
     location: "Madurai, India",
-    description: "Leading automation initiatives and DevOps transformation for Fortune 500 client, driving $5M+ cost savings through innovative cloud automation and infrastructure optimization solutions.",
+    description: "Leading automation initiatives and DevOps transformation, driving through innovative cloud automation and infrastructure optimization solutions.",
     roleProgression: [
       {
         title: "Specialist",
@@ -114,7 +117,7 @@ export const experience = [
       "Served as code reviewer and approver for production deployments"
     ],
     details: {
-      overview: "Leading automation initiatives and managing critical infrastructure operations for a Fortune 500 client, driving efficiency through innovative DevOps practices and cloud automation solutions.",
+      //overview: "Leading automation initiatives and managing critical infrastructure operations for a Fortune 500 client, driving efficiency through innovative DevOps practices and cloud automation solutions.",
       keyProjects: [
         "Azure Disaster Recovery Automation - Reduced DR execution time by 70%",
         "Database Refresh Automation - Eliminated 100% manual DBA effort",
@@ -124,12 +127,12 @@ export const experience = [
       achievements: [
         "HCL Value Creation 2024 award for SQL Server optimization project",
         "Promoted twice: Analyst → Senior Analyst → Specialist",
-        "Led team of 4 automation engineers",
+        "Led team of 5 automation engineers",
         "Managed 500+ server infrastructure automation",
         "Reduced incident response time by 60%"
       ],
       technologies: ["Python", "PowerShell", "Ansible", "Azure", "GitHub Actions", "ServiceNow", "SQL Server", "AWX", "Commvault"],
-      teamSize: "4 members",
+      teamSize: "6 members",
       impact: "Generated $5M+ in cost savings and improved operational efficiency by 70%"
     }
   },
@@ -168,7 +171,7 @@ export const experience = [
       "Designed POC chatbot for Self-Service Portal for Control-M Job Dashboard Q&A"
     ],
     details: {
-      overview: "Contributed to monitoring and automation initiatives for enterprise job scheduling infrastructure, developing innovative solutions that led to a full-time offer.",
+      //overview: "Contributed to monitoring and automation initiatives for enterprise job scheduling infrastructure, developing innovative solutions that led to a full-time offer.",
       keyProjects: [
         "Control-M Dashboard Automation - Real-time SLA monitoring",
         "Job Performance Tracking - Automated reporting system",
@@ -288,7 +291,7 @@ export const projects = [
         "Enabled monthly DR testing instead of quarterly"
       ],
       duration: "6 months",
-      team: "4 members",
+      team: "2 members",
       role: "Lead Developer & Architect"
     }
   },
@@ -349,36 +352,36 @@ export const projects = [
       team: "2 members",
       role: "Automation Lead & Solution Architect"
     }
-  },
-  {
-    id: 4,
-    title: "Control-M Chatbot POC",
-    description: "Designed and developed a Proof of Concept chatbot for Self-Service Portal for Control-M Job Dashboard Q&A, enabling automated user-friendly job status queries.",
-    technologies: ["Python", "NLP", "Control-M"],
-    image: "https://images.unsplash.com/photo-1633195281926-59c0bf267653?w=600",
-    details: {
-      overview: "AI-powered chatbot to provide instant answers to Control-M job status queries, reducing helpdesk load and improving response times.",
-      challenges: [
-        "High volume of repetitive job status queries",
-        "Average 15-minute response time for job status",
-        "Limited after-hours support availability"
-      ],
-      solutions: [
-        "Built NLP-powered chatbot using Python",
-        "Integrated with Control-M API for real-time data",
-        "Implemented natural language understanding for queries"
-      ],
-      results: [
-        "Reduced helpdesk queries by 60%",
-        "Instant response to job status queries (< 5 seconds)",
-        "24/7 automated support availability",
-        "95% user satisfaction rate in pilot"
-      ],
-      duration: "2 months",
-      team: "Solo project with guidance",
-      role: "Developer & POC Lead"
-    }
-  }
+  } //,
+  // {
+  //   id: 4,
+  //   title: "Control-M Chatbot POC",
+  //   description: "Designed and developed a Proof of Concept chatbot for Self-Service Portal for Control-M Job Dashboard Q&A, enabling automated user-friendly job status queries.",
+  //   technologies: ["Python", "NLP", "Control-M"],
+  //   image: "https://images.unsplash.com/photo-1633195281926-59c0bf267653?w=600",
+  //   details: {
+  //     overview: "AI-powered chatbot to provide instant answers to Control-M job status queries, reducing helpdesk load and improving response times.",
+  //     challenges: [
+  //       "High volume of repetitive job status queries",
+  //       "Average 15-minute response time for job status",
+  //       "Limited after-hours support availability"
+  //     ],
+  //     solutions: [
+  //       "Built NLP-powered chatbot using Python",
+  //       "Integrated with Control-M API for real-time data",
+  //       "Implemented natural language understanding for queries"
+  //     ],
+  //     results: [
+  //       "Reduced helpdesk queries by 60%",
+  //       "Instant response to job status queries (< 5 seconds)",
+  //       "24/7 automated support availability",
+  //       "95% user satisfaction rate in pilot"
+  //     ],
+  //     duration: "2 months",
+  //     team: "Solo project with guidance",
+  //     role: "Developer & POC Lead"
+  //   }
+  // }
 ];
 
 export const certifications = [
@@ -388,7 +391,7 @@ export const certifications = [
     code: "AZ-900",
     issuer: "Microsoft",
     icon: "Award",
-    image: "https://images.unsplash.com/photo-1451187580459-43490279c0fa?w=400",
+    image: certMSAzureFundamentals, //"https://images.unsplash.com/photo-1451187580459-43490279c0fa?w=400",
     credentialUrl: "https://learn.microsoft.com/en-us/certifications/azure-fundamentals/"
   },
   {
@@ -397,7 +400,7 @@ export const certifications = [
     code: "AI-900",
     issuer: "Microsoft",
     icon: "Brain",
-    image: "https://images.unsplash.com/photo-1677442136019-21780ecad995?w=400",
+    image: certMSAzureFundamentals, //"https://images.unsplash.com/photo-1677442136019-21780ecad995?w=400",
     credentialUrl: "https://learn.microsoft.com/en-us/certifications/azure-ai-fundamentals/"
   },
   {
@@ -406,8 +409,8 @@ export const certifications = [
     code: "Level 2",
     issuer: "IBM",
     icon: "Database",
-    image: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=400",
-    credentialUrl: "https://www.ibm.com/training/badge/applied-data-science-with-python-level-2"
+    image: certIBMDSPython, //"https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=400",
+    credentialUrl: "https://www.credly.com/badges/c151b4b9-1ad5-472a-995f-e29ddd186b07/public_url"
   },
   {
     id: 4,
@@ -415,7 +418,7 @@ export const certifications = [
     code: "CSM",
     issuer: "Scrum Alliance",
     icon: "Target",
-    image: "https://images.unsplash.com/photo-1552664730-d307ca884978?w=400",
+    image: certScrumAllianceCSM, //"https://images.unsplash.com/photo-1552664730-d307ca884978?w=400",
     credentialUrl: "https://www.scrumalliance.org/get-certified/scrum-master-track/certified-scrummaster"
   }
 ];
