@@ -18,7 +18,7 @@ export const personalInfo = {
   instagram: "https://instagram.com/yourusername", // Update with your Instagram
   youtube: "https://youtube.com/@yourusername", // Update with your YouTube
   facebook: "https://facebook.com/yourusername", // Update with your Facebook
-  profileImage: "https://images.unsplash.com/photo-1573497620166-aef748c8c792?w=400"
+  profileImage: "/img/myprofile.jpg" //"https://images.unsplash.com/photo-1573497620166-aef748c8c792?w=400"
 };
 
 export const about = {
