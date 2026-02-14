@@ -5,7 +5,8 @@ A modern, responsive portfolio website built with React.js featuring a beautiful
 ![Portfolio Preview](https://img.shields.io/badge/React-19.0.0-blue) ![Tailwind CSS](https://img.shields.io/badge/TailwindCSS-3.4.17-38B2AC) ![License](https://img.shields.io/badge/license-MIT-green)
 
 ---
-**[Live URL](https://aravindhghosh.github.io/MyPortfolio/)**
+**Sample Click Here -> ** **[Live URL](https://aravindhghosh.github.io/MyPortfolio/)**
+
 ---
 
 ## ✨ Features
