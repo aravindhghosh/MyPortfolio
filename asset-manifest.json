@@ -1,17 +1,20 @@
 {
   "files": {
-    "main.css": "./static/css/main.e95873a7.css",
-    "main.js": "./static/js/main.a00189f2.js",
+    "main.css": "./static/css/main.7da064c6.css",
+    "main.js": "./static/js/main.f16ba642.js",
+    "static/media/ScrumAllianceCSM.png": "./static/media/ScrumAllianceCSM.f604189f890320feed1e.png",
+    "static/media/MicrosoftAzFundamentals.png": "./static/media/MicrosoftAzFundamentals.e8363a1c370dbb247ead.png",
+    "static/media/IBMAppliedDatascienceL2.png": "./static/media/IBMAppliedDatascienceL2.e9f752a9a22ceea6504d.png",
     "static/media/tce.png": "./static/media/tce.43280db8faff39b3b361.png",
     "static/media/myprofile.jpg": "./static/media/myprofile.f0839e07b6deb1ce2cb8.jpg",
     "static/media/hcltech.png": "./static/media/hcltech.60c252f0b09d4d3bdf1f.png",
     "static/media/blueyonder.png": "./static/media/blueyonder.4c9adc662abb7f955b72.png",
     "index.html": "./index.html",
-    "main.e95873a7.css.map": "./static/css/main.e95873a7.css.map",
-    "main.a00189f2.js.map": "./static/js/main.a00189f2.js.map"
+    "main.7da064c6.css.map": "./static/css/main.7da064c6.css.map",
+    "main.f16ba642.js.map": "./static/js/main.f16ba642.js.map"
   },
   "entrypoints": [
-    "static/css/main.e95873a7.css",
-    "static/js/main.a00189f2.js"
+    "static/css/main.7da064c6.css",
+    "static/js/main.f16ba642.js"
   ]
 }
