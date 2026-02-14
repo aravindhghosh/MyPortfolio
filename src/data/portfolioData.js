@@ -79,7 +79,7 @@ export const experience = [
     roleProgression: [
       {
         title: "Specialist",
-        duration: "January 2024 - Present",
+        duration: "October 2024 - Present",
         responsibilities: [
           "Led team of 4 automation engineers",
           "Served as code reviewer and approver for production deployments",
@@ -88,7 +88,7 @@ export const experience = [
       },
       {
         title: "Senior Analyst",
-        duration: "January 2022 - December 2023",
+        duration: "July 2022 - September 2024",
         responsibilities: [
           "Automated SQL Server downgrade saving $5 million in licensing costs",
           "Developed end-to-end Disaster Recovery automation in Azure using PowerShell",
@@ -97,7 +97,7 @@ export const experience = [
       },
       {
         title: "Analyst",
-        duration: "August 2020 - December 2021",
+        duration: "August 2020 - June 2022",
         responsibilities: [
           "Automated MS-SQL database refresh processes using Commvault",
           "Led team to manage and automate ticketing processes using ServiceNow, AWX, Ansible",
@@ -153,7 +153,7 @@ export const experience = [
       },
       {
         title: "Intern",
-        duration: "January 2020 - June 2020",
+        duration: "January 2020 - July 2020",
         responsibilities: [
           "Developed solutions to monitor ESXi incidents using Zabbix API, Python, and Grafana",
           "Designed POC chatbot for Self-Service Portal for Control-M Job Dashboard Q&A",
