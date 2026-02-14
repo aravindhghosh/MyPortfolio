@@ -1,9 +1,42 @@
 import React from 'react';
 import { CheckCircle2 } from 'lucide-react';
 import * as Icons from 'lucide-react';
-import { about, personalInfo } from '../data/portfolioData';
+import { about, experience, personalInfo } from '../data/portfolioData';
 
 const About = () => {
+  const experienceYears = (() => {
+    const monthMap = {
+      january: 0, february: 1, march: 2, april: 3, may: 4, june: 5,
+      july: 6, august: 7, september: 8, october: 9, november: 10, december: 11
+    };
+
+    const starts = experience.flatMap((exp) =>
+      (exp.roleProgression || [])
+        .filter((role) => role.title?.toLowerCase() !== "intern")
+        .map((role) => {
+          const [startPart] = (role.duration || "").split("-");
+          const match = startPart?.trim().match(/^([A-Za-z]+)\s+(\d{4})$/);
+          if (!match) return null;
+          const month = monthMap[match[1].toLowerCase()];
+          const year = parseInt(match[2], 10);
+          if (Number.isNaN(year) || month === undefined) return null;
+          return new Date(year, month, 1);
+        })
+        .filter(Boolean)
+    );
+
+    const earliest = starts.length ? new Date(Math.min(...starts)) : new Date();
+    const now = new Date();
+    const totalMonths = Math.max(
+      1,
+      (now.getFullYear() - earliest.getFullYear()) * 12 +
+        (now.getMonth() - earliest.getMonth())
+    );
+    const years = Math.floor(totalMonths / 12);
+    const months = totalMonths % 12;
+    return months === 0 ? `${years}` : `${years}y ${months}m`;
+  })();
+
   return (
     <section id="about" className="py-20 bg-gradient-to-b from-white to-gray-50 dark:from-slate-950 dark:to-slate-900">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -30,8 +63,8 @@ const About = () => {
             {/* Floating Card */}
             <div className="absolute -bottom-6 -right-6 bg-white/90 dark:bg-slate-900/80 backdrop-blur-md rounded-xl p-6 shadow-xl border border-gray-200 dark:border-slate-700">
               <div className="text-center">
-                <div className="text-4xl font-bold text-blue-600">5+</div>
-                <div className="text-sm text-gray-600 dark:text-slate-300">Years Experience</div>
+                <div className="text-4xl font-bold text-blue-600 tracking-tight">{experienceYears}</div>
+                <div className="text-[11px] uppercase tracking-widest text-gray-500 dark:text-slate-400 mt-2">Experience</div>
               </div>
             </div>
           </div>

@@ -78,46 +78,56 @@ export const experience = [
     currentRole: "Specialist",
     duration: "August 2020 - Present",
     location: "Madurai, India",
-    description: "Leading automation initiatives and DevOps transformation, driving through innovative cloud automation and infrastructure optimization solutions.",
+    description: "Leading automation initiatives and DevOps transformation, driving through cloud automation and infrastructure optimization solutions. Responsible for leading automation initiatives, driving DevOps transformation, and delivering solutions that improve operational efficiency and reduce costs.",
     roleProgression: [
       {
         title: "Specialist",
         duration: "October 2024 - Present",
         responsibilities: [
-          "Led team of 4 automation engineers",
-          "Served as code reviewer and approver for production deployments",
-          "Designed and implemented CI/CD pipelines with GitHub Actions"
+          "Led a team of automation engineers managing ServiceNow ticket orchestration using AWX, Ansible, and iAutomate",
+          "Actively participated in Sprint Planning, Retrospectives, Estimation, and Daily Standups within Agile delivery model",
+          "Designed and maintained detailed technical documentation, SOPs, and workflow diagrams for operational excellence",
+          "Developed end-to-end Azure Disaster Recovery automation using PowerShell for real and mock DR scenarios",
+          "Reduced DR failover and failback manual effort by over 70% through orchestration automation",
+          "Spearheaded ServiceNow workflow automation improving service efficiency and ticket throughput",
+          "Mentored and trained team members to build a high-performance automation culture",
+          "Served as code reviewer and production deployment approver ensuring quality and compliance"
         ]
       },
       {
         title: "Senior Analyst",
         duration: "July 2022 - September 2024",
         responsibilities: [
-          "Automated SQL Server downgrade saving $5 million in licensing costs",
-          "Developed end-to-end Disaster Recovery automation in Azure using PowerShell",
-          "Managed 500+ server infrastructure automation"
+          "Coordinated with cross-functional teams to ensure timely ticket resolution through automated execution",
+          "Automated MS-SQL database refresh using Commvault and migrated workflows to Commvault SaaS platform",
+          "Eliminated 100% manual SQL DBA efforts using GitHub Actions, Python, and SQL-based automation",
+          "Designed and implemented CI/CD pipelines using GitHub Actions for automated deployments",
+          "Developed reusable Ansible playbooks for infrastructure provisioning and ticket execution",
+          "Automated SQL Server downgrade from Enterprise to Developer Edition saving $5M in licensing",
+          "Implemented backup lifecycle automation deleting Azure Recovery Vault backups older than 30 days"
         ]
       },
       {
         title: "Analyst",
         duration: "August 2020 - June 2022",
         responsibilities: [
-          "Automated MS-SQL database refresh processes using Commvault",
-          "Led team to manage and automate ticketing processes using ServiceNow, AWX, Ansible",
-          "Eliminated 100% manual efforts from SQL DBA Team"
+          "Built backend automation for centralized monitoring dashboard using Python, Zabbix API, and MS-SQL",
+          "Automated Unix server build validation using Python and Shell scripting",
+          "Automated SLA metric collection across infrastructure components for performance tracking",
+          "Developed infrastructure validation test suites using Ruby and Chef InSpec framework"
         ]
       }
     ],
-    responsibilities: [
-      "Led team to manage and automate ticketing processes using ServiceNow, AWX, Ansible, and iAutomate",
-      "Developed end-to-end Disaster Recovery automation in Azure using PowerShell, reducing manual effort by 70%",
-      "Automated MS-SQL database refresh processes using Commvault, eliminating 100% manual efforts from SQL DBA Team",
-      "Automated SQL Server downgrade saving $5 million in licensing costs",
-      "Designed and implemented CI/CD pipelines with GitHub Actions",
-      "Served as code reviewer and approver for production deployments"
-    ],
+    // responsibilities: [
+    //   "Led team to manage and automate ticketing processes using ServiceNow, AWX, Ansible, and iAutomate",
+    //   "Developed end-to-end Disaster Recovery automation in Azure using PowerShell, reducing manual effort by 70%",
+    //   "Automated MS-SQL database refresh processes using Commvault, eliminating 100% manual efforts from SQL DBA Team",
+    //   "Automated SQL Server downgrade saving $5 million in licensing costs",
+    //   "Designed and implemented CI/CD pipelines with GitHub Actions",
+    //   "Served as code reviewer and approver for production deployments"
+    // ],
     details: {
-      //overview: "Leading automation initiatives and managing critical infrastructure operations for a Fortune 500 client, driving efficiency through innovative DevOps practices and cloud automation solutions.",
+      overview: "Strategic partnership with Blue Yonder (former employer and current client) to build an offshore ODC for scalable public and private cloud infrastructure operations and maintenance.",
       keyProjects: [
         "Azure Disaster Recovery Automation - Reduced DR execution time by 70%",
         "Database Refresh Automation - Eliminated 100% manual DBA effort",
@@ -131,7 +141,7 @@ export const experience = [
         "Managed 500+ server infrastructure automation",
         "Reduced incident response time by 60%"
       ],
-      technologies: ["Python", "PowerShell", "Ansible", "Azure", "GitHub Actions", "ServiceNow", "SQL Server", "AWX", "Commvault"],
+      technologies: ["Python", "PowerShell", "Shell Scripting", "Ansible", "Azure", "GitHub Actions", "ServiceNow", "SQL Server", "AWX", "Commvault", "Terraform", "Docker"],
       teamSize: "6 members",
       impact: "Generated $5M+ in cost savings and improved operational efficiency by 70%"
     }
@@ -143,7 +153,7 @@ export const experience = [
     currentRole: "Associate Technical Consultant",
     duration: "January 2020 - August 2020",
     location: "Bengaluru, India",
-    description: "Developed innovative monitoring solutions and automation for enterprise job scheduling infrastructure, progressing from intern to full-time consultant through exceptional performance.",
+    description: "Developed monitoring solutions and automation for enterprise job scheduling infrastructure, progressing from intern to full-time consultant through exceptional performance.",
     roleProgression: [
       {
         title: "Associate Technical Consultant",
@@ -164,14 +174,14 @@ export const experience = [
         ]
       }
     ],
-    responsibilities: [
-      "Automated Control-M job dashboard to generate SLA runtime reports",
-      "Tracked job execution status for performance optimization",
-      "Developed solutions to monitor ESXi incidents using Zabbix API, Python, and Grafana",
-      "Designed POC chatbot for Self-Service Portal for Control-M Job Dashboard Q&A"
-    ],
+    // responsibilities: [
+    //   "Automated Control-M job dashboard to generate SLA runtime reports",
+    //   "Tracked job execution status for performance optimization",
+    //   "Developed solutions to monitor ESXi incidents using Zabbix API, Python, and Grafana",
+    //   "Designed POC chatbot for Self-Service Portal for Control-M Job Dashboard Q&A"
+    // ],
     details: {
-      //overview: "Contributed to monitoring and automation initiatives for enterprise job scheduling infrastructure, developing innovative solutions that led to a full-time offer.",
+      overview: "Joined as an intern and quickly transitioned to a full-time role by delivering impactful automation solutions for Control-M job monitoring and ESXi incident management.",
       keyProjects: [
         "Control-M Dashboard Automation - Real-time SLA monitoring",
         "Job Performance Tracking - Automated reporting system",
@@ -270,25 +280,29 @@ export const projects = [
     id: 1,
     title: "Azure DR Automation",
     description: "End-to-end Disaster Recovery automation in Azure using PowerShell, orchestrating all infrastructure tasks for real and mock DR events. Reduced manual effort by over 70%.",
-    technologies: ["PowerShell", "Azure", "Automation"],
+    technologies: ["PowerShell", "Azure", "Shell Scripting", "GitHub Actions", "ServiceNow", "Azure Functions", "Logic Apps"],
     image: "https://images.unsplash.com/photo-1644088379091-d574269d422f?w=600",
     details: {
       overview: "Comprehensive disaster recovery automation solution that orchestrates failover and failback activities across Azure infrastructure.",
       challenges: [
-        "Manual DR processes taking 8+ hours per event",
+        "Manual DR processes taking 8 to 16+ hours per event",
         "High error rate in manual failover procedures",
         "Limited DR testing due to resource constraints"
       ],
       solutions: [
-        "Developed automated PowerShell scripts for infrastructure orchestration",
+        "Developed automated PowerShell, Shell scripts for infrastructure orchestration using GitHub Actions, Azure Functions and Logic Apps",
         "Created real-time monitoring and validation checks",
-        "Implemented automated rollback mechanisms"
+        "Integrated with ServiceNow for incident management and ticketing during DR events"
       ],
       results: [
         "Reduced DR execution time from 8 hours to 2.5 hours",
         "Decreased manual effort by 70%",
-        "Achieved 100% DR test success rate",
-        "Enabled monthly DR testing instead of quarterly"
+        "Achieved 90% DR test success rate",
+        "Automated failover and failback processes with zero manual intervention, improving reliability and consistency of DR execution",
+        "Improved DR readiness and reduced risk of downtime during actual disaster events",
+        "Received positive feedback from stakeholders for improved DR processes and reliability",
+        "Implemented both real and mock DR automation solutions to ensure comprehensive DR preparedness and testing capabilities across the organization",
+        "Implemented Pre and Post DR validation checks to ensure data integrity and application availability after failover and failback operations, reducing risk of issues during DR events"
       ],
       duration: "6 months",
       team: "2 members",
@@ -297,38 +311,75 @@ export const projects = [
   },
   {
     id: 2,
-    title: "Database Refresh Automation",
-    description: "Automated MS-SQL database refresh processes using Commvault and migrated to SaaS platform. Eliminated 100% manual efforts from SQL DBA Team.",
-    technologies: ["Python", "SQL", "GitHub Actions", "Commvault"],
+    title: "Microsoft SQLServer Database Refresh Automation - Commvault",
+    description: "Automated MS-SQL database refresh processes using Commvault (As migrated to SaaS Commvault platform from Azure Recovery Services Vault). Eliminated 100% manual efforts from SQL DBA Team.",
+    technologies: ["Python", "SQL", "GitHub Actions", "Commvault", "ServiceNow", "AWX", "Ansible"],
     image: "https://images.unsplash.com/photo-1650473395434-8674d953ef2f?w=600",
     details: {
-      overview: "Streamlined database refresh operations by automating the entire workflow from backup to restore, validation, and deployment.",
+      overview: "Streamlined database refresh operations by automating the entire workflow from backup to restore, validation, and deployment. Refresh will be triggered through GitHub Actions and executed using Python scripts integrated with Commvault APIs which restores Source Server Database Backups to Target Server and performs pre and post refresh validation checks to ensure data integrity and availability.",
       challenges: [
-        "20+ hours weekly spent on manual database refresh",
-        "Inconsistent refresh procedures across environments",
-        "Frequent database corruption during manual operations"
+        "20+ hours spent on manual database refresh per request",
+        "Inconsistent refresh procedures across environments since multiple teams were involved",
+        "SPOC can only perform 1 refresh at a time leading to delays and bottlenecks",
+        "Validate SQL Server one by one which is time consuming and error prone for both pre and post refresh validation",
+        "Modification of Existing Azure Recovery Services Vault based refresh automation to integrate with Commvault SaaS platform and update existing workflows to leverage Commvault APIs for backup and restore operations and rebuilt PowerShell based automation to Python for better maintainability and scalability."
       ],
       solutions: [
         "Built Python-based automation framework with Commvault integration",
         "Implemented CI/CD pipeline using GitHub Actions",
-        "Created automated validation and health checks"
+        "Created automated validation and health checks",
+        "Integrate with Service-Now for ticket orchestration and status updates",
+        "Rebuilt PowerShell based automation to Python for better maintainability and scalability. This involved re-architecting the automation framework to leverage Python's capabilities and Commvault APIs for backup and restore operations, ensuring seamless integration with the new Commvault SaaS platform while maintaining existing functionality and improving overall performance.",
+        "Create APP Validation for BlueYonder Prodcuts deployed on SQL Server as part of pre and post refresh validation to ensure application compatibility and functionality after database refresh operations."
       ],
       results: [
         "100% elimination of manual DBA effort for refreshes",
-        "Reduced refresh time from 4 hours to 30 minutes",
-        "Zero database corruption incidents post-automation",
-        "Improved database availability by 25%"
+        "Reduced refresh time depends on database size but on average 70% reduction in execution time, for example a refresh which used to take 20 hours now takes around 4 hours",
+        "Pre and Post Validation automation reduced validation time by 80%",
+        "Enabled concurrent refreshes improving throughput and reducing wait times",
+        "Enabled Centralised Token Management system for Commvault API authentication and authorization for secure and seamless automation execution"
       ],
-      duration: "4 months",
-      team: "3 members",
+      duration: "4 months - 6 Months",
+      team: "2 member",
       role: "Lead Automation Engineer"
     }
   },
   {
     id: 3,
+    title: "Microsoft SQLServer Database Refresh Automation - Azure Recovery Services Vault",
+    description: "Automated MS-SQL database refresh processes using Azure Recovery Services Vault. Eliminated 100% manual efforts from SQL DBA Team.",
+    technologies: ["Azure PowerShell", "Azure Recovery Services Vault", "Ansible", "Kusto Query Language", "GitHub Actions"],
+    image: "https://images.unsplash.com/photo-1650473395434-8674d953ef2f?w=600",
+    details: {
+      overview: "Streamlined database refresh operations by automating the entire workflow from backup to restore, validation, and deployment. Refresh will be triggered through GitHub Actions and executed using Python scripts integrated with Commvault APIs which restores Source Server Database Backups to Target Server and performs pre and post refresh validation checks to ensure data integrity and availability.",
+      challenges: [
+        "20+ hours spent on manual database refresh per request",
+        "Inconsistent refresh procedures across environments since multiple teams were involved",
+        "SPOC can only perform 1 refresh at a time leading to delays and bottlenecks",
+        "Validate SQL Server one by one which is time consuming and error prone for both pre and post refresh validation"
+      ],
+      solutions: [
+        "Built using Azure PowerShell and Recovery Services Vault for restore operations.",
+        "Implemented CI/CD pipeline using GitHub Actions",
+        "Created automated validation and health checks",
+        "Create APP Validation for BlueYonder Prodcuts deployed on SQL Server as part of pre and post refresh validation to ensure application compatibility and functionality after database refresh operations."
+      ],
+      results: [
+        "90% elimination of manual DBA effort for refreshes",
+        "Reduced refresh time depends on database size but on average 70% reduction in execution time, for example a refresh which used to take 20 hours now takes around 4 hours",
+        "Pre and Post Validation automation reduced validation time by 80%",
+        "Enabled concurrent refreshes improving throughput and reducing wait times"
+      ],
+      duration: "1 Year",
+      team: "1 member",
+      role: "Lead Automation Engineer"
+    }
+  },
+  {
+    id: 4,
     title: "SQL Server License Optimization",
     description: "Automated SQL Server downgrade from Enterprise Edition to Developer Edition using PowerShell and BigFix, reducing licensing costs by $5 million.",
-    technologies: ["PowerShell", "BigFix", "Automation"],
+    technologies: ["PowerShell", "BigFix", "Automation", "Microsoft SQL Server"],
     image: "https://images.unsplash.com/photo-1604781109199-ced99b89b0f6?w=600",
     details: {
       overview: "Strategic cost optimization initiative that automated the downgrade of SQL Server licenses across 500+ non-production servers.",
@@ -349,8 +400,8 @@ export const projects = [
         "Recognized at HCL Value Creation 2024 event"
       ],
       duration: "3 months",
-      team: "2 members",
-      role: "Automation Lead & Solution Architect"
+      team: "3 members",
+      role: "Automation Engineer"
     }
   } //,
   // {
@@ -392,7 +443,7 @@ export const certifications = [
     issuer: "Microsoft",
     icon: "Award",
     image: certMSAzureFundamentals, //"https://images.unsplash.com/photo-1451187580459-43490279c0fa?w=400",
-    credentialUrl: "https://learn.microsoft.com/en-us/certifications/azure-fundamentals/"
+    credentialUrl: "https://learn.microsoft.com/api/credentials/share/en-gb/aravindhghosh/8D06B53F4724E71E?sharingId=89F5D240924212F" //"https://learn.microsoft.com/en-us/certifications/azure-fundamentals/"
   },
   {
     id: 2,
@@ -401,7 +452,7 @@ export const certifications = [
     issuer: "Microsoft",
     icon: "Brain",
     image: certMSAzureFundamentals, //"https://images.unsplash.com/photo-1677442136019-21780ecad995?w=400",
-    credentialUrl: "https://learn.microsoft.com/en-us/certifications/azure-ai-fundamentals/"
+    credentialUrl: "https://learn.microsoft.com/api/credentials/share/en-gb/aravindhghosh/885D6048A3D06685?sharingId=89F5D240924212F" //"https://learn.microsoft.com/en-us/certifications/azure-ai-fundamentals/"
   },
   {
     id: 3,
@@ -414,12 +465,12 @@ export const certifications = [
   },
   {
     id: 4,
-    name: "Certified Scrum Master",
+    name: "Certified Scrum Master (April 2025 - April 2027)",
     code: "CSM",
     issuer: "Scrum Alliance",
     icon: "Target",
     image: certScrumAllianceCSM, //"https://images.unsplash.com/photo-1552664730-d307ca884978?w=400",
-    credentialUrl: "https://www.scrumalliance.org/get-certified/scrum-master-track/certified-scrummaster"
+    credentialUrl: "https://bcert.me/bc/html/show-badge.html?b=grmtmejg" //"https://www.scrumalliance.org/get-certified/scrum-master-track/certified-scrummaster"
   }
 ];
 
@@ -448,12 +499,17 @@ export const achievements = [
   {
     id: 1,
     title: "HCL Value Creation 2024",
-    description: "Recognised for leading SQL Server Enterprise-to-Developer Edition downgrade automation, generating $5 million in business value"
+    description: "Recognised for SQL Server Enterprise-to-Developer Edition downgrade automation, generating $5 million in business value"
   },
   {
     id: 2,
-    title: "HCL Achievers League",
-    description: "Earned 2Good and 4Ward awards based on consecutive years of Distinguished Performance ratings"
+    title: "2Good Award - HCL Achievers League 2024",
+    description: "Earned 2Good award based on 2 consecutive years of Distinguished Performance ratings"
+  },
+  {
+    id: 3,
+    title: "4Ward Award - HCL Achievers League 2025",
+    description: "Earned 4Ward award based on 4 consecutive years of Distinguished Performance ratings"
   }
 ];
 

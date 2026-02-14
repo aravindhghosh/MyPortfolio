@@ -81,11 +81,11 @@ const Certifications = () => {
           </div>
 
           {/* Achievements List */}
-          <div className="max-w-4xl mx-auto space-y-6">
+          <div className="max-w-4xl mx-auto space-y-6 sm:space-y-8">
             {achievements.map((achievement) => (
               <div
                 key={achievement.id}
-                className="bg-white/70 dark:bg-slate-900/70 backdrop-blur-md rounded-2xl p-6 shadow-xl border border-gray-200 dark:border-slate-700 hover:shadow-2xl hover:border-blue-300 transition-all duration-300 transform hover:scale-102"
+                className="bg-white/70 dark:bg-slate-900/70 backdrop-blur-md rounded-2xl p-6 shadow-xl border border-gray-200 dark:border-slate-700 hover:shadow-2xl hover:border-blue-300 transition-all duration-300 transform hover:scale-102 mt-1"
               >
                 <div className="flex items-start gap-4">
                   {/* Trophy Icon */}

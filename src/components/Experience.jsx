@@ -59,17 +59,23 @@ const ExperienceModal = ({ exp, isOpen, onClose }) => {
             </div>
           </div>
 
+          {/* Overview */}
+          <div className="mb-6">
+            <h3 className="text-lg font-semibold text-gray-900 mb-3">Overview</h3>
+            <p className="text-gray-700 leading-relaxed">{exp.details.overview}</p>
+          </div>
+
           {/* Role Progression */}
           <div className="mb-6">
             <div className="flex items-center gap-2 mb-4">
               <TrendingUp className="w-6 h-6 text-green-600" />
               <h3 className="text-lg font-semibold text-gray-900 dark:text-slate-100">Career Progression</h3>
             </div>
-            <div className="space-y-6">
+            <div className="space-y-6 sm:space-y-8">
               {exp.roleProgression.map((role, idx) => (
                 <div
                   key={idx}
-                  className="bg-gradient-to-r from-blue-50 to-teal-50 dark:from-slate-800 dark:to-slate-900 rounded-xl p-4 border-l-4 border-blue-600 border border-blue-100/80 dark:border-slate-700/80 shadow-sm"
+                  className="bg-gradient-to-r from-blue-50 to-teal-50 dark:from-slate-800 dark:to-slate-900 rounded-xl p-4 border-l-4 border-blue-600 border border-blue-100/80 dark:border-slate-700/80 shadow-sm mt-1"
                 >
                   <div className="flex items-center justify-between mb-2">
                     <h4 className="text-lg font-bold text-gray-900 dark:text-slate-100">{role.title}</h4>
@@ -87,12 +93,6 @@ const ExperienceModal = ({ exp, isOpen, onClose }) => {
               ))}
             </div>
           </div>
-
-          {/* Overview */}
-          {/* <div className="mb-6">
-            <h3 className="text-lg font-semibold text-gray-900 mb-3">Overview</h3>
-            <p className="text-gray-700 leading-relaxed">{exp.details.overview}</p>
-          </div> */}
 
           {/* Key Projects */}
           <div className="mb-6">
