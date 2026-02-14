@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "./static/css/main.4ef740e1.css",
-    "main.js": "./static/js/main.86bbddf8.js",
+    "main.css": "./static/css/main.7dcfaa2e.css",
+    "main.js": "./static/js/main.78c4e75b.js",
     "static/media/ScrumAllianceCSM.png": "./static/media/ScrumAllianceCSM.f604189f890320feed1e.png",
     "static/media/MicrosoftAzFundamentals.png": "./static/media/MicrosoftAzFundamentals.e8363a1c370dbb247ead.png",
     "static/media/IBMAppliedDatascienceL2.png": "./static/media/IBMAppliedDatascienceL2.e9f752a9a22ceea6504d.png",
@@ -11,11 +11,11 @@
     "static/media/hcltech.png": "./static/media/hcltech.60c252f0b09d4d3bdf1f.png",
     "static/media/blueyonder.png": "./static/media/blueyonder.4c9adc662abb7f955b72.png",
     "index.html": "./index.html",
-    "main.4ef740e1.css.map": "./static/css/main.4ef740e1.css.map",
-    "main.86bbddf8.js.map": "./static/js/main.86bbddf8.js.map"
+    "main.7dcfaa2e.css.map": "./static/css/main.7dcfaa2e.css.map",
+    "main.78c4e75b.js.map": "./static/js/main.78c4e75b.js.map"
   },
   "entrypoints": [
-    "static/css/main.4ef740e1.css",
-    "static/js/main.86bbddf8.js"
+    "static/css/main.7dcfaa2e.css",
+    "static/js/main.78c4e75b.js"
   ]
 }
