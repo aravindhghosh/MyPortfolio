@@ -5,6 +5,8 @@
 // Simply edit the values below to update your portfolio!
 // No need to touch any other files.
 
+import profilePhoto from '../assets/images/myprofile.jpg';
+
 export const personalInfo = {
   name: "Aravindhghosh P",
   title: "Automation Developer | DevOps Specialist",
@@ -18,7 +20,7 @@ export const personalInfo = {
   instagram: "https://instagram.com/yourusername", // Update with your Instagram
   youtube: "https://youtube.com/@yourusername", // Update with your YouTube
   facebook: "https://facebook.com/yourusername", // Update with your Facebook
-  profileImage: "/img/myprofile.jpg" //"https://images.unsplash.com/photo-1573497620166-aef748c8c792?w=400"
+  profileImage: profilePhoto //"https://images.unsplash.com/photo-1573497620166-aef748c8c792?w=400"
 };
 
 export const about = {
