@@ -12,7 +12,7 @@ const Hero = () => {
   };
 
   return (
-    <section id="hero" className="min-h-screen flex items-center justify-center relative overflow-hidden">
+    <section id="hero" className="min-h-screen flex items-center justify-center relative overflow-hidden bg-white dark:bg-slate-950 text-gray-900 dark:text-slate-100">
       {/* Animated Background */}
       {/* <div className="absolute inset-0 bg-gradient-to-br from-blue-50 via-white to-teal-50">
         <div className="absolute inset-0 opacity-30">
@@ -22,56 +22,56 @@ const Hero = () => {
         </div>
       </div> */}
 
-      <div className="absolute inset-0 bg-gradient-to-br from-white via-blue-50 to-slate-50 overflow-hidden">
+      <div className="absolute inset-0 bg-gradient-to-br from-white via-blue-50 to-slate-50 dark:from-slate-950 dark:via-slate-900 dark:to-slate-950 overflow-hidden">
 
-        {/* Animated grid background */}
-        <div className="absolute inset-0 opacity-30">
+        {/* Animated grid background - reduced opacity */}
+        <div className="absolute inset-0 opacity-10">
           <div className="absolute inset-0 bg-[linear-gradient(to_right,#cbd5e1_1px,transparent_1px),linear-gradient(to_bottom,#cbd5e1_1px,transparent_1px)] bg-[size:4rem_4rem] [mask-image:radial-gradient(ellipse_80%_50%_at_50%_50%,#000_70%,transparent_110%)]"></div>
         </div>
 
-        {/* Racing speed lines */}
-        <div className="absolute inset-0 overflow-hidden">
-          <div className="absolute top-1/4 left-0 w-full h-0.5 bg-gradient-to-r from-transparent via-orange-400 to-transparent opacity-40 animate-speed-line"></div>
-          <div className="absolute top-1/2 left-0 w-full h-0.5 bg-gradient-to-r from-transparent via-red-400 to-transparent opacity-50 animate-speed-line animation-delay-1000"></div>
-          <div className="absolute top-3/4 left-0 w-full h-0.5 bg-gradient-to-r from-transparent via-yellow-400 to-transparent opacity-40 animate-speed-line animation-delay-2000"></div>
+        {/* Racing speed lines - hidden on mobile, reduced opacity */}
+        <div className="absolute inset-0 overflow-hidden hidden md:block">
+          <div className="absolute top-1/4 left-0 w-full h-0.5 bg-gradient-to-r from-transparent via-orange-400 to-transparent opacity-20 animate-speed-line"></div>
+          <div className="absolute top-1/2 left-0 w-full h-0.5 bg-gradient-to-r from-transparent via-red-400 to-transparent opacity-25 animate-speed-line animation-delay-1000"></div>
+          <div className="absolute top-3/4 left-0 w-full h-0.5 bg-gradient-to-r from-transparent via-yellow-400 to-transparent opacity-20 animate-speed-line animation-delay-2000"></div>
         </div>
 
-        {/* Floating 3D-style cards - Python/Code */}
-        <div className="absolute top-20 left-20 w-72 h-48 animate-float-3d">
-          <div className="relative w-full h-full bg-white/40 backdrop-blur-md rounded-2xl border border-emerald-200/60 shadow-xl transform rotate-3 hover:rotate-0 transition-transform duration-500">
-            <div className="absolute inset-0 bg-gradient-to-br from-emerald-50/50 to-transparent rounded-2xl"></div>
-            <div className="p-6">
-              <div className="text-emerald-700 font-mono text-sm space-y-2 opacity-80">
-                <div className="flex items-center gap-2">
+        {/* Floating 3D-style cards - Python/Code - MORE BLUR & LESS OPACITY */}
+        <div className="absolute top-4 left-4 w-48 h-32 md:top-20 md:left-20 md:w-72 md:h-48 animate-float-3d z-0 pointer-events-none">
+          <div className="relative w-full h-full bg-white/20 backdrop-blur-xl rounded-2xl border border-emerald-200/30 shadow-lg transform rotate-3 hover:rotate-0 transition-transform duration-500 opacity-60">
+            <div className="absolute inset-0 bg-gradient-to-br from-emerald-50/30 to-transparent rounded-2xl"></div>
+            <div className="p-3 md:p-6">
+              <div className="text-emerald-700 font-mono text-[10px] md:text-sm space-y-1 md:space-y-2 opacity-50">
+                <div className="flex items-center gap-1 md:gap-2">
                   <span className="text-emerald-600">●</span>
-                  <span>import tensorflow as tf</span>
+                  <span className="truncate">import tensorflow as tf</span>
                 </div>
-                <div className="flex items-center gap-2">
+                <div className="flex items-center gap-1 md:gap-2">
                   <span className="text-blue-600">●</span>
-                  <span>def optimize_portfolio():</span>
+                  <span className="truncate">def optimize_portfolio():</span>
                 </div>
-                <div className="flex items-center gap-2 ml-6">
+                <div className="flex items-center gap-1 md:gap-2 ml-3 md:ml-6">
                   <span className="text-purple-600">●</span>
-                  <span>return max_profit</span>
+                  <span className="truncate">return max_profit</span>
                 </div>
               </div>
             </div>
-            <div className="absolute bottom-4 right-4 text-4xl opacity-30">🐍</div>
+            <div className="absolute bottom-2 right-2 md:bottom-4 md:right-4 text-2xl md:text-4xl opacity-20">🐍</div>
           </div>
         </div>
 
-        {/* Stock/Trading Dashboard Card */}
-        <div className="absolute top-40 right-20 w-80 h-52 animate-float-3d animation-delay-2000">
-          <div className="relative w-full h-full bg-white/40 backdrop-blur-md rounded-2xl border border-blue-200/60 shadow-xl transform -rotate-2 hover:rotate-0 transition-transform duration-500">
-            <div className="p-6">
-              <div className="flex items-center justify-between mb-3">
-                <span className="text-blue-700 font-bold text-lg">PORTFOLIO</span>
-                <span className="text-emerald-600 text-sm font-semibold">+12.5% ↑</span>
+        {/* Stock/Trading Dashboard Card - MORE BLUR & LESS OPACITY */}
+        <div className="absolute top-4 right-4 w-56 h-36 md:top-40 md:right-20 md:w-80 md:h-52 animate-float-3d animation-delay-2000 z-0 pointer-events-none">
+          <div className="relative w-full h-full bg-white/20 backdrop-blur-xl rounded-2xl border border-blue-200/30 shadow-lg transform -rotate-2 hover:rotate-0 transition-transform duration-500 opacity-60">
+            <div className="p-3 md:p-6">
+              <div className="flex items-center justify-between mb-2 md:mb-3">
+                <span className="text-blue-700 font-bold text-sm md:text-lg opacity-70">PORTFOLIO</span>
+                <span className="text-emerald-600 text-xs md:text-sm font-semibold opacity-70">+12.5% ↑</span>
               </div>
-              <svg className="w-full h-24" viewBox="0 0 200 60">
+              <svg className="w-full h-16 md:h-24 opacity-50" viewBox="0 0 200 60">
                 <defs>
                   <linearGradient id="chartGradient" x1="0%" y1="0%" x2="0%" y2="100%">
-                    <stop offset="0%" stopColor="#3b82f6" stopOpacity="0.3" />
+                    <stop offset="0%" stopColor="#3b82f6" stopOpacity="0.2" />
                     <stop offset="100%" stopColor="#3b82f6" stopOpacity="0.0" />
                   </linearGradient>
                 </defs>
@@ -88,109 +88,109 @@ const Hero = () => {
                   className="animate-draw-chart"
                 />
               </svg>
-              <div className="flex gap-4 text-xs mt-2">
+              <div className="flex gap-2 md:gap-4 text-[10px] md:text-xs mt-1 md:mt-2 opacity-60">
                 <div className="text-slate-600">NIFTY <span className="text-emerald-600 font-semibold">+2.1%</span></div>
                 <div className="text-slate-600">SENSEX <span className="text-emerald-600 font-semibold">+1.8%</span></div>
               </div>
             </div>
-            <div className="absolute bottom-4 right-4 text-3xl opacity-30">📈</div>
+            <div className="absolute bottom-2 right-2 md:bottom-4 md:right-4 text-xl md:text-3xl opacity-20">📈</div>
           </div>
         </div>
 
-        {/* Gaming Controller Card */}
-        <div className="absolute bottom-32 left-32 w-64 h-44 animate-float-3d animation-delay-3000">
-          <div className="relative w-full h-full bg-white/40 backdrop-blur-md rounded-2xl border border-purple-200/60 shadow-xl transform rotate-2 hover:rotate-0 transition-transform duration-500">
-            <div className="p-6">
-              <div className="flex items-center gap-3 mb-4">
-                <div className="text-3xl">🎮</div>
+        {/* Gaming Controller Card - MORE BLUR & LESS OPACITY */}
+        <div className="absolute bottom-[380px] left-4 w-48 h-32 md:bottom-32 md:left-32 md:w-64 md:h-44 animate-float-3d animation-delay-3000 z-0 pointer-events-none">
+          <div className="relative w-full h-full bg-white/20 backdrop-blur-xl rounded-2xl border border-purple-200/30 shadow-lg transform rotate-2 hover:rotate-0 transition-transform duration-500 opacity-60">
+            <div className="p-3 md:p-6">
+              <div className="flex items-center gap-2 md:gap-3 mb-2 md:mb-4">
+                <div className="text-xl md:text-3xl opacity-50">🎮</div>
                 <div>
-                  <div className="text-purple-700 font-bold">LEVEL 99</div>
-                  <div className="text-slate-500 text-xs">Achievement Unlocked</div>
+                  <div className="text-purple-700 font-bold text-sm md:text-base opacity-70">LEVEL 99</div>
+                  <div className="text-slate-500 text-[10px] md:text-xs opacity-60">Achievement Unlocked</div>
                 </div>
               </div>
-              <div className="space-y-2">
-                <div className="flex justify-between text-xs text-slate-600">
+              <div className="space-y-1 md:space-y-2">
+                <div className="flex justify-between text-[10px] md:text-xs text-slate-600 opacity-60">
                   <span>XP</span>
                   <span className="text-purple-700 font-semibold">15,420 / 20,000</span>
                 </div>
-                <div className="w-full h-2 bg-slate-200 rounded-full overflow-hidden">
-                  <div className="h-full w-3/4 bg-gradient-to-r from-purple-500 to-pink-500 rounded-full animate-pulse-slow"></div>
+                <div className="w-full h-1.5 md:h-2 bg-slate-200/60 rounded-full overflow-hidden">
+                  <div className="h-full w-3/4 bg-gradient-to-r from-purple-400 to-pink-400 rounded-full animate-pulse-slow opacity-70"></div>
                 </div>
               </div>
             </div>
-            <div className="absolute bottom-4 right-4 text-2xl opacity-30">👾</div>
+            <div className="absolute bottom-2 right-2 md:bottom-4 md:right-4 text-lg md:text-2xl opacity-20">👾</div>
           </div>
         </div>
 
-        {/* Altroz Racer Card */}
-        <div className="absolute bottom-20 right-24 w-96 h-56 animate-float-3d animation-delay-1500">
-          <div className="relative w-full h-full bg-white/40 backdrop-blur-md rounded-2xl border border-orange-200/60 shadow-xl transform -rotate-1 hover:rotate-0 transition-transform duration-500 overflow-hidden">
-            <div className="absolute inset-0 bg-gradient-to-r from-orange-50/50 via-red-50/50 to-orange-50/50 animate-shimmer"></div>
-            <div className="p-6 relative z-10">
-              <div className="flex items-center justify-between mb-3">
+        {/* Altroz Racer Card - MORE BLUR & LESS OPACITY */}
+        <div className="absolute bottom-[180px] right-4 w-60 h-40 md:bottom-20 md:right-24 md:w-96 md:h-56 animate-float-3d animation-delay-1500 z-0 pointer-events-none">
+          <div className="relative w-full h-full bg-white/20 backdrop-blur-xl rounded-2xl border border-orange-200/30 shadow-lg transform -rotate-1 hover:rotate-0 transition-transform duration-500 overflow-hidden opacity-60">
+            <div className="absolute inset-0 bg-gradient-to-r from-orange-50/30 via-red-50/30 to-orange-50/30 animate-shimmer"></div>
+            <div className="p-3 md:p-6 relative z-10">
+              <div className="flex items-center justify-between mb-2 md:mb-3">
                 <div>
-                  <div className="text-orange-600 font-bold text-xl">ALTROZ RACER</div>
-                  <div className="text-slate-600 text-sm">Performance Mode Active</div>
+                  <div className="text-orange-600 font-bold text-sm md:text-xl opacity-70">ALTROZ RACER</div>
+                  <div className="text-slate-600 text-[10px] md:text-sm opacity-60">Performance Mode Active</div>
                 </div>
-                <div className="text-4xl">🏎️</div>
+                <div className="text-2xl md:text-4xl opacity-50">🏎️</div>
               </div>
-              <div className="grid grid-cols-3 gap-3 mt-4">
-                <div className="bg-white/60 rounded-lg p-3 border border-orange-200/40">
-                  <div className="text-orange-600 text-2xl font-bold">120</div>
-                  <div className="text-slate-500 text-xs">km/h</div>
+              <div className="grid grid-cols-3 gap-2 md:gap-3 mt-2 md:mt-4">
+                <div className="bg-white/40 rounded-lg p-2 md:p-3 border border-orange-200/30">
+                  <div className="text-orange-600 text-lg md:text-2xl font-bold opacity-70">120</div>
+                  <div className="text-slate-500 text-[10px] md:text-xs opacity-60">km/h</div>
                 </div>
-                <div className="bg-white/60 rounded-lg p-3 border border-red-200/40">
-                  <div className="text-red-600 text-2xl font-bold">6.5</div>
-                  <div className="text-slate-500 text-xs">0-100s</div>
+                <div className="bg-white/40 rounded-lg p-2 md:p-3 border border-red-200/30">
+                  <div className="text-red-600 text-lg md:text-2xl font-bold opacity-70">6.5</div>
+                  <div className="text-slate-500 text-[10px] md:text-xs opacity-60">0-100s</div>
                 </div>
-                <div className="bg-white/60 rounded-lg p-3 border border-yellow-200/40">
-                  <div className="text-yellow-600 text-2xl font-bold">120</div>
-                  <div className="text-slate-500 text-xs">bhp</div>
+                <div className="bg-white/40 rounded-lg p-2 md:p-3 border border-yellow-200/30">
+                  <div className="text-yellow-600 text-lg md:text-2xl font-bold opacity-70">120</div>
+                  <div className="text-slate-500 text-[10px] md:text-xs opacity-60">bhp</div>
                 </div>
               </div>
             </div>
-            <div className="absolute top-1/2 right-0 w-full h-px bg-gradient-to-l from-orange-400/50 to-transparent animate-speed-line-reverse"></div>
+            <div className="absolute top-1/2 right-0 w-full h-px bg-gradient-to-l from-orange-400/30 to-transparent animate-speed-line-reverse hidden md:block"></div>
           </div>
         </div>
 
-        {/* Dog Paw Card */}
-        <div className="absolute top-1/2 left-1/4 w-48 h-40 animate-float-3d animation-delay-4000">
-          <div className="relative w-full h-full bg-white/40 backdrop-blur-md rounded-2xl border border-amber-200/60 shadow-xl transform rotate-6 hover:rotate-0 transition-transform duration-500">
-            <div className="p-6 text-center">
+        {/* Dog Paw Card - MORE BLUR & LESS OPACITY */}
+        <div className="absolute bottom-4 left-4 w-40 h-32 md:top-1/2 md:left-1/4 md:w-48 md:h-40 animate-float-3d animation-delay-4000 z-0 pointer-events-none">
+          <div className="relative w-full h-full bg-white/20 backdrop-blur-xl rounded-2xl border border-amber-200/30 shadow-lg transform rotate-6 hover:rotate-0 transition-transform duration-500 opacity-60">
+            <div className="p-3 md:p-6 text-center">
               {/* Dog paw print made with CSS */}
-              <div className="relative w-20 h-20 mx-auto mb-3 animate-bounce-slow">
-                <div className="absolute top-0 left-1/2 -translate-x-1/2 w-6 h-8 bg-amber-600 rounded-full"></div>
-                <div className="absolute top-4 left-2 w-5 h-6 bg-amber-600 rounded-full transform -rotate-12"></div>
-                <div className="absolute top-4 right-2 w-5 h-6 bg-amber-600 rounded-full transform rotate-12"></div>
-                <div className="absolute bottom-2 left-4 w-4 h-5 bg-amber-600 rounded-full transform -rotate-6"></div>
-                <div className="absolute bottom-2 right-4 w-4 h-5 bg-amber-600 rounded-full transform rotate-6"></div>
+              <div className="relative w-14 h-14 md:w-20 md:h-20 mx-auto mb-2 md:mb-3 animate-bounce-slow">
+                <div className="absolute top-0 left-1/2 -translate-x-1/2 w-5 h-6 md:w-6 md:h-8 bg-amber-600/60 rounded-full"></div>
+                <div className="absolute top-3 left-1 md:top-4 md:left-2 w-4 h-5 md:w-5 md:h-6 bg-amber-600/60 rounded-full transform -rotate-12"></div>
+                <div className="absolute top-3 right-1 md:top-4 md:right-2 w-4 h-5 md:w-5 md:h-6 bg-amber-600/60 rounded-full transform rotate-12"></div>
+                <div className="absolute bottom-1 left-3 md:bottom-2 md:left-4 w-3 h-4 md:w-4 md:h-5 bg-amber-600/60 rounded-full transform -rotate-6"></div>
+                <div className="absolute bottom-1 right-3 md:bottom-2 md:right-4 w-3 h-4 md:w-4 md:h-5 bg-amber-600/60 rounded-full transform rotate-6"></div>
               </div>
-              <div className="text-amber-700 font-semibold">Best Friends</div>
-              <div className="text-slate-500 text-xs mt-1">Unconditional Love</div>
+              <div className="text-amber-700 font-semibold text-xs md:text-base opacity-70">Best Friends</div>
+              <div className="text-slate-500 text-[10px] md:text-xs mt-0.5 md:mt-1 opacity-60">Unconditional Love</div>
             </div>
             {/* Smaller paw print in corner */}
-            <div className="absolute -bottom-1 -right-1 opacity-40 animate-wiggle">
-              <div className="relative w-8 h-8">
-                <div className="absolute top-0 left-1/2 -translate-x-1/2 w-2.5 h-3.5 bg-amber-600 rounded-full"></div>
-                <div className="absolute top-2 left-0.5 w-2 h-2.5 bg-amber-600 rounded-full transform -rotate-12"></div>
-                <div className="absolute top-2 right-0.5 w-2 h-2.5 bg-amber-600 rounded-full transform rotate-12"></div>
-                <div className="absolute bottom-0 left-1.5 w-1.5 h-2 bg-amber-600 rounded-full"></div>
-                <div className="absolute bottom-0 right-1.5 w-1.5 h-2 bg-amber-600 rounded-full"></div>
+            <div className="absolute -bottom-1 -right-1 opacity-30 animate-wiggle">
+              <div className="relative w-6 h-6 md:w-8 md:h-8">
+                <div className="absolute top-0 left-1/2 -translate-x-1/2 w-2 h-2.5 md:w-2.5 md:h-3.5 bg-amber-600 rounded-full"></div>
+                <div className="absolute top-1.5 left-0.5 md:top-2 w-1.5 h-2 md:w-2 md:h-2.5 bg-amber-600 rounded-full transform -rotate-12"></div>
+                <div className="absolute top-1.5 right-0.5 md:top-2 w-1.5 h-2 md:w-2 md:h-2.5 bg-amber-600 rounded-full transform rotate-12"></div>
+                <div className="absolute bottom-0 left-1 md:left-1.5 w-1 h-1.5 md:w-1.5 md:h-2 bg-amber-600 rounded-full"></div>
+                <div className="absolute bottom-0 right-1 md:right-1.5 w-1 h-1.5 md:w-1.5 md:h-2 bg-amber-600 rounded-full"></div>
               </div>
             </div>
           </div>
         </div>
 
-        {/* Floating orbs with glassmorphism */}
-        <div className="absolute top-32 left-1/3 w-64 h-64 bg-blue-300/30 rounded-full mix-blend-multiply filter blur-3xl animate-orbit"></div>
-        <div className="absolute bottom-32 right-1/3 w-72 h-72 bg-purple-300/30 rounded-full mix-blend-multiply filter blur-3xl animate-orbit animation-delay-2000"></div>
-        <div className="absolute top-1/2 left-1/2 w-56 h-56 bg-emerald-300/30 rounded-full mix-blend-multiply filter blur-3xl animate-orbit animation-delay-4000"></div>
+        {/* Floating orbs with glassmorphism - MUCH REDUCED OPACITY */}
+        <div className="absolute top-20 left-1/3 w-40 h-40 md:top-32 md:left-1/3 md:w-64 md:h-64 bg-blue-300/15 rounded-full mix-blend-multiply filter blur-3xl animate-orbit"></div>
+        <div className="absolute bottom-40 right-1/3 w-48 h-48 md:bottom-32 md:right-1/3 md:w-72 md:h-72 bg-purple-300/15 rounded-full mix-blend-multiply filter blur-3xl animate-orbit animation-delay-2000"></div>
+        <div className="absolute top-1/2 left-1/2 w-36 h-36 md:w-56 md:h-56 bg-emerald-300/15 rounded-full mix-blend-multiply filter blur-3xl animate-orbit animation-delay-4000"></div>
 
-        {/* Particles */}
-        <div className="absolute top-1/4 right-1/4 w-2 h-2 bg-blue-500 rounded-full animate-particle"></div>
-        <div className="absolute top-1/3 left-1/3 w-1.5 h-1.5 bg-purple-500 rounded-full animate-particle animation-delay-1000"></div>
-        <div className="absolute bottom-1/3 right-1/2 w-2 h-2 bg-emerald-500 rounded-full animate-particle animation-delay-2000"></div>
-        <div className="absolute top-2/3 left-2/3 w-1 h-1 bg-orange-500 rounded-full animate-particle animation-delay-3000"></div>
+        {/* Particles - hidden on mobile for performance */}
+        <div className="hidden md:block absolute top-1/4 right-1/4 w-2 h-2 bg-blue-500/40 rounded-full animate-particle"></div>
+        <div className="hidden md:block absolute top-1/3 left-1/3 w-1.5 h-1.5 bg-purple-500/40 rounded-full animate-particle animation-delay-1000"></div>
+        <div className="hidden md:block absolute bottom-1/3 right-1/2 w-2 h-2 bg-emerald-500/40 rounded-full animate-particle animation-delay-2000"></div>
+        <div className="hidden md:block absolute top-2/3 left-2/3 w-1 h-1 bg-orange-500/40 rounded-full animate-particle animation-delay-3000"></div>
 
       </div>
 
@@ -199,7 +199,7 @@ const Hero = () => {
           {/* Profile Image with Glass Effect */}
           <div className="mb-8 inline-block">
             <div className="relative">
-              <div className="w-32 h-32 sm:w-40 sm:h-40 mx-auto rounded-full overflow-hidden border-4 border-white shadow-2xl backdrop-blur-sm bg-white/30 p-1 transform hover:scale-105 transition-transform duration-300">
+              <div className="w-32 h-32 sm:w-40 sm:h-40 mx-auto rounded-full overflow-hidden border-4 border-white dark:border-slate-800 shadow-2xl backdrop-blur-sm bg-white/30 dark:bg-slate-900/30 p-1 transform hover:scale-105 transition-transform duration-300">
                 <img
                   src={personalInfo.profileImage}
                   alt={personalInfo.name}
@@ -214,23 +214,23 @@ const Hero = () => {
 
           {/* Name and Title */}
           <h1 className="text-4xl sm:text-5xl md:text-7xl font-bold mb-4 animate-fade-in">
-            <span className="bg-gradient-to-r from-gray-900 via-blue-900 to-gray-900 bg-clip-text text-transparent">
+            <span className="bg-gradient-to-r from-gray-900 via-blue-900 to-gray-900 dark:from-slate-100 dark:via-blue-300 dark:to-slate-100 bg-clip-text text-transparent">
               {personalInfo.name}
             </span>
           </h1>
 
           <div className="mb-6">
-            <h2 className="text-xl sm:text-2xl md:text-3xl font-semibold text-gray-700 mb-2">
+            <h2 className="text-xl sm:text-2xl md:text-3xl font-semibold text-gray-700 dark:text-slate-200 mb-2">
               {personalInfo.title}
             </h2>
-            <p className="text-base sm:text-lg text-gray-600 max-w-2xl mx-auto">
+            <p className="text-base sm:text-lg text-gray-600 dark:text-slate-300 max-w-2xl mx-auto">
               {personalInfo.tagline}
             </p>
           </div>
 
           {/* Location */}
-          <div className="flex items-center justify-center gap-2 text-gray-600 mb-8">
-            <MapPin size={18} className="text-blue-600" />
+          <div className="flex items-center justify-center gap-2 text-gray-600 dark:text-slate-300 mb-8">
+            <MapPin size={18} className="text-blue-600 dark:text-teal-300" />
             <span>{personalInfo.location}</span>
           </div>
 
@@ -246,7 +246,7 @@ const Hero = () => {
             <Button
               variant="outline"
               size="lg"
-              className="border-2 border-gray-300 hover:border-blue-600 px-8 py-6 text-lg rounded-full backdrop-blur-sm bg-white/50 hover:bg-white/80 transition-all duration-300 transform hover:scale-105"
+              className="border-2 border-gray-300 dark:border-slate-700 hover:border-blue-600 px-8 py-6 text-lg rounded-full backdrop-blur-sm bg-white/50 dark:bg-slate-900/50 hover:bg-white/80 dark:hover:bg-slate-900/80 transition-all duration-300 transform hover:scale-105"
               onClick={() => window.open('#projects', '_self')}
             >
               View Projects
@@ -260,7 +260,7 @@ const Hero = () => {
                 href={personalInfo.linkedin}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="p-3 rounded-full bg-white/50 backdrop-blur-sm border border-gray-200 hover:bg-blue-600 hover:text-white hover:border-blue-600 transition-all duration-300 transform hover:scale-110 shadow-md hover:shadow-xl"
+                className="p-3 rounded-full bg-white/50 dark:bg-slate-900/50 backdrop-blur-sm border border-gray-200 dark:border-slate-700 hover:bg-blue-600 hover:text-white hover:border-blue-600 transition-all duration-300 transform hover:scale-110 shadow-md hover:shadow-xl"
                 title="LinkedIn"
               >
                 <Linkedin size={20} />
@@ -271,7 +271,7 @@ const Hero = () => {
                 href={personalInfo.github}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="p-3 rounded-full bg-white/50 backdrop-blur-sm border border-gray-200 hover:bg-gray-900 hover:text-white hover:border-gray-900 transition-all duration-300 transform hover:scale-110 shadow-md hover:shadow-xl"
+                className="p-3 rounded-full bg-white/50 dark:bg-slate-900/50 backdrop-blur-sm border border-gray-200 dark:border-slate-700 hover:bg-gray-900 hover:text-white hover:border-gray-900 transition-all duration-300 transform hover:scale-110 shadow-md hover:shadow-xl"
                 title="GitHub"
               >
                 <Github size={20} />
@@ -282,7 +282,7 @@ const Hero = () => {
                 href={personalInfo.twitter}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="p-3 rounded-full bg-white/50 backdrop-blur-sm border border-gray-200 hover:bg-sky-500 hover:text-white hover:border-sky-500 transition-all duration-300 transform hover:scale-110 shadow-md hover:shadow-xl"
+                className="p-3 rounded-full bg-white/50 dark:bg-slate-900/50 backdrop-blur-sm border border-gray-200 dark:border-slate-700 hover:bg-sky-500 hover:text-white hover:border-sky-500 transition-all duration-300 transform hover:scale-110 shadow-md hover:shadow-xl"
                 title="Twitter"
               >
                 <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
@@ -295,7 +295,7 @@ const Hero = () => {
                 href={personalInfo.instagram}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="p-3 rounded-full bg-white/50 backdrop-blur-sm border border-gray-200 hover:bg-gradient-to-r hover:from-purple-600 hover:to-pink-600 hover:text-white hover:border-pink-600 transition-all duration-300 transform hover:scale-110 shadow-md hover:shadow-xl"
+                className="p-3 rounded-full bg-white/50 dark:bg-slate-900/50 backdrop-blur-sm border border-gray-200 dark:border-slate-700 hover:bg-gradient-to-r hover:from-purple-600 hover:to-pink-600 hover:text-white hover:border-pink-600 transition-all duration-300 transform hover:scale-110 shadow-md hover:shadow-xl"
                 title="Instagram"
               >
                 <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
@@ -306,7 +306,7 @@ const Hero = () => {
             {personalInfo.email && (
               <a
                 href={`mailto:${personalInfo.email}`}
-                className="p-3 rounded-full bg-white/50 backdrop-blur-sm border border-gray-200 hover:bg-teal-600 hover:text-white hover:border-teal-600 transition-all duration-300 transform hover:scale-110 shadow-md hover:shadow-xl"
+                className="p-3 rounded-full bg-white/50 dark:bg-slate-900/50 backdrop-blur-sm border border-gray-200 dark:border-slate-700 hover:bg-teal-600 hover:text-white hover:border-teal-600 transition-all duration-300 transform hover:scale-110 shadow-md hover:shadow-xl"
                 title="Email"
               >
                 <Mail size={20} />
@@ -316,7 +316,7 @@ const Hero = () => {
 
           {/* Scroll Indicator */}
           <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 animate-bounce">
-            <ArrowDown size={24} className="text-gray-400" />
+            <ArrowDown size={24} className="text-gray-400 dark:text-slate-500" />
           </div>
         </div>
       </div>

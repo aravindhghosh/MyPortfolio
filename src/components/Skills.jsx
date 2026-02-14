@@ -28,15 +28,15 @@ const Skills = () => {
   }, []);
 
   return (
-    <section id="skills" className="py-20 bg-gradient-to-b from-gray-50 to-white" ref={sectionRef}>
+    <section id="skills" className="py-20 bg-gradient-to-b from-gray-50 to-white dark:from-slate-900 dark:to-slate-950" ref={sectionRef}>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
         <div className="text-center mb-16 animate-fade-in">
-          <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4">
+          <h2 className="text-4xl md:text-5xl font-bold text-gray-900 dark:text-slate-100 mb-4">
             Skills & Technologies
           </h2>
           <div className="w-24 h-1 bg-gradient-to-r from-blue-600 to-teal-600 mx-auto rounded-full"></div>
-          <p className="mt-4 text-gray-600 max-w-2xl mx-auto">
+          <p className="mt-4 text-gray-600 dark:text-slate-300 max-w-2xl mx-auto">
             Expertise across multiple domains of modern software development
           </p>
         </div>
@@ -78,16 +78,16 @@ const Skills = () => {
                 </div>
 
                 {/* Content */}
-                <div className="bg-white/90 backdrop-blur-md p-6 border-t border-gray-200">
+                <div className="bg-white/90 dark:bg-slate-900/90 backdrop-blur-md p-6 border-t border-gray-200 dark:border-slate-700">
                   {/* Category Title */}
-                  <h3 className="text-xl font-bold text-gray-900 mb-4 group-hover:text-blue-600 transition-colors duration-300">{category}</h3>
+                  <h3 className="text-xl font-bold text-gray-900 dark:text-slate-100 mb-4 group-hover:text-blue-600 transition-colors duration-300">{category}</h3>
 
                   {/* Skills with Logos */}
                   <div className="flex flex-wrap gap-3">
                     {data.skills.map((skill, idx) => (
                       <div
                         key={idx}
-                        className="group/skill flex items-center gap-2 px-3 py-2 bg-gradient-to-r from-blue-50 to-teal-50 rounded-lg border border-blue-200 hover:border-blue-400 hover:shadow-md transition-all duration-200 hover:scale-105"
+                        className="group/skill flex items-center gap-2 px-3 py-2 bg-gradient-to-r from-blue-50 to-teal-50 dark:from-slate-800 dark:to-slate-900 rounded-lg border border-blue-200 dark:border-slate-700 hover:border-blue-400 hover:shadow-md transition-all duration-200 hover:scale-105"
                       >
                         {/* Skill Logo */}
                         <div className="w-6 h-6 flex items-center justify-center flex-shrink-0">
@@ -101,7 +101,7 @@ const Skills = () => {
                           />
                         </div>
                         {/* Skill Name */}
-                        <span className="text-sm font-medium text-blue-700 group-hover/skill:text-blue-900 transition-colors duration-200">
+                        <span className="text-sm font-medium text-blue-700 dark:text-teal-200 group-hover/skill:text-blue-900 transition-colors duration-200">
                           {skill.name}
                         </span>
                       </div>

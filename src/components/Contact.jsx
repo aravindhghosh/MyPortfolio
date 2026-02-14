@@ -36,15 +36,15 @@ const Contact = () => {
   };
 
   return (
-    <section id="contact" className="py-20 bg-gradient-to-b from-white to-gray-50">
+    <section id="contact" className="py-20 bg-gradient-to-b from-white to-gray-50 dark:from-slate-950 dark:to-slate-900">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
         <div className="text-center mb-16">
-          <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4">
+          <h2 className="text-4xl md:text-5xl font-bold text-gray-900 dark:text-slate-100 mb-4">
             Get In Touch
           </h2>
           <div className="w-24 h-1 bg-gradient-to-r from-blue-600 to-teal-600 mx-auto rounded-full"></div>
-          <p className="mt-4 text-gray-600 max-w-2xl mx-auto">
+          <p className="mt-4 text-gray-600 dark:text-slate-300 max-w-2xl mx-auto">
             Have a project in mind or want to collaborate? Let's connect!
           </p>
         </div>
@@ -52,56 +52,56 @@ const Contact = () => {
         <div className="grid lg:grid-cols-2 gap-12">
           {/* Contact Info */}
           <div>
-            <h3 className="text-2xl font-bold text-gray-900 mb-6">Contact Information</h3>
+            <h3 className="text-2xl font-bold text-gray-900 dark:text-slate-100 mb-6">Contact Information</h3>
             <div className="space-y-6 mb-8">
               {/* Email */}
-              <div className="flex items-start gap-4 p-4 rounded-xl bg-white/70 backdrop-blur-md border border-gray-200 hover:border-blue-300 hover:shadow-lg transition-all duration-300">
+              <div className="flex items-start gap-4 p-4 rounded-xl bg-white/70 dark:bg-slate-900/70 backdrop-blur-md border border-gray-200 dark:border-slate-700 hover:border-blue-300 hover:shadow-lg transition-all duration-300">
                 <div className="flex-shrink-0 w-12 h-12 bg-gradient-to-r from-blue-600 to-teal-600 rounded-full flex items-center justify-center">
                   <Mail size={20} className="text-white" />
                 </div>
                 <div>
-                  <h4 className="font-semibold text-gray-900 mb-1">Email</h4>
-                  <a href={`mailto:${personalInfo.email}`} className="text-gray-700 hover:text-blue-600 transition-colors">
+                  <h4 className="font-semibold text-gray-900 dark:text-slate-100 mb-1">Email</h4>
+                  <a href={`mailto:${personalInfo.email}`} className="text-gray-700 dark:text-slate-300 hover:text-blue-600 transition-colors">
                     {personalInfo.email}
                   </a>
                 </div>
               </div>
 
               {/* Phone */}
-              <div className="flex items-start gap-4 p-4 rounded-xl bg-white/70 backdrop-blur-md border border-gray-200 hover:border-blue-300 hover:shadow-lg transition-all duration-300">
+              <div className="flex items-start gap-4 p-4 rounded-xl bg-white/70 dark:bg-slate-900/70 backdrop-blur-md border border-gray-200 dark:border-slate-700 hover:border-blue-300 hover:shadow-lg transition-all duration-300">
                 <div className="flex-shrink-0 w-12 h-12 bg-gradient-to-r from-blue-600 to-teal-600 rounded-full flex items-center justify-center">
                   <Phone size={20} className="text-white" />
                 </div>
                 <div>
-                  <h4 className="font-semibold text-gray-900 mb-1">Phone</h4>
-                  <a href={`tel:${personalInfo.phone}`} className="text-gray-700 hover:text-blue-600 transition-colors">
+                  <h4 className="font-semibold text-gray-900 dark:text-slate-100 mb-1">Phone</h4>
+                  <a href={`tel:${personalInfo.phone}`} className="text-gray-700 dark:text-slate-300 hover:text-blue-600 transition-colors">
                     {personalInfo.phone}
                   </a>
                 </div>
               </div>
 
               {/* Location */}
-              <div className="flex items-start gap-4 p-4 rounded-xl bg-white/70 backdrop-blur-md border border-gray-200 hover:border-blue-300 hover:shadow-lg transition-all duration-300">
+              <div className="flex items-start gap-4 p-4 rounded-xl bg-white/70 dark:bg-slate-900/70 backdrop-blur-md border border-gray-200 dark:border-slate-700 hover:border-blue-300 hover:shadow-lg transition-all duration-300">
                 <div className="flex-shrink-0 w-12 h-12 bg-gradient-to-r from-blue-600 to-teal-600 rounded-full flex items-center justify-center">
                   <MapPin size={20} className="text-white" />
                 </div>
                 <div>
-                  <h4 className="font-semibold text-gray-900 mb-1">Location</h4>
-                  <p className="text-gray-700">{personalInfo.location}</p>
+                  <h4 className="font-semibold text-gray-900 dark:text-slate-100 mb-1">Location</h4>
+                  <p className="text-gray-700 dark:text-slate-300">{personalInfo.location}</p>
                 </div>
               </div>
             </div>
 
             {/* Social Links */}
             <div>
-              <h4 className="font-semibold text-gray-900 mb-4">Connect on Social Media</h4>
+              <h4 className="font-semibold text-gray-900 dark:text-slate-100 mb-4">Connect on Social Media</h4>
               <div className="flex flex-wrap gap-3">
                 {personalInfo.linkedin && (
                   <a
                     href={personalInfo.linkedin}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="w-10 h-10 rounded-full bg-white/70 backdrop-blur-md border border-gray-200 hover:bg-blue-600 hover:text-white flex items-center justify-center transition-all duration-300 transform hover:scale-110 shadow-md hover:shadow-xl"
+                    className="w-10 h-10 rounded-full bg-white/70 dark:bg-slate-900/70 backdrop-blur-md border border-gray-200 dark:border-slate-700 hover:bg-blue-600 hover:text-white flex items-center justify-center transition-all duration-300 transform hover:scale-110 shadow-md hover:shadow-xl"
                     title="LinkedIn"
                   >
                     <Linkedin size={18} />
@@ -112,7 +112,7 @@ const Contact = () => {
                     href={personalInfo.github}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="w-10 h-10 rounded-full bg-white/70 backdrop-blur-md border border-gray-200 hover:bg-gray-900 hover:text-white flex items-center justify-center transition-all duration-300 transform hover:scale-110 shadow-md hover:shadow-xl"
+                    className="w-10 h-10 rounded-full bg-white/70 dark:bg-slate-900/70 backdrop-blur-md border border-gray-200 dark:border-slate-700 hover:bg-gray-900 hover:text-white flex items-center justify-center transition-all duration-300 transform hover:scale-110 shadow-md hover:shadow-xl"
                     title="GitHub"
                   >
                     <Github size={18} />
@@ -123,7 +123,7 @@ const Contact = () => {
                     href={personalInfo.twitter}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="w-10 h-10 rounded-full bg-white/70 backdrop-blur-md border border-gray-200 hover:bg-sky-500 hover:text-white flex items-center justify-center transition-all duration-300 transform hover:scale-110 shadow-md hover:shadow-xl"
+                    className="w-10 h-10 rounded-full bg-white/70 dark:bg-slate-900/70 backdrop-blur-md border border-gray-200 dark:border-slate-700 hover:bg-sky-500 hover:text-white flex items-center justify-center transition-all duration-300 transform hover:scale-110 shadow-md hover:shadow-xl"
                     title="Twitter"
                   >
                     <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
@@ -136,7 +136,7 @@ const Contact = () => {
                     href={personalInfo.instagram}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="w-10 h-10 rounded-full bg-white/70 backdrop-blur-md border border-gray-200 hover:bg-gradient-to-r hover:from-purple-600 hover:to-pink-600 hover:text-white flex items-center justify-center transition-all duration-300 transform hover:scale-110 shadow-md hover:shadow-xl"
+                    className="w-10 h-10 rounded-full bg-white/70 dark:bg-slate-900/70 backdrop-blur-md border border-gray-200 dark:border-slate-700 hover:bg-gradient-to-r hover:from-purple-600 hover:to-pink-600 hover:text-white flex items-center justify-center transition-all duration-300 transform hover:scale-110 shadow-md hover:shadow-xl"
                     title="Instagram"
                   >
                     <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
@@ -150,11 +150,11 @@ const Contact = () => {
 
           {/* Contact Form */}
           <div>
-            <form onSubmit={handleSubmit} className="bg-white/70 backdrop-blur-md rounded-2xl p-8 shadow-xl border border-gray-200">
+            <form onSubmit={handleSubmit} className="bg-white/70 dark:bg-slate-900/70 backdrop-blur-md rounded-2xl p-8 shadow-xl border border-gray-200 dark:border-slate-700">
               <div className="space-y-6">
                 {/* Name */}
                 <div>
-                  <label htmlFor="name" className="block text-sm font-semibold text-gray-900 mb-2">
+                  <label htmlFor="name" className="block text-sm font-semibold text-gray-900 dark:text-slate-100 mb-2">
                     Your Name
                   </label>
                   <Input
@@ -164,14 +164,14 @@ const Contact = () => {
                     value={formData.name}
                     onChange={handleChange}
                     required
-                    className="w-full border-gray-300 focus:border-blue-600 focus:ring-blue-600"
+                    className="w-full border-gray-300 dark:border-slate-700 dark:bg-slate-900 dark:text-slate-100 dark:placeholder-slate-400 focus:border-blue-600 focus:ring-blue-600"
                     placeholder="John Doe"
                   />
                 </div>
 
                 {/* Email */}
                 <div>
-                  <label htmlFor="email" className="block text-sm font-semibold text-gray-900 mb-2">
+                  <label htmlFor="email" className="block text-sm font-semibold text-gray-900 dark:text-slate-100 mb-2">
                     Your Email
                   </label>
                   <Input
@@ -181,14 +181,14 @@ const Contact = () => {
                     value={formData.email}
                     onChange={handleChange}
                     required
-                    className="w-full border-gray-300 focus:border-blue-600 focus:ring-blue-600"
+                    className="w-full border-gray-300 dark:border-slate-700 dark:bg-slate-900 dark:text-slate-100 dark:placeholder-slate-400 focus:border-blue-600 focus:ring-blue-600"
                     placeholder="john@example.com"
                   />
                 </div>
 
                 {/* Subject */}
                 <div>
-                  <label htmlFor="subject" className="block text-sm font-semibold text-gray-900 mb-2">
+                  <label htmlFor="subject" className="block text-sm font-semibold text-gray-900 dark:text-slate-100 mb-2">
                     Subject
                   </label>
                   <Input
@@ -198,14 +198,14 @@ const Contact = () => {
                     value={formData.subject}
                     onChange={handleChange}
                     required
-                    className="w-full border-gray-300 focus:border-blue-600 focus:ring-blue-600"
+                    className="w-full border-gray-300 dark:border-slate-700 dark:bg-slate-900 dark:text-slate-100 dark:placeholder-slate-400 focus:border-blue-600 focus:ring-blue-600"
                     placeholder="Project Inquiry"
                   />
                 </div>
 
                 {/* Message */}
                 <div>
-                  <label htmlFor="message" className="block text-sm font-semibold text-gray-900 mb-2">
+                  <label htmlFor="message" className="block text-sm font-semibold text-gray-900 dark:text-slate-100 mb-2">
                     Message
                   </label>
                   <Textarea
@@ -215,7 +215,7 @@ const Contact = () => {
                     onChange={handleChange}
                     required
                     rows={5}
-                    className="w-full border-gray-300 focus:border-blue-600 focus:ring-blue-600"
+                    className="w-full border-gray-300 dark:border-slate-700 dark:bg-slate-900 dark:text-slate-100 dark:placeholder-slate-400 focus:border-blue-600 focus:ring-blue-600"
                     placeholder="Tell me about your project..."
                   />
                 </div>

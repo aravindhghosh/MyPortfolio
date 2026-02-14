@@ -28,15 +28,15 @@ const SocialMedia = () => {
   ];
 
   return (
-    <section id="social" className="py-20 bg-gradient-to-b from-white to-gray-50">
+    <section id="social" className="py-20 bg-gradient-to-b from-white to-gray-50 dark:from-slate-950 dark:to-slate-900">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
         <div className="text-center mb-16 animate-fade-in">
-          <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4">
+          <h2 className="text-4xl md:text-5xl font-bold text-gray-900 dark:text-slate-100 mb-4">
             Connect With Me
           </h2>
           <div className="w-24 h-1 bg-gradient-to-r from-blue-600 to-teal-600 mx-auto rounded-full"></div>
-          <p className="mt-4 text-gray-600 max-w-2xl mx-auto">
+          <p className="mt-4 text-gray-600 dark:text-slate-300 max-w-2xl mx-auto">
             Let's connect on social media and stay updated
           </p>
         </div>
@@ -49,7 +49,7 @@ const SocialMedia = () => {
               href={social.url}
               target="_blank"
               rel="noopener noreferrer"
-              className="group relative bg-white rounded-2xl p-8 shadow-xl border-2 border-gray-200 hover:border-transparent hover:shadow-2xl transition-all duration-300 transform hover:scale-105 overflow-hidden"
+              className="group relative bg-white dark:bg-slate-900 rounded-2xl p-8 shadow-xl border-2 border-gray-200 dark:border-slate-700 hover:border-transparent hover:shadow-2xl transition-all duration-300 transform hover:scale-105 overflow-hidden"
             >
               {/* Gradient Background on Hover */}
               <div className={`absolute inset-0 bg-gradient-to-r ${social.gradient} opacity-0 group-hover:opacity-100 transition-opacity duration-300`}></div>
@@ -58,16 +58,16 @@ const SocialMedia = () => {
               <div className="relative z-10">
                 <div className="flex items-center gap-6 mb-4">
                   {/* Icon */}
-                  <div className={`text-gray-700 group-hover:text-white transition-colors duration-300`}>
+                  <div className={`text-gray-700 dark:text-slate-200 group-hover:text-white transition-colors duration-300`}>
                     {social.icon}
                   </div>
                   
                   {/* Name */}
                   <div>
-                    <h3 className="text-2xl font-bold text-gray-900 group-hover:text-white transition-colors duration-300">
+                    <h3 className="text-2xl font-bold text-gray-900 dark:text-slate-100 group-hover:text-white transition-colors duration-300">
                       {social.name}
                     </h3>
-                    <p className="text-gray-600 group-hover:text-white/90 transition-colors duration-300 mt-1">
+                    <p className="text-gray-600 dark:text-slate-300 group-hover:text-white/90 transition-colors duration-300 mt-1">
                       {social.description}
                     </p>
                   </div>
@@ -76,7 +76,7 @@ const SocialMedia = () => {
                 {/* Arrow Icon */}
                 <div className="flex justify-end">
                   <svg 
-                    className="w-6 h-6 text-gray-400 group-hover:text-white transform group-hover:translate-x-2 transition-all duration-300" 
+                    className="w-6 h-6 text-gray-400 dark:text-slate-400 group-hover:text-white transform group-hover:translate-x-2 transition-all duration-300" 
                     fill="none" 
                     stroke="currentColor" 
                     viewBox="0 0 24 24"

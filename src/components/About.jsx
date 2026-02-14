@@ -5,11 +5,11 @@ import { about, personalInfo } from '../data/portfolioData';
 
 const About = () => {
   return (
-    <section id="about" className="py-20 bg-gradient-to-b from-white to-gray-50">
+    <section id="about" className="py-20 bg-gradient-to-b from-white to-gray-50 dark:from-slate-950 dark:to-slate-900">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
         <div className="text-center mb-16">
-          <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4">
+          <h2 className="text-4xl md:text-5xl font-bold text-gray-900 dark:text-slate-100 mb-4">
             About Me
           </h2>
           <div className="w-24 h-1 bg-gradient-to-r from-blue-600 to-teal-600 mx-auto rounded-full"></div>
@@ -28,10 +28,10 @@ const About = () => {
               <div className="absolute inset-0 bg-gradient-to-t from-blue-600/20 to-transparent"></div>
             </div>
             {/* Floating Card */}
-            <div className="absolute -bottom-6 -right-6 bg-white/90 backdrop-blur-md rounded-xl p-6 shadow-xl border border-gray-200">
+            <div className="absolute -bottom-6 -right-6 bg-white/90 dark:bg-slate-900/80 backdrop-blur-md rounded-xl p-6 shadow-xl border border-gray-200 dark:border-slate-700">
               <div className="text-center">
                 <div className="text-4xl font-bold text-blue-600">5+</div>
-                <div className="text-sm text-gray-600">Years Experience</div>
+                <div className="text-sm text-gray-600 dark:text-slate-300">Years Experience</div>
               </div>
             </div>
           </div>
@@ -40,7 +40,7 @@ const About = () => {
           <div>
             {/* Summary */}
             <div className="mb-8">
-              <p className="text-lg text-gray-700 leading-relaxed">
+              <p className="text-lg text-gray-700 dark:text-slate-300 leading-relaxed">
                 {about.summary}
               </p>
             </div>
@@ -50,10 +50,10 @@ const About = () => {
               {about.highlights.map((highlight, index) => (
                 <div
                   key={index}
-                  className="flex items-start gap-3 p-4 rounded-xl bg-white/50 backdrop-blur-sm border border-gray-200 hover:border-blue-300 hover:shadow-md transition-all duration-300"
+                  className="flex items-start gap-3 p-4 rounded-xl bg-white/50 dark:bg-slate-900/50 backdrop-blur-sm border border-gray-200 dark:border-slate-700 hover:border-blue-300 hover:shadow-md transition-all duration-300"
                 >
                   <CheckCircle2 className="text-blue-600 flex-shrink-0 mt-1" size={20} />
-                  <p className="text-gray-700">{highlight}</p>
+                  <p className="text-gray-700 dark:text-slate-300">{highlight}</p>
                 </div>
               ))}
             </div>
@@ -78,10 +78,10 @@ const About = () => {
         {/* Interests Section */}
         <div className="mt-20">
           <div className="text-center mb-12">
-            <h3 className="text-3xl font-bold text-gray-900 mb-2">
+            <h3 className="text-3xl font-bold text-gray-900 dark:text-slate-100 mb-2">
               What I Do Beyond Code
             </h3>
-            <p className="text-gray-600">My passions and interests outside of development</p>
+            <p className="text-gray-600 dark:text-slate-300">My passions and interests outside of development</p>
           </div>
 
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
