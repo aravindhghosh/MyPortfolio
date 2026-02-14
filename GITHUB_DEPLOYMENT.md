@@ -7,7 +7,7 @@
 1. Create a new repository on GitHub (e.g., `my-portfolio`)
 2. Initialize git in your frontend folder:
    ```bash
-   cd /app/frontend
+   cd path/to/your/portfolio
    git init
    git add .
    git commit -m "Initial portfolio commit"
@@ -80,7 +80,7 @@ Your portfolio will be live at: `https://your-username.github.io/your-repo-name`
 ### After Making Changes:
 
 ```bash
-cd /app/frontend
+cd path/to/your/portfolio
 git add .
 git commit -m "Update portfolio content"
 git push origin main
@@ -93,7 +93,7 @@ yarn deploy
 
 Want to use a custom domain like `yourname.com`?
 
-1. Add a `CNAME` file in `/app/frontend/public/` with your domain:
+1. Add a `CNAME` file in `public/` with your domain:
    ```
    yourname.com
    ```
@@ -160,6 +160,7 @@ yarn deploy
 - [ ] Replaced placeholder images with your own
 - [ ] Updated GitHub and LinkedIn URLs
 - [ ] Added your actual email and phone
+- [ ] Added `.env` EmailJS keys (if using contact form email)
 - [ ] Tested locally (`yarn start`)
 - [ ] Added `homepage` to `package.json`
 - [ ] Committed all changes to git

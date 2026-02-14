@@ -6,7 +6,7 @@ This portfolio is designed to be **super easy to edit** - even if you have minim
 
 ### 📝 Editing Your Content
 
-1. **Open the data file**: `/app/frontend/src/data/portfolioData.js`
+1. **Open the data file**: `src/data/portfolioData.js`
 2. **Edit the values** in the JavaScript object (it's just text!)
 3. **Save the file** - Changes will appear automatically!
 
@@ -47,13 +47,19 @@ export const experience = [
   {
     id: 1,
     company: "Company Name",
-    role: "Your Role",
+    currentRole: "Your Current Role",
     duration: "Start Date - End Date",
     location: "City, Country",
-    responsibilities: [
-      "First responsibility",
-      "Second responsibility",
-      // Add more
+    description: "Short summary of your role and impact",
+    roleProgression: [
+      {
+        title: "Role Title",
+        duration: "Month YYYY - Month YYYY",
+        responsibilities: [
+          "First responsibility",
+          "Second responsibility"
+        ]
+      }
     ]
   },
   // Add more jobs by copying the structure
@@ -129,7 +135,7 @@ export const testimonials = [
 ## 🎨 Design Customization
 
 ### Change Colors
-Open `/app/frontend/src/index.css` and modify the CSS variables:
+Open `src/index.css` and modify the CSS variables:
 
 ```css
 :root {
@@ -144,6 +150,20 @@ The glass effect is built-in! Components use:
 - `bg-white/70` - Semi-transparent white background
 - `backdrop-blur-md` - Blur effect
 - `border border-gray-200` - Subtle borders
+
+---
+
+## ✉️ Contact Form (EmailJS)
+
+If you want the form to send real emails, add a `.env` file in the project root:
+
+```
+REACT_APP_EMAILJS_SERVICE_ID=your_service_id
+REACT_APP_EMAILJS_TEMPLATE_ID=your_template_id
+REACT_APP_EMAILJS_PUBLIC_KEY=your_public_key
+```
+
+Restart the dev server after updating `.env`.
 
 ---
 
@@ -215,7 +235,7 @@ icon: "IconName"  // e.g., "Award", "Code2", "Database"
 - Format: `https://images.unsplash.com/photo-xxxxx`
 
 ### Want to add a new section?
-1. Create component in `/app/frontend/src/components/`
+1. Create component in `src/components/`
 2. Add data to `portfolioData.js`
 3. Import and add to `App.js`
 

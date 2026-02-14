@@ -31,7 +31,7 @@ Before you start, you'll need:
 
 ### Step 3: Add Your Portfolio Files
 1. Open the repository folder (GitHub Desktop shows the path)
-2. Copy ALL files from your downloaded portfolio's `frontend` folder
+2. Copy ALL files from your downloaded portfolio folder
 3. Paste them into the repository folder
 4. Go back to GitHub Desktop - it will show all changes
 
@@ -60,7 +60,7 @@ Since this is a React app, we need to build it first:
 1. Open terminal/command prompt
 2. Navigate to your portfolio folder:
    ```bash
-   cd path/to/your/portfolio/frontend
+   cd path/to/your/portfolio
    ```
 3. Install gh-pages package:
    ```bash
@@ -70,7 +70,7 @@ Since this is a React app, we need to build it first:
    ```json
    {
      "homepage": "https://your-username.github.io/portfolio",
-     "name": "frontend",
+    "name": "portfolio",
      ...
    }
    ```
@@ -136,9 +136,9 @@ git config --global user.email "your@email.com"
 
 ### Step 4: Prepare Your Portfolio
 1. Open terminal
-2. Navigate to your portfolio's frontend folder:
+2. Navigate to your portfolio folder:
    ```bash
-   cd /path/to/your/portfolio/frontend
+   cd /path/to/your/portfolio
    ```
 
 3. Update `package.json` - Add homepage:
@@ -227,7 +227,7 @@ https://your-username.github.io/portfolio
 ### Step 2: Prepare Files for Upload
 ⚠️ **Important:** You need to build the project first locally
 
-1. Open terminal in your portfolio/frontend folder
+1. Open terminal in your portfolio folder
 2. Install dependencies:
    ```bash
    yarn install

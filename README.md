@@ -15,7 +15,9 @@ A modern, responsive portfolio website built with React.js featuring a beautiful
 - 🚀 **GitHub Pages Ready** - Deploy in minutes
 - ♿ **Accessible** - Built with Shadcn UI accessible components
 - 🎭 **Smooth Animations** - Engaging hover effects and transitions
-- 📧 **Contact Form** - Integrated contact section with toast notifications
+- 🌗 **Dark Mode** - Toggle with system default support
+- 🎮 **Hidden Mini Games** - Draggable game launcher (Snake, 2048, Tic‑Tac‑Toe, Memory)
+- 📧 **Contact Form** - EmailJS-powered contact form with toast notifications
 - 📱 **Social Integration** - LinkedIn, GitHub, and email links
 - 📄 **Resume Download** - Direct resume download button
 
@@ -60,7 +62,7 @@ A modern, responsive portfolio website built with React.js featuring a beautiful
 ## 📂 Project Structure
 
 ```
-frontend/
+./
 ├── public/
 │   ├── index.html                 # HTML entry point
 │   └── portfolio-aravindhghosh.zip # Downloadable portfolio
@@ -78,6 +80,7 @@ frontend/
 │   │   ├── Blog.jsx             # Blog articles
 │   │   ├── Contact.jsx          # Contact form
 │   │   ├── Footer.jsx           # Footer section
+│   │   ├── GamesLauncher.jsx    # Hidden mini games
 │   │   └── ui/                  # Shadcn UI components
 │   │       ├── button.jsx
 │   │       ├── card.jsx
@@ -90,7 +93,8 @@ frontend/
 │   │   └── portfolioData.js     # ⭐ EDIT THIS FILE - All content
 │   │
 │   ├── hooks/
-│   │   └── use-toast.js         # Toast notification hook
+│   │   ├── use-toast.js         # Toast notification hook
+│   │   └── useTheme.js          # Dark mode hook
 │   │
 │   ├── lib/
 │   │   └── utils.js             # Utility functions
@@ -124,7 +128,7 @@ frontend/
 1. **Clone the repository**
    ```bash
    git clone https://github.com/aravindhghosh/portfolio.git
-   cd portfolio/frontend
+   cd portfolio
    ```
 
 2. **Install dependencies**
@@ -180,6 +184,20 @@ export const personalInfo = {
 
 ---
 
+## ✉️ EmailJS Setup (Contact Form)
+
+Create a `.env` file in the project root:
+
+```
+REACT_APP_EMAILJS_SERVICE_ID=your_service_id
+REACT_APP_EMAILJS_TEMPLATE_ID=your_template_id
+REACT_APP_EMAILJS_PUBLIC_KEY=your_public_key
+```
+
+Restart the dev server after updating `.env`.
+
+---
+
 ## 🎨 Design Customization
 
 ### Color Scheme
@@ -212,6 +230,7 @@ Custom animations are in `src/App.css`:
 - Blob animations (background blobs)
 - Fade-in animations
 - Custom scrollbar
+- Hero orbit ring and planet motion
 
 ---
 
@@ -273,6 +292,7 @@ This creates an optimized production build in the `build/` folder.
 8. **Blog** - Latest articles and insights
 9. **Contact** - Contact form with social links
 10. **Footer** - Quick links and additional info
+11. **Mini Games** - Hidden draggable launcher with 4 games
 
 ---
 
@@ -296,6 +316,7 @@ This creates an optimized production build in the `build/` folder.
 - Animated background blobs
 - Fade-in animations on load
 - Custom scrollbar
+- Orbiting hero ring and planets
 
 ### Accessibility
 - Semantic HTML
@@ -345,7 +366,7 @@ This project is open source and available under the [MIT License](LICENSE).
 - 🌐 Portfolio: [Your Portfolio URL]
 - 💼 LinkedIn: [linkedin.com/in/aravindhghosh](https://linkedin.com/in/aravindhghosh)
 - 📧 Email: aravindhghosh@outlook.com
-- 📱 Phone: +91 90427 59427
+- 📱 Phone: -
 
 ---
 
@@ -373,7 +394,6 @@ Having issues? Need help customizing?
 
 ## 🚀 Future Enhancements
 
-- [ ] Dark mode toggle
 - [ ] Blog with CMS integration
 - [ ] Multi-language support
 - [ ] Analytics integration
