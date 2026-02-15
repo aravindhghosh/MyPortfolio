@@ -7,11 +7,17 @@ const ProjectModal = ({ project, isOpen, onClose }) => {
   if (!isOpen) return null;
 
   return (
-    <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/60 backdrop-blur-sm animate-in fade-in duration-200">
-      <div className="bg-white dark:bg-slate-900 rounded-2xl max-w-4xl w-full max-h-[90vh] overflow-y-auto shadow-2xl animate-in slide-in-from-bottom duration-300">
+    <div
+      className="fixed inset-0 z-50 flex items-center justify-center p-2 sm:p-4 bg-black/60 backdrop-blur-sm animate-in fade-in duration-200"
+      onClick={onClose}
+    >
+      <div
+        className="bg-white dark:bg-slate-900 rounded-2xl max-w-4xl w-full max-h-[92vh] overflow-y-auto shadow-2xl animate-in slide-in-from-bottom duration-300"
+        onClick={(e) => e.stopPropagation()}
+      >
         {/* Header */}
-        <div className="sticky top-0 bg-white dark:bg-slate-900 border-b border-gray-200 dark:border-slate-700 px-6 py-4 flex items-center justify-between z-10">
-          <h2 className="text-2xl font-bold text-gray-900 dark:text-slate-100">{project.title}</h2>
+        <div className="sticky top-0 bg-white dark:bg-slate-900 border-b border-gray-200 dark:border-slate-700 px-4 sm:px-6 py-4 flex items-start sm:items-center justify-between gap-3 z-10">
+          <h2 className="text-lg sm:text-2xl font-bold text-gray-900 dark:text-slate-100 break-words">{project.title}</h2>
           <button
             onClick={onClose}
             className="p-2 rounded-full hover:bg-gray-100 dark:hover:bg-slate-800 transition-colors duration-200"
@@ -21,7 +27,7 @@ const ProjectModal = ({ project, isOpen, onClose }) => {
         </div>
 
         {/* Content */}
-        <div className="p-6">
+        <div className="p-4 sm:p-6">
           {/* Project Image */}
           <div className="rounded-xl overflow-hidden mb-6">
             <img
@@ -52,7 +58,7 @@ const ProjectModal = ({ project, isOpen, onClose }) => {
           </div>
 
           {/* Project Info */}
-          <div className="grid grid-cols-3 gap-4 mb-6">
+          <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 mb-6">
             <div className="bg-gray-50 dark:bg-slate-800 rounded-lg p-4 text-center">
               <Clock className="w-6 h-6 mx-auto mb-2 text-blue-600" />
               <div className="text-sm text-gray-600 dark:text-slate-400">Duration</div>
@@ -122,7 +128,7 @@ const ProjectModal = ({ project, isOpen, onClose }) => {
         </div>
 
         {/* Footer */}
-        <div className="sticky bottom-0 bg-gray-50 dark:bg-slate-900 border-t border-gray-200 dark:border-slate-700 px-6 py-4 flex justify-end">
+        <div className="sticky bottom-0 bg-gray-50 dark:bg-slate-900 border-t border-gray-200 dark:border-slate-700 px-4 sm:px-6 py-4 flex justify-end">
           <Button
             onClick={onClose}
             className="bg-gradient-to-r from-blue-600 to-teal-600 hover:from-blue-700 hover:to-teal-700 text-white"
@@ -169,7 +175,7 @@ const Projects = () => {
             {projects.map((project) => (
               <div
                 key={project.id}
-                className="group bg-white dark:bg-slate-900 rounded-2xl overflow-hidden shadow-xl border border-gray-200 dark:border-slate-700 hover:shadow-2xl hover:border-blue-300 transition-all duration-300 transform hover:scale-105"
+                className="group bg-white dark:bg-slate-900 rounded-2xl overflow-hidden shadow-xl border border-gray-200 dark:border-slate-700 hover:shadow-2xl hover:border-blue-300 transition-all duration-300 sm:hover:scale-105"
               >
                 {/* Project Image */}
                 <div className="relative h-64 overflow-hidden">

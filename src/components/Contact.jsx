@@ -83,7 +83,7 @@ const Contact = () => {
         <div className="grid lg:grid-cols-2 gap-12">
           {/* Contact Info */}
           <div>
-            <h3 className="text-2xl font-bold text-gray-900 dark:text-slate-100 mb-6">Contact Information</h3>
+            <h3 className="text-xl sm:text-2xl font-bold text-gray-900 dark:text-slate-100 mb-6">Contact Information</h3>
             <div className="space-y-6 mb-8">
               {/* Email */}
               <div className="flex items-start gap-4 p-4 rounded-xl bg-white/70 dark:bg-slate-900/70 backdrop-blur-md border border-gray-200 dark:border-slate-700 hover:border-blue-300 hover:shadow-lg transition-all duration-300">
@@ -181,7 +181,7 @@ const Contact = () => {
 
           {/* Contact Form */}
           <div>
-            <form onSubmit={handleSubmit} className="bg-white/70 dark:bg-slate-900/70 backdrop-blur-md rounded-2xl p-8 shadow-xl border border-gray-200 dark:border-slate-700">
+            <form onSubmit={handleSubmit} className="bg-white/70 dark:bg-slate-900/70 backdrop-blur-md rounded-2xl p-5 sm:p-8 shadow-xl border border-gray-200 dark:border-slate-700">
               <div className="space-y-6">
                 {/* Name */}
                 <div>
@@ -255,7 +255,7 @@ const Contact = () => {
                 <Button
                   type="submit"
                   disabled={isSubmitting}
-                  className="w-full bg-gradient-to-r from-blue-600 to-teal-600 hover:from-blue-700 hover:to-teal-700 text-white py-6 text-lg rounded-full shadow-xl hover:shadow-2xl transition-all duration-300 transform hover:scale-105"
+                  className="w-full bg-gradient-to-r from-blue-600 to-teal-600 hover:from-blue-700 hover:to-teal-700 text-white py-5 sm:py-6 text-base sm:text-lg rounded-full shadow-xl hover:shadow-2xl transition-all duration-300 transform hover:scale-105"
                 >
                   {isSubmitting ? (
                     'Sending...'

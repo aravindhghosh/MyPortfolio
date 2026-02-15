@@ -7,12 +7,18 @@ const ExperienceModal = ({ exp, isOpen, onClose }) => {
   if (!isOpen) return null;
 
   return (
-    <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/60 backdrop-blur-sm animate-in fade-in duration-200">
-      <div className="bg-white dark:bg-slate-900 rounded-2xl max-w-4xl w-full max-h-[90vh] overflow-y-auto shadow-2xl animate-in slide-in-from-bottom duration-300">
+    <div
+      className="fixed inset-0 z-50 flex items-center justify-center p-2 sm:p-4 bg-black/60 backdrop-blur-sm animate-in fade-in duration-200"
+      onClick={onClose}
+    >
+      <div
+        className="bg-white dark:bg-slate-900 rounded-2xl max-w-4xl w-full max-h-[92vh] overflow-y-auto shadow-2xl animate-in slide-in-from-bottom duration-300"
+        onClick={(e) => e.stopPropagation()}
+      >
         {/* Header */}
-        <div className="sticky top-0 bg-white dark:bg-slate-900 border-b border-gray-200 dark:border-slate-700 px-6 py-4 z-10">
-          <div className="flex items-center justify-between">
-            <div className="flex items-center gap-4">
+        <div className="sticky top-0 bg-white dark:bg-slate-900 border-b border-gray-200 dark:border-slate-700 px-4 sm:px-6 py-4 z-10">
+          <div className="flex items-start sm:items-center justify-between gap-3">
+            <div className="flex items-start sm:items-center gap-3 sm:gap-4 min-w-0">
               {/* Company Logo */}
               <div className="w-16 h-16 bg-white dark:bg-slate-900 rounded-lg border-2 border-gray-200 dark:border-slate-700 p-2 flex items-center justify-center">
                 <img
@@ -24,9 +30,9 @@ const ExperienceModal = ({ exp, isOpen, onClose }) => {
                   }}
                 />
               </div>
-              <div>
-                <h2 className="text-2xl font-bold text-gray-900 dark:text-slate-100">{exp.company}</h2>
-                <p className="text-blue-600 font-semibold">{exp.currentRole}</p>
+              <div className="min-w-0">
+                <h2 className="text-lg sm:text-2xl font-bold text-gray-900 dark:text-slate-100 break-words">{exp.company}</h2>
+                <p className="text-sm sm:text-base text-blue-600 font-semibold">{exp.currentRole}</p>
               </div>
             </div>
             <button
@@ -39,14 +45,14 @@ const ExperienceModal = ({ exp, isOpen, onClose }) => {
         </div>
 
         {/* Content */}
-        <div className="p-6">
+        <div className="p-4 sm:p-6">
           {/* Description */}
           <div className="mb-6">
             <p className="text-gray-700 dark:text-slate-300 leading-relaxed text-lg">{exp.description}</p>
           </div>
 
           {/* Duration & Location */}
-          <div className="grid grid-cols-2 gap-4 mb-6">
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-6">
             <div className="bg-gray-50 dark:bg-slate-800 rounded-lg p-4">
               <Calendar className="w-6 h-6 mb-2 text-blue-600" />
               <div className="text-sm text-gray-600 dark:text-slate-400">Duration</div>
@@ -61,8 +67,8 @@ const ExperienceModal = ({ exp, isOpen, onClose }) => {
 
           {/* Overview */}
           <div className="mb-6">
-            <h3 className="text-lg font-semibold text-gray-900 mb-3">Overview</h3>
-            <p className="text-gray-700 leading-relaxed">{exp.details.overview}</p>
+            <h3 className="text-lg font-semibold text-gray-900 dark:text-slate-100 mb-3">Overview</h3>
+            <p className="text-gray-700 dark:text-slate-300 leading-relaxed">{exp.details.overview}</p>
           </div>
 
           {/* Role Progression */}
@@ -141,7 +147,7 @@ const ExperienceModal = ({ exp, isOpen, onClose }) => {
           </div>
 
           {/* Team & Impact */}
-          <div className="grid md:grid-cols-2 gap-4 mb-6">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-6">
             <div className="bg-gray-50 dark:bg-slate-800 rounded-lg p-4">
               <Users className="w-6 h-6 mb-2 text-blue-600" />
               <div className="text-sm text-gray-600 dark:text-slate-400">Team Size</div>
@@ -156,7 +162,7 @@ const ExperienceModal = ({ exp, isOpen, onClose }) => {
         </div>
 
         {/* Footer */}
-        <div className="sticky bottom-0 bg-gray-50 dark:bg-slate-900 border-t border-gray-200 dark:border-slate-700 px-6 py-4 flex justify-end">
+        <div className="sticky bottom-0 bg-gray-50 dark:bg-slate-900 border-t border-gray-200 dark:border-slate-700 px-4 sm:px-6 py-4 flex justify-end">
           <Button
             onClick={onClose}
             className="bg-gradient-to-r from-blue-600 to-teal-600 hover:from-blue-700 hover:to-teal-700 text-white"
@@ -212,7 +218,7 @@ const Experience = () => {
 
                   {/* Content Card */}
                   <div className={`w-full md:w-5/12 ${index % 2 === 0 ? 'md:pr-12' : 'md:pl-12'}`}>
-                    <div className="group bg-white/70 dark:bg-slate-900/70 backdrop-blur-md rounded-2xl p-6 shadow-xl border border-gray-200 dark:border-slate-700 hover:shadow-2xl hover:border-blue-300 transition-all duration-300 transform hover:scale-105">
+                    <div className="group bg-white/70 dark:bg-slate-900/70 backdrop-blur-md rounded-2xl p-5 sm:p-6 shadow-xl border border-gray-200 dark:border-slate-700 hover:shadow-2xl hover:border-blue-300 transition-all duration-300 sm:hover:scale-105">
                       {/* Company Logo & Info */}
                       <div className="flex items-start gap-4 mb-4">
                         {/* Company Logo */}

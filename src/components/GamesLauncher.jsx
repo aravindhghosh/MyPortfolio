@@ -14,8 +14,14 @@ const GameCard = ({ title, description, onClick }) => (
 );
 
 const ModalShell = ({ title, onClose, children }) => (
-  <div className="fixed inset-0 z-[60] flex items-center justify-center p-4 bg-black/60 backdrop-blur-sm">
-    <div className="bg-white dark:bg-slate-900 rounded-2xl max-w-4xl w-full max-h-[90vh] overflow-y-auto shadow-2xl animate-in fade-in zoom-in-95">
+  <div
+    className="fixed inset-0 z-[60] flex items-center justify-center p-4 bg-black/60 backdrop-blur-sm"
+    onClick={onClose}
+  >
+    <div
+      className="bg-white dark:bg-slate-900 rounded-2xl max-w-4xl w-full max-h-[90vh] overflow-y-auto shadow-2xl animate-in fade-in zoom-in-95"
+      onClick={(e) => e.stopPropagation()}
+    >
       <div className="sticky top-0 bg-white dark:bg-slate-900 border-b border-slate-200 dark:border-slate-700 px-6 py-4 flex items-center justify-between">
         <h2 className="text-xl font-bold text-slate-900 dark:text-slate-100">{title}</h2>
         <button

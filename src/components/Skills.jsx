@@ -28,7 +28,7 @@ const Skills = () => {
   }, []);
 
   return (
-    <section id="skills" className="py-20 bg-gradient-to-b from-gray-50 to-white dark:from-slate-900 dark:to-slate-950" ref={sectionRef}>
+    <section id="skills" className="py-20 bg-gradient-to-b from-gray-50 to-white dark:from-slate-900 dark:to-slate-950 relative overflow-hidden" ref={sectionRef}>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
         <div className="text-center mb-16 animate-fade-in">
@@ -42,7 +42,7 @@ const Skills = () => {
         </div>
 
         {/* Skills Grid */}
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
           {Object.entries(skills).map(([category, data], index) => {
             const IconComponent = Icons[data.icon] || Icons.Code2;
 
@@ -57,7 +57,7 @@ const Skills = () => {
                 style={{ transitionDelay: `${index * 100}ms` }}
               >
                 {/* Background Image */}
-                <div className="relative h-48">
+                <div className="relative h-44 sm:h-48">
                   <img
                     src={data.image}
                     alt={category}
@@ -78,9 +78,9 @@ const Skills = () => {
                 </div>
 
                 {/* Content */}
-                <div className="bg-white/90 dark:bg-slate-900/90 backdrop-blur-md p-6 border-t border-gray-200 dark:border-slate-700">
+                <div className="bg-white/90 dark:bg-slate-900/90 backdrop-blur-md p-5 sm:p-6 border-t border-gray-200 dark:border-slate-700">
                   {/* Category Title */}
-                  <h3 className="text-xl font-bold text-gray-900 dark:text-slate-100 mb-4 group-hover:text-blue-600 transition-colors duration-300">{category}</h3>
+                  <h3 className="text-lg sm:text-xl font-bold text-gray-900 dark:text-slate-100 mb-4 group-hover:text-blue-600 transition-colors duration-300">{category}</h3>
 
                   {/* Skills with Logos */}
                   <div className="flex flex-wrap gap-3">

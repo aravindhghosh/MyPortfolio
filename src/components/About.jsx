@@ -48,9 +48,9 @@ const About = () => {
           <div className="w-24 h-1 bg-gradient-to-r from-blue-600 to-teal-600 mx-auto rounded-full"></div>
         </div>
 
-        <div className="grid md:grid-cols-2 gap-12 items-center mb-16">
+        <div className="grid md:grid-cols-2 gap-10 md:gap-12 items-center mb-16">
           {/* Image Side */}
-          <div className="relative">
+          <div className="relative pb-4 md:pb-0">
             <div className="relative rounded-2xl overflow-hidden shadow-2xl transform hover:scale-105 transition-transform duration-300">
               <img
                 src="https://images.unsplash.com/photo-1604781109199-ced99b89b0f6?w=800"
@@ -61,9 +61,9 @@ const About = () => {
               <div className="absolute inset-0 bg-gradient-to-t from-blue-600/20 to-transparent"></div>
             </div>
             {/* Floating Card */}
-            <div className="absolute -bottom-6 -right-6 bg-white/90 dark:bg-slate-900/80 backdrop-blur-md rounded-xl p-6 shadow-xl border border-gray-200 dark:border-slate-700">
+            <div className="relative md:absolute md:-bottom-6 md:-right-6 mt-4 md:mt-0 bg-white/90 dark:bg-slate-900/80 backdrop-blur-md rounded-xl p-4 sm:p-6 shadow-xl border border-gray-200 dark:border-slate-700 max-w-[220px] ml-auto">
               <div className="text-center">
-                <div className="text-4xl font-bold text-blue-600 tracking-tight">{experienceYears}</div>
+                <div className="text-3xl sm:text-4xl font-bold text-blue-600 tracking-tight">{experienceYears}</div>
                 <div className="text-[11px] uppercase tracking-widest text-gray-500 dark:text-slate-400 mt-2">Experience</div>
               </div>
             </div>
@@ -73,7 +73,7 @@ const About = () => {
           <div>
             {/* Summary */}
             <div className="mb-8">
-              <p className="text-lg text-gray-700 dark:text-slate-300 leading-relaxed">
+              <p className="text-base sm:text-lg text-gray-700 dark:text-slate-300 leading-relaxed">
                 {about.summary}
               </p>
             </div>
@@ -83,7 +83,7 @@ const About = () => {
               {about.highlights.map((highlight, index) => (
                 <div
                   key={index}
-                  className="flex items-start gap-3 p-4 rounded-xl bg-white/50 dark:bg-slate-900/50 backdrop-blur-sm border border-gray-200 dark:border-slate-700 hover:border-blue-300 hover:shadow-md transition-all duration-300"
+                  className="flex items-start gap-3 p-3 sm:p-4 rounded-xl bg-white/50 dark:bg-slate-900/50 backdrop-blur-sm border border-gray-200 dark:border-slate-700 hover:border-blue-300 hover:shadow-md transition-all duration-300"
                 >
                   <CheckCircle2 className="text-blue-600 flex-shrink-0 mt-1" size={20} />
                   <p className="text-gray-700 dark:text-slate-300">{highlight}</p>
@@ -120,7 +120,7 @@ const About = () => {
             <p className="text-gray-600 dark:text-slate-300">My passions and interests outside of development</p>
           </div>
 
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+          <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-8">
             {about.interests.map((interest) => {
               const IconComponent = Icons[interest.icon];
               return (
@@ -145,7 +145,7 @@ const About = () => {
                       <div className="w-12 h-12 bg-white/20 backdrop-blur-md rounded-full flex items-center justify-center">
                         {IconComponent && <IconComponent size={24} />}
                       </div>
-                      <h4 className="text-2xl font-bold">{interest.name}</h4>
+                      <h4 className="text-xl sm:text-2xl font-bold">{interest.name}</h4>
                     </div>
                     <p className="text-gray-200 text-sm">{interest.description}</p>
                   </div>

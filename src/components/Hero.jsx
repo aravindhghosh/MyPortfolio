@@ -29,7 +29,7 @@ const Hero = () => {
   };
 
   return (
-    <section id="hero" className="min-h-screen flex items-center justify-center relative overflow-hidden bg-white dark:bg-slate-950 text-gray-900 dark:text-slate-100">
+    <section id="hero" className="min-h-screen flex items-center justify-center relative overflow-hidden bg-white dark:bg-slate-950 text-gray-900 dark:text-slate-100 pt-24 pb-12 sm:pt-28 sm:pb-16">
       {/* Animated Background */}
       {/* <div className="absolute inset-0 bg-gradient-to-br from-blue-50 via-white to-teal-50">
         <div className="absolute inset-0 opacity-30">
@@ -231,7 +231,7 @@ const Hero = () => {
 
       </div>
 
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 relative z-10">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10 sm:py-16 lg:py-20 relative z-10">
         <div className="text-center">
           {/* Profile Image with Orbit Ring */}
           <div className="mb-8 inline-block">
@@ -290,18 +290,18 @@ const Hero = () => {
           </div>
 
           {/* CTA Buttons */}
-          <div className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-12">
+          <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center items-center mb-10 sm:mb-12 w-full">
             <Button
               onClick={scrollToContact}
               size="lg"
-              className="bg-gradient-to-r from-blue-600 to-teal-600 hover:from-blue-700 hover:to-teal-700 text-white px-8 py-6 text-lg rounded-full shadow-xl hover:shadow-2xl transition-all duration-300 transform hover:scale-105"
+              className="w-full max-w-xs sm:w-auto bg-gradient-to-r from-blue-600 to-teal-600 hover:from-blue-700 hover:to-teal-700 text-white px-6 sm:px-8 py-5 sm:py-6 text-base sm:text-lg rounded-full shadow-xl hover:shadow-2xl transition-all duration-300 transform hover:scale-105"
             >
               Get In Touch
             </Button>
             <Button
               variant="outline"
               size="lg"
-              className="border-2 border-gray-300 dark:border-slate-700 hover:border-blue-600 px-8 py-6 text-lg rounded-full backdrop-blur-sm bg-white/50 dark:bg-slate-900/50 hover:bg-white/80 dark:hover:bg-slate-900/80 transition-all duration-300 transform hover:scale-105"
+              className="w-full max-w-xs sm:w-auto border-2 border-gray-300 dark:border-slate-700 hover:border-blue-600 px-6 sm:px-8 py-5 sm:py-6 text-base sm:text-lg rounded-full backdrop-blur-sm bg-white/50 dark:bg-slate-900/50 hover:bg-white/80 dark:hover:bg-slate-900/80 transition-all duration-300 transform hover:scale-105"
               onClick={() => window.open('#projects', '_self')}
             >
               View Projects
@@ -309,7 +309,7 @@ const Hero = () => {
           </div>
 
           {/* Social Links */}
-          <div className="flex justify-center gap-4">
+          <div className="flex justify-center gap-3 sm:gap-4 flex-wrap px-2">
             {personalInfo.linkedin && (
               <a
                 href={personalInfo.linkedin}
@@ -383,7 +383,7 @@ const Hero = () => {
           </div>
 
           {/* Scroll Indicator */}
-          <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 animate-bounce">
+          <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 animate-bounce hidden md:block">
             <ArrowDown size={24} className="text-gray-400 dark:text-slate-500" />
           </div>
         </div>

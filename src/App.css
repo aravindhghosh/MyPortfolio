@@ -8,6 +8,16 @@ html {
     overflow-x: hidden;
 }
 
+section[id] {
+    scroll-margin-top: 5rem;
+}
+
+img,
+svg,
+video {
+    max-width: 100%;
+}
+
 /* Animations */
 @keyframes blob {
     0% {
@@ -124,6 +134,17 @@ html {
 .cop-light-button:hover {
     transform: translateY(-1px);
     filter: brightness(1.03);
+}
+
+@media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+        scroll-behavior: auto !important;
+    }
 }
 
 /* Custom Scrollbar */
