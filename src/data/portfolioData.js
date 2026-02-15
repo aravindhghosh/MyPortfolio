@@ -221,6 +221,7 @@ export const skills = {
   "DevOps & CI/CD Tools": {
     skills: [
       { name: "Ansible", logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/ansible/ansible-original.svg" },
+      { name: "Terraform", logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/terraform/terraform-original.svg" },
       { name: "GitHub Actions", logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/github/github-original.svg" }
     ],
     image: "https://images.unsplash.com/photo-1762163516269-3c143e04175c?w=400",
@@ -228,7 +229,6 @@ export const skills = {
   },
   "Containerization": {
     skills: [
-      { name: "Terraform", logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/terraform/terraform-original.svg" },
       { name: "Docker", logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/docker/docker-original.svg" }
     ],
     image: "https://images.unsplash.com/photo-1770734360042-676ef707d022?w=400",
