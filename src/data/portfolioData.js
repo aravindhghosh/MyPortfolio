@@ -13,11 +13,16 @@ import orgblueyonder from '../assets/images/blueyonder.png';
 import certIBMDSPython from '../assets/images/IBMAppliedDatascienceL2.png';
 import certMSAzureFundamentals from '../assets/images/MicrosoftAzFundamentals.png';
 import certScrumAllianceCSM from '../assets/images/ScrumAllianceCSM.png';
+import project_azure_dr from '../assets/images/project_az_dr.png';
+import project_azure_refresh from '../assets/images/project_azure_refresh.png';
+import project_commvaultrefresh from '../assets/images/project_commvaultrefresh.png';
+import project_sql_downgrade from '../assets/images/project_sql_downgrade.png';
 
 export const personalInfo = {
   name: "Aravindhghosh P",
   title: "Automation Developer | DevOps Specialist",
   tagline: "Building scalable automation solutions for cloud infrastructure",
+  resumeUrl: "https://customer-assets.emergentagent.com/job_74d47219-9912-4f53-8f48-15d368f5e967/artifacts/um6wlbjr_Aravindhghosh%20P%20-%20Resume%20-%20HCLTech.pdf",
   email: "aravindhghosh@outlook.com",
   phone: "Not provided for Privacy reasons",
   location: "Madurai, India",
@@ -281,7 +286,7 @@ export const projects = [
     title: "Azure DR Automation",
     description: "End-to-end Disaster Recovery automation in Azure using PowerShell, orchestrating all infrastructure tasks for real and mock DR events. Reduced manual effort by over 70%.",
     technologies: ["PowerShell", "Azure", "Shell Scripting", "GitHub Actions", "ServiceNow", "Azure Functions", "Logic Apps"],
-    image: "https://images.unsplash.com/photo-1644088379091-d574269d422f?w=600",
+    image: project_azure_dr, // "https://images.unsplash.com/photo-1644088379091-d574269d422f?w=600",
     details: {
       overview: "Comprehensive disaster recovery automation solution that orchestrates failover and failback activities across Azure infrastructure.",
       challenges: [
@@ -314,7 +319,7 @@ export const projects = [
     title: "Microsoft SQLServer Database Refresh Automation - Commvault",
     description: "Automated MS-SQL database refresh processes using Commvault (As migrated to SaaS Commvault platform from Azure Recovery Services Vault). Eliminated 100% manual efforts from SQL DBA Team.",
     technologies: ["Python", "SQL", "GitHub Actions", "Commvault", "ServiceNow", "AWX", "Ansible"],
-    image: "https://images.unsplash.com/photo-1650473395434-8674d953ef2f?w=600",
+    image: project_commvaultrefresh, // "https://images.unsplash.com/photo-1650473395434-8674d953ef2f?w=600",
     details: {
       overview: "Streamlined database refresh operations by automating the entire workflow from backup to restore, validation, and deployment. Refresh will be triggered through GitHub Actions and executed using Python scripts integrated with Commvault APIs which restores Source Server Database Backups to Target Server and performs pre and post refresh validation checks to ensure data integrity and availability.",
       challenges: [
@@ -349,7 +354,7 @@ export const projects = [
     title: "Microsoft SQLServer Database Refresh Automation - Azure Recovery Services Vault",
     description: "Automated MS-SQL database refresh processes using Azure Recovery Services Vault. Eliminated 100% manual efforts from SQL DBA Team.",
     technologies: ["Azure PowerShell", "Azure Recovery Services Vault", "Ansible", "Kusto Query Language", "GitHub Actions"],
-    image: "https://images.unsplash.com/photo-1650473395434-8674d953ef2f?w=600",
+    image: project_azure_refresh, // "https://images.unsplash.com/photo-1650473395434-8674d953ef2f?w=600",
     details: {
       overview: "Streamlined database refresh operations by automating the entire workflow from backup to restore, validation, and deployment. Refresh will be triggered through GitHub Actions and executed using Python scripts integrated with Commvault APIs which restores Source Server Database Backups to Target Server and performs pre and post refresh validation checks to ensure data integrity and availability.",
       challenges: [
@@ -380,7 +385,7 @@ export const projects = [
     title: "SQL Server License Optimization",
     description: "Automated SQL Server downgrade from Enterprise Edition to Developer Edition using PowerShell and BigFix, reducing licensing costs by $5 million.",
     technologies: ["PowerShell", "BigFix", "Automation", "Microsoft SQL Server"],
-    image: "https://images.unsplash.com/photo-1604781109199-ced99b89b0f6?w=600",
+    image: project_sql_downgrade, // "https://images.unsplash.com/photo-1604781109199-ced99b89b0f6?w=600",
     details: {
       overview: "Strategic cost optimization initiative that automated the downgrade of SQL Server licenses across 500+ non-production servers.",
       challenges: [

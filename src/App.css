@@ -51,6 +51,81 @@ html {
     animation: fade-in 1s ease-out;
 }
 
+@keyframes cop-light-shuttle {
+    0%,
+    100% {
+        box-shadow:
+            -10px 0 14px rgba(239, 68, 68, 0.22),
+            10px 0 14px rgba(59, 130, 246, 0.22),
+            0 6px 14px rgba(2, 6, 23, 0.2);
+    }
+    50% {
+        box-shadow:
+            -10px 0 16px rgba(59, 130, 246, 0.28),
+            10px 0 16px rgba(239, 68, 68, 0.28),
+            0 7px 16px rgba(2, 6, 23, 0.22);
+    }
+}
+
+@keyframes cop-light-left {
+    0%,
+    100% {
+        transform: translateX(-20%);
+        opacity: 0.2;
+    }
+    50% {
+        transform: translateX(4%);
+        opacity: 0.35;
+    }
+}
+
+@keyframes cop-light-right {
+    0%,
+    100% {
+        transform: translateX(20%);
+        opacity: 0.2;
+    }
+    50% {
+        transform: translateX(-4%);
+        opacity: 0.35;
+    }
+}
+
+.cop-light-button {
+    position: relative;
+    overflow: hidden;
+    background: linear-gradient(135deg, #0f172a, #1e293b);
+    border: 1px solid rgba(148, 163, 184, 0.45);
+    backdrop-filter: blur(10px);
+    transition: transform 0.2s ease, filter 0.2s ease, box-shadow 0.2s ease;
+    animation: cop-light-shuttle 1.8s ease-in-out infinite;
+}
+
+.cop-light-button::before,
+.cop-light-button::after {
+    content: "";
+    position: absolute;
+    inset: -40%;
+    pointer-events: none;
+    opacity: 0.65;
+    mix-blend-mode: screen;
+}
+
+.cop-light-button::before {
+    background: radial-gradient(circle at 20% 50%, rgba(239, 68, 68, 0.55), transparent 45%);
+    animation: cop-light-left 1.8s ease-in-out infinite;
+}
+
+.cop-light-button::after {
+    background: radial-gradient(circle at 80% 50%, rgba(59, 130, 246, 0.55), transparent 45%);
+    animation: cop-light-right 1.8s ease-in-out infinite;
+}
+
+.cop-light-button:hover {
+    transform: translateY(-1px);
+    filter: brightness(1.03);
+}
+
 /* Custom Scrollbar */
 ::-webkit-scrollbar {
     width: 10px;
