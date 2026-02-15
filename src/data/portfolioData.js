@@ -22,7 +22,7 @@ export const personalInfo = {
   name: "Aravindhghosh P",
   title: "Automation Developer | DevOps Specialist",
   tagline: "Building scalable automation solutions for cloud infrastructure",
-  resumeUrl: "https://customer-assets.emergentagent.com/job_74d47219-9912-4f53-8f48-15d368f5e967/artifacts/um6wlbjr_Aravindhghosh%20P%20-%20Resume%20-%20HCLTech.pdf",
+  resumeUrl: "https://1drv.ms/b/c/ec88d1c6a2f291d9/IQDEJ7ErWVBFSbPLsdi4SwogAacSCAipgCM3iuVXQ4T9w7Y?e=d4Amhw",
   email: "aravindhghosh@outlook.com",
   phone: "Not provided for Privacy reasons",
   location: "Madurai, India",
