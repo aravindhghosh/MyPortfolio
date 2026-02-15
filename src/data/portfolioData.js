@@ -49,28 +49,48 @@ export const about = {
       name: "Development",
       description: "Building scalable automation solutions",
       icon: "Code2",
-      image: "https://images.unsplash.com/photo-1730130054404-c2bd8e7038c2?w=400"
+      image: "https://images.unsplash.com/photo-1730130054404-c2bd8e7038c2?w=400",
+      graphic: "Code"
     },
     {
       id: 2,
       name: "Photography",
       description: "Capturing moments and creating visual stories",
       icon: "Camera",
-      image: "https://images.unsplash.com/photo-1662367532494-7b0e4e664491?w=400"
+      image: "https://images.unsplash.com/photo-1662367532494-7b0e4e664491?w=400",
+      graphic: "Camera"
     },
     {
       id: 3,
       name: "Gaming",
       description: "Exploring virtual worlds and competitive gaming",
       icon: "Gamepad2",
-      image: "https://images.unsplash.com/photo-1617507171089-6cb9aa5add36?w=400"
+      image: "https://images.unsplash.com/photo-1617507171089-6cb9aa5add36?w=400",
+      graphic: "Gaming"
     },
     {
       id: 4,
       name: "Stock Trading",
       description: "Analyzing markets and financial investments",
       icon: "TrendingUp",
-      image: "https://images.unsplash.com/photo-1651341050677-24dba59ce0fd?w=400"
+      image: "https://images.unsplash.com/photo-1651341050677-24dba59ce0fd?w=400",
+      graphic: "Stock"
+    },
+    {
+      id: 5,
+      name: "Pet Companion",
+      description: "Playing with my pet dog",
+      icon: "Dog",
+      image: "https://images.unsplash.com/photo-1583511655857-d19b40a7a54e?w=400",
+      graphic: "Pet"
+    },
+    {
+      id: 6,
+      name: "Driving",
+      description: "Cruising in Altroz Racer & Apache 200",
+      icon: "Car",
+      image: "https://images.unsplash.com/photo-1449965408869-eaa3f722e40d?w=400",
+      graphic: "Driving"
     }
   ]
 };
@@ -78,7 +98,7 @@ export const about = {
 export const experience = [
   {
     id: 1,
-    company: "HCL Tech",
+    company: "HCLTech",
     companyLogo: orghcltech, //"https://en.wikipedia.org/wiki/HCLTech#/media/File:HCLTech-new-logo.svg",
     currentRole: "Specialist",
     duration: "August 2020 - Present",

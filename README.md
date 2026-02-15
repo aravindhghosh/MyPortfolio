@@ -18,6 +18,7 @@ A modern, responsive portfolio website built with React.js featuring a beautiful
 - 🚀 **GitHub Pages Ready** - Deploy in minutes
 - ♿ **Accessible** - Built with Shadcn UI accessible components
 - 🎭 **Smooth Animations** - Engaging hover effects and transitions
+- 🔄 **Interactive Marquees** - Infinite scrolling for Skills & Interests with touch support
 - 🌗 **Dark Mode** - Toggle with system default support
 - 🎮 **Hidden Mini Games** - Draggable game launcher (Snake, 2048, Tic‑Tac‑Toe, Memory)
 - 📧 **Contact Form** - EmailJS-powered contact form with toast notifications
@@ -312,6 +313,21 @@ This creates an optimized production build in the `build/` folder.
 - Added touch interaction effect for dark mode:
   - Meteor/comet trail follows finger drag.
   - Sparkles emit while dragging and fade on touch release.
+- **Enhanced Skills & About Sections**:
+  - Implemented infinite scrolling marquee effect with pause-on-hover.
+  - Added touch swipe support for mobile devices.
+  - Added manual left/right navigation controls.
+  - Added "View All Skills" modal for a comprehensive grid view.
+- **Custom Animations**:
+  - Created unique, CSS/SVG-based animations for individual skill and interest cards (e.g., Python terminal execution, 3D driving simulation, stock market graph, Kanban board).
+- **Project & Experience Improvements**:
+  - Redesigned project cards for better visibility of actions.
+  - Added detailed modals for both Projects and Work Experience items.
+- **Navbar Enhancements**:
+  - Added a live date/time widget.
+  - Improved responsive behavior (hamburger menu for screens < 1200px).
+- **Interactive Effects**:
+  - Added a "Touch Meteor Trail" effect in dark mode that follows user interaction.
 
 ### Glassmorphism Design
 - Semi-transparent backgrounds with `bg-white/70`

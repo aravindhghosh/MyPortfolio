@@ -175,7 +175,7 @@ const Projects = () => {
             {projects.map((project) => (
               <div
                 key={project.id}
-                className="group bg-white dark:bg-slate-900 rounded-2xl overflow-hidden shadow-xl border border-gray-200 dark:border-slate-700 hover:shadow-2xl hover:border-blue-300 transition-all duration-300 sm:hover:scale-105"
+                className="group bg-white dark:bg-slate-900 rounded-2xl overflow-hidden shadow-xl border border-gray-200 dark:border-slate-700 hover:shadow-2xl hover:border-blue-300 transition-all duration-300 sm:hover:scale-105 flex flex-col"
               >
                 {/* Project Image */}
                 <div className="relative h-64 overflow-hidden">
@@ -184,30 +184,19 @@ const Projects = () => {
                     alt={project.title}
                     className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
                   />
-                  {/* Glass Overlay on Hover */}
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end">
-                    <div className="p-6 w-full">
-                      <Button
-                        onClick={() => openModal(project)}
-                        className="w-full bg-white/90 dark:bg-slate-900/80 backdrop-blur-sm hover:bg-white dark:hover:bg-slate-900 text-blue-600 dark:text-teal-200 font-semibold"
-                      >
-                        View Details
-                      </Button>
-                    </div>
-                  </div>
                 </div>
 
                 {/* Project Content */}
-                <div className="p-6">
+                <div className="p-6 flex flex-col flex-grow">
                   <h3 className="text-2xl font-bold text-gray-900 dark:text-slate-100 mb-3 group-hover:text-blue-600 transition-colors duration-200">
                     {project.title}
                   </h3>
-                  <p className="text-gray-700 dark:text-slate-300 mb-4 leading-relaxed line-clamp-3">
+                  <p className="text-gray-700 dark:text-slate-300 mb-4 leading-relaxed line-clamp-3 flex-grow">
                     {project.description}
                   </p>
 
                   {/* Technologies */}
-                  <div className="flex flex-wrap gap-2">
+                  <div className="flex flex-wrap gap-2 mb-6">
                     {project.technologies.map((tech, idx) => (
                       <span
                         key={idx}
@@ -217,6 +206,13 @@ const Projects = () => {
                       </span>
                     ))}
                   </div>
+
+                  <Button
+                    onClick={() => openModal(project)}
+                    className="w-full bg-gradient-to-r from-blue-600 to-teal-600 hover:from-blue-700 hover:to-teal-700 text-white font-semibold"
+                  >
+                    View Details
+                  </Button>
                 </div>
               </div>
             ))}
