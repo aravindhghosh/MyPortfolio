@@ -11,6 +11,7 @@ import Certifications from "./components/Certifications";
 import SocialMedia from "./components/SocialMedia";
 import Contact from "./components/Contact";
 import Footer from "./components/Footer";
+import TouchMeteorTrail from "./components/TouchMeteorTrail";
 import { Toaster } from "./components/ui/toaster";
 
 function App() {
@@ -27,6 +28,7 @@ function App() {
       <SocialMedia />
       <Contact />
       <Footer />
+      <TouchMeteorTrail />
       <Toaster />
     </div>
   );

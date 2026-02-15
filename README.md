@@ -301,6 +301,18 @@ This creates an optimized production build in the `build/` folder.
 
 ## 🎯 Key Features Breakdown
 
+---
+
+## Recent UI Updates
+
+- Added a live date/time widget in the navbar that updates every second.
+- Navbar responsiveness updated:
+  - Menu links show at `1200px` and above.
+  - Hamburger menu is used below `1200px`.
+- Added touch interaction effect for dark mode:
+  - Meteor/comet trail follows finger drag.
+  - Sparkles emit while dragging and fade on touch release.
+
 ### Glassmorphism Design
 - Semi-transparent backgrounds with `bg-white/70`
 - Backdrop blur effects with `backdrop-blur-md`

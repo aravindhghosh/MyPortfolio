@@ -8,6 +8,13 @@ html {
     overflow-x: hidden;
 }
 
+.touch-meteor-canvas {
+    position: fixed;
+    inset: 0;
+    z-index: 40;
+    pointer-events: none;
+}
+
 section[id] {
     scroll-margin-top: 5rem;
 }

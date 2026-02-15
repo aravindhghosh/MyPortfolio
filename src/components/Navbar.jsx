@@ -6,6 +6,7 @@ import { useTheme } from '../hooks/useTheme';
 const Navbar = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const [now, setNow] = useState(() => new Date());
   const { theme, toggle } = useTheme();
   const navRef = useRef(null);
 
@@ -15,6 +16,14 @@ const Navbar = () => {
     };
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
+
+  useEffect(() => {
+    const timer = setInterval(() => {
+      setNow(new Date());
+    }, 1000);
+
+    return () => clearInterval(timer);
   }, []);
 
   useEffect(() => {
@@ -67,6 +76,22 @@ const Navbar = () => {
       typeof window !== "undefined" &&
       window.matchMedia("(prefers-color-scheme: dark)").matches);
 
+  const timeText = now.toLocaleTimeString(undefined, {
+    hour: "2-digit",
+    minute: "2-digit",
+    second: "2-digit",
+    hour12: true,
+  });
+
+  const dateText = now.toLocaleDateString(undefined, {
+    weekday: "short",
+    year: "numeric",
+    month: "short",
+    day: "2-digit",
+  });
+
+  const firstName = (personalInfo.name.trim().split(/\s+/)[0] || "").toUpperCase();
+
   return (
     <nav
       ref={navRef}
@@ -77,7 +102,7 @@ const Navbar = () => {
 
     >
       <div className="max-w-7xl mx-auto px-3 sm:px-6 lg:px-8">
-        <div className="flex justify-between items-center h-16 gap-2">
+        <div className="flex justify-between items-center h-16 gap-1.5 sm:gap-2">
           {/* Logo */}
           <div className="flex items-center gap-2 sm:gap-3 min-w-0">
             <a
@@ -100,20 +125,20 @@ const Navbar = () => {
             <a
               href="#hero"
               onClick={(e) => scrollToSection(e, '#hero')}
-              className="text-lg sm:text-2xl font-bold bg-gradient-to-r from-blue-600 to-teal-600 bg-clip-text text-transparent hover:scale-105 transition-transform duration-200 truncate max-w-[42vw] sm:max-w-none"
+              className="leading-none font-bold bg-gradient-to-r from-blue-600 to-teal-600 bg-clip-text text-transparent hover:scale-105 transition-transform duration-200 text-center whitespace-nowrap text-[11px] min-[380px]:text-sm md:text-base"
             >
-              {personalInfo.name.split(' ')[0]}
+              {firstName}
             </a>
           </div>
 
           {/* Desktop Navigation */}
-          <div className="hidden md:flex space-x-1">
+          <div className="hidden min-[1200px]:flex space-x-0.5 md:space-x-1">
             {navLinks.map((link) => (
               <a
                 key={link.name}
                 href={link.href}
                 onClick={(e) => scrollToSection(e, link.href)}
-                className="px-4 py-2 text-gray-700 dark:text-slate-100 hover:text-blue-600 dark:hover:text-teal-300 font-medium transition-colors duration-200 relative group"
+                className="px-2 md:px-4 py-2 text-gray-700 dark:text-slate-100 hover:text-blue-600 dark:hover:text-teal-300 font-medium transition-colors duration-200 relative group text-sm md:text-base"
               >
                 {link.name}
                 <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-blue-600 group-hover:w-full transition-all duration-300"></span>
@@ -122,18 +147,25 @@ const Navbar = () => {
           </div>
 
           {/* Right Actions */}
-          <div className="flex items-center gap-1.5 sm:gap-2">
+          <div className="flex items-center gap-1 sm:gap-2">
+            <div className="flex flex-col items-center px-2 sm:px-3 py-1 rounded-lg bg-white/70 dark:bg-slate-900/70 border border-gray-200 dark:border-slate-700 backdrop-blur-sm leading-tight">
+              <span className="text-[10px] sm:text-xs font-semibold text-gray-800 dark:text-slate-100 tabular-nums">{timeText}</span>
+              <span className="text-[9px] sm:text-[11px] text-gray-600 dark:text-slate-300 text-center leading-tight whitespace-nowrap">
+                {dateText}
+              </span>
+            </div>
+
             {personalInfo.resumeUrl && (
               <a
                 href={personalInfo.resumeUrl}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="cop-light-button inline-flex items-center gap-1 px-2.5 py-1.5 sm:px-3 sm:py-2 rounded-full text-[11px] sm:text-xs font-semibold text-white shadow-md"
+                className="cop-light-button inline-flex items-center gap-1 px-2 py-1.5 sm:px-3 sm:py-2 rounded-full text-[10px] sm:text-xs font-semibold text-white shadow-md"
                 aria-label="Download resume"
                 title="Download Resume"
               >
                 <Download size={14} />
-                <span className="sm:hidden">CV</span>
+                <span className="max-[430px]:hidden sm:hidden">CV</span>
                 <span className="hidden sm:inline">Resume</span>
               </a>
             )}
@@ -174,7 +206,7 @@ const Navbar = () => {
 
             <button
               onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-              className="md:hidden p-2 rounded-lg hover:bg-gray-100 dark:hover:bg-slate-800 transition-colors duration-200"
+              className="min-[1200px]:hidden p-2 rounded-lg hover:bg-gray-100 dark:hover:bg-slate-800 transition-colors duration-200"
             >
               {isMobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
             </button>
@@ -185,7 +217,7 @@ const Navbar = () => {
 
       {/* Mobile Menu */}
       {isMobileMenuOpen && (
-        <div className="md:hidden bg-white/95 dark:bg-slate-900/95 backdrop-blur-md border-t border-gray-200 dark:border-slate-700 shadow-lg"
+        <div className="min-[1200px]:hidden bg-white/95 dark:bg-slate-900/95 backdrop-blur-md border-t border-gray-200 dark:border-slate-700 shadow-lg"
 >
           <div className="px-4 py-4 space-y-2">
             {navLinks.map((link) => (

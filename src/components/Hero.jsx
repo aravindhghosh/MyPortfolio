@@ -29,7 +29,7 @@ const Hero = () => {
   };
 
   return (
-    <section id="hero" className="min-h-screen flex items-center justify-center relative overflow-hidden bg-white dark:bg-slate-950 text-gray-900 dark:text-slate-100 pt-24 pb-12 sm:pt-28 sm:pb-16">
+    <section id="hero" className="min-h-screen flex items-center justify-center relative overflow-hidden bg-white dark:bg-slate-950 text-gray-900 dark:text-slate-100 pt-32 pb-12 sm:pt-28 sm:pb-16">
       {/* Animated Background */}
       {/* <div className="absolute inset-0 bg-gradient-to-br from-blue-50 via-white to-teal-50">
         <div className="absolute inset-0 opacity-30">
@@ -238,11 +238,11 @@ const Hero = () => {
             <div className="relative w-40 h-40 sm:w-48 sm:h-48 mx-auto">
               {/* Big ring */}
               <div className="absolute inset-0 rounded-full border-2 border-blue-200/70 dark:border-slate-700/80 shadow-[0_0_40px_rgba(59,130,246,0.25)]"></div>
-              {/* Orbiting planets */}
+              {/* Orbiting planets (solar-system inspired colors) */}
               <div className="absolute inset-0">
-                <div className="absolute left-1/2 top-1/2 w-3.5 h-3.5 sm:w-4 sm:h-4 rounded-full bg-blue-500/80 shadow-md animate-planet-orbit"></div>
-                <div className="absolute left-1/2 top-1/2 w-2.5 h-2.5 sm:w-3 sm:h-3 rounded-full bg-emerald-500/80 shadow-md animate-planet-orbit-slow"></div>
-                <div className="absolute left-1/2 top-1/2 w-2 h-2 sm:w-2.5 sm:h-2.5 rounded-full bg-amber-400/90 shadow-md animate-planet-orbit-sm"></div>
+                <div className="absolute left-1/2 top-1/2 w-3.5 h-3.5 sm:w-4 sm:h-4 rounded-full bg-orange-300/90 shadow-[0_0_8px_rgba(251,191,36,0.55)] animate-planet-orbit"></div>
+                <div className="absolute left-1/2 top-1/2 w-2.5 h-2.5 sm:w-3 sm:h-3 rounded-full bg-blue-500/85 ring-1 ring-emerald-300/80 shadow-md animate-planet-orbit-slow"></div>
+                <div className="absolute left-1/2 top-1/2 w-2 h-2 sm:w-2.5 sm:h-2.5 rounded-full bg-rose-400/90 shadow-[0_0_8px_rgba(251,113,133,0.45)] animate-planet-orbit-sm"></div>
               </div>
               {/* Profile Image */}
               <div
@@ -264,9 +264,9 @@ const Hero = () => {
           </div>
 
           {/* Name and Title */}
-          <h1 className="text-4xl sm:text-5xl md:text-7xl font-bold mb-4 animate-fade-in">
-            <span className="bg-gradient-to-r from-gray-900 via-blue-900 to-gray-900 dark:from-slate-100 dark:via-blue-300 dark:to-slate-100 bg-clip-text text-transparent drop-shadow-[0_2px_16px_rgba(37,99,235,0.25)]">
-              {personalInfo.name}
+          <h1 className="font-bold mb-4 animate-fade-in text-[clamp(1.9rem,9vw,4.5rem)] leading-tight">
+            <span className="whitespace-nowrap bg-gradient-to-r from-gray-900 via-blue-900 to-gray-900 dark:from-slate-100 dark:via-blue-300 dark:to-slate-100 bg-clip-text text-transparent drop-shadow-[0_2px_16px_rgba(37,99,235,0.25)]">
+              {personalInfo.name.toUpperCase()}
             </span>
           </h1>
 
