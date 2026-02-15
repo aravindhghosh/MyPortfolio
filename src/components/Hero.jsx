@@ -28,6 +28,20 @@ const Hero = () => {
     }
   };
 
+  const heroStars = Array.from({ length: 84 }, (_, index) => {
+    const top = 6 + ((index * 19) % 84);
+    const left = 4 + ((index * 29) % 92);
+    const size = 1.4 + ((index % 5) * 0.45);
+    return {
+      top: `${top}%`,
+      left: `${left}%`,
+      size: `${size}px`,
+      delay: `${(index % 9) * 0.33}s`,
+      duration: `${2.2 + (index % 6) * 0.45}s`,
+      bright: index % 4 === 0 || index % 7 === 0,
+    };
+  });
+
   return (
     <section id="hero" className="min-h-screen flex items-center justify-center relative overflow-hidden bg-white dark:bg-slate-950 text-gray-900 dark:text-slate-100 pt-32 pb-12 sm:pt-28 sm:pb-16">
       {/* Animated Background */}
@@ -39,23 +53,39 @@ const Hero = () => {
         </div>
       </div> */}
 
-      <div className="absolute inset-0 bg-gradient-to-br from-white via-blue-50 to-slate-50 dark:from-slate-950 dark:via-slate-900 dark:to-slate-950 overflow-hidden">
+      <div className="absolute inset-0 bg-gradient-to-b from-sky-300 via-sky-200 to-blue-100 dark:from-slate-950 dark:via-slate-900 dark:to-slate-950 overflow-hidden">
+        {/* Whole-hero theme wash */}
+        <div className="absolute inset-0 dark:hidden opacity-50 bg-[radial-gradient(circle_at_50%_18%,rgba(255,255,255,0.8)_0%,rgba(191,219,254,0.35)_28%,transparent_62%)]"></div>
+        <div className="absolute inset-0 hidden dark:block opacity-80 bg-[radial-gradient(circle_at_52%_18%,rgba(148,163,184,0.22)_0%,rgba(30,41,59,0.48)_34%,transparent_68%)]"></div>
 
-        {/* Animated grid background - reduced opacity */}
-        <div className="absolute inset-0 opacity-10">
-          <div className="absolute inset-0 bg-[linear-gradient(to_right,#cbd5e1_1px,transparent_1px),linear-gradient(to_bottom,#cbd5e1_1px,transparent_1px)] bg-[size:4rem_4rem] [mask-image:radial-gradient(ellipse_80%_50%_at_50%_50%,#000_70%,transparent_110%)]"></div>
+        {/* Dark mode: stars */}
+        <div className="absolute inset-0 hidden dark:block pointer-events-none">
+          {heroStars.map((star, index) => (
+            <span
+              key={`hero-star-${index}`}
+              className={`hero-star absolute rounded-full ${star.bright ? 'hero-star-bright' : ''}`}
+              style={{
+                top: star.top,
+                left: star.left,
+                width: star.size,
+                height: star.size,
+                animationDelay: star.delay,
+                animationDuration: star.duration,
+              }}
+            ></span>
+          ))}
         </div>
 
         {/* Racing speed lines - hidden on mobile, reduced opacity */}
-        <div className="absolute inset-0 overflow-hidden hidden md:block">
+        <div className="absolute inset-0 overflow-hidden hidden md:block dark:hidden">
           <div className="absolute top-1/4 left-0 w-full h-0.5 bg-gradient-to-r from-transparent via-orange-400 to-transparent opacity-20 animate-speed-line"></div>
           <div className="absolute top-1/2 left-0 w-full h-0.5 bg-gradient-to-r from-transparent via-red-400 to-transparent opacity-25 animate-speed-line animation-delay-1000"></div>
           <div className="absolute top-3/4 left-0 w-full h-0.5 bg-gradient-to-r from-transparent via-yellow-400 to-transparent opacity-20 animate-speed-line animation-delay-2000"></div>
         </div>
 
         {/* Floating 3D-style cards - Python/Code - MORE BLUR & LESS OPACITY */}
-        <div className="absolute top-4 left-4 w-48 h-32 md:top-20 md:left-20 md:w-72 md:h-48 animate-float-3d z-0 pointer-events-none">
-          <div className="relative w-full h-full bg-white/20 backdrop-blur-xl rounded-2xl border border-emerald-200/30 shadow-lg transform rotate-3 hover:rotate-0 transition-transform duration-500 opacity-60">
+        <div className="hidden hero-float-card hero-card-code animate-float-3d">
+          <div className="relative w-full h-full bg-white/32 dark:bg-slate-900/36 backdrop-blur-xl rounded-2xl border border-emerald-200/45 shadow-lg transform rotate-3 hover:rotate-0 transition-transform duration-500 opacity-78">
             <div className="absolute inset-0 bg-gradient-to-br from-emerald-50/30 to-transparent rounded-2xl"></div>
             <div className="p-3 md:p-6">
               <div className="text-emerald-700 font-mono text-[10px] md:text-sm space-y-1 md:space-y-2 opacity-50">
@@ -78,14 +108,14 @@ const Hero = () => {
         </div>
 
         {/* Stock/Trading Dashboard Card - MORE BLUR & LESS OPACITY */}
-        <div className="absolute top-4 right-4 w-56 h-36 md:top-40 md:right-20 md:w-80 md:h-52 animate-float-3d animation-delay-2000 z-0 pointer-events-none">
-          <div className="relative w-full h-full bg-white/20 backdrop-blur-xl rounded-2xl border border-blue-200/30 shadow-lg transform -rotate-2 hover:rotate-0 transition-transform duration-500 opacity-60">
+        <div className="hidden hero-float-card hero-card-stock animate-float-3d animation-delay-2000">
+          <div className="relative w-full h-full bg-white/32 dark:bg-slate-900/36 backdrop-blur-xl rounded-2xl border border-blue-200/45 shadow-lg transform -rotate-2 hover:rotate-0 transition-transform duration-500 opacity-78">
             <div className="p-3 md:p-6">
               <div className="flex items-center justify-between mb-2 md:mb-3">
                 <span className="text-blue-700 font-bold text-sm md:text-lg opacity-70">PORTFOLIO</span>
                 <span className="text-emerald-600 text-xs md:text-sm font-semibold opacity-70">+12.5% ↑</span>
               </div>
-              <svg className="w-full h-16 md:h-24 opacity-50" viewBox="0 0 200 60">
+              <svg className="w-full h-16 md:h-24 opacity-75" viewBox="0 0 200 60">
                 <defs>
                   <linearGradient id="chartGradient" x1="0%" y1="0%" x2="0%" y2="100%">
                     <stop offset="0%" stopColor="#3b82f6" stopOpacity="0.2" />
@@ -105,7 +135,7 @@ const Hero = () => {
                   className="animate-draw-chart"
                 />
               </svg>
-              <div className="flex gap-2 md:gap-4 text-[10px] md:text-xs mt-1 md:mt-2 opacity-60">
+              <div className="flex gap-2 md:gap-4 text-[10px] md:text-xs mt-1 md:mt-2 opacity-80">
                 <div className="text-slate-600">NIFTY <span className="text-emerald-600 font-semibold">+2.1%</span></div>
                 <div className="text-slate-600">SENSEX <span className="text-emerald-600 font-semibold">+1.8%</span></div>
               </div>
@@ -115,8 +145,8 @@ const Hero = () => {
         </div>
 
         {/* Gaming Controller Card - MORE BLUR & LESS OPACITY */}
-        <div className="absolute bottom-[380px] left-4 w-48 h-32 md:bottom-32 md:left-32 md:w-64 md:h-44 animate-float-3d animation-delay-3000 z-0 pointer-events-none">
-          <div className="relative w-full h-full bg-white/20 backdrop-blur-xl rounded-2xl border border-purple-200/30 shadow-lg transform rotate-2 hover:rotate-0 transition-transform duration-500 opacity-60">
+        <div className="hidden hero-float-card hero-card-game animate-float-3d animation-delay-3000">
+          <div className="relative w-full h-full bg-white/32 dark:bg-slate-900/36 backdrop-blur-xl rounded-2xl border border-purple-200/45 shadow-lg transform rotate-2 hover:rotate-0 transition-transform duration-500 opacity-78">
             <div className="p-3 md:p-6">
               <div className="flex items-center gap-2 md:gap-3 mb-2 md:mb-4">
                 <div className="text-xl md:text-3xl opacity-50">🎮</div>
@@ -140,8 +170,8 @@ const Hero = () => {
         </div>
 
         {/* Altroz Racer Card - MORE BLUR & LESS OPACITY */}
-        <div className="absolute bottom-[180px] right-4 w-60 h-40 md:bottom-20 md:right-24 md:w-96 md:h-56 animate-float-3d animation-delay-1500 z-0 pointer-events-none">
-          <div className="relative w-full h-full bg-white/20 backdrop-blur-xl rounded-2xl border border-orange-200/30 shadow-lg transform -rotate-1 hover:rotate-0 transition-transform duration-500 overflow-hidden opacity-60">
+        <div className="hidden hero-float-card hero-card-altroz animate-float-3d animation-delay-1500">
+          <div className="relative w-full h-full bg-white/32 dark:bg-slate-900/36 backdrop-blur-xl rounded-2xl border border-orange-200/45 shadow-lg transform -rotate-1 hover:rotate-0 transition-transform duration-500 overflow-hidden opacity-78">
             <div className="absolute inset-0 bg-gradient-to-r from-orange-50/30 via-red-50/30 to-orange-50/30 animate-shimmer"></div>
             <div className="p-3 md:p-6 relative z-10">
               <div className="flex items-center justify-between mb-2 md:mb-3">
@@ -171,8 +201,8 @@ const Hero = () => {
         </div>
 
         {/* Dog Paw Card - MORE BLUR & LESS OPACITY */}
-        <div className="absolute bottom-4 left-4 w-40 h-32 md:top-1/2 md:left-1/4 md:w-48 md:h-40 animate-float-3d animation-delay-4000 z-0 pointer-events-none">
-          <div className="relative w-full h-full bg-white/20 backdrop-blur-xl rounded-2xl border border-amber-200/30 shadow-lg transform rotate-6 hover:rotate-0 transition-transform duration-500 opacity-60">
+        <div className="hidden hero-float-card hero-card-dog animate-float-3d animation-delay-4000">
+          <div className="relative w-full h-full bg-white/32 dark:bg-slate-900/36 backdrop-blur-xl rounded-2xl border border-amber-200/45 shadow-lg transform rotate-6 hover:rotate-0 transition-transform duration-500 opacity-78">
             <div className="p-3 md:p-6 text-center">
               {/* Dog paw print made with CSS */}
               <div className="relative w-14 h-14 md:w-20 md:h-20 mx-auto mb-2 md:mb-3 animate-bounce-slow">
@@ -199,8 +229,8 @@ const Hero = () => {
         </div>
 
         {/* Terminal Card - MORE BLUR & LESS OPACITY */}
-        <div className="absolute bottom-24 right-1/3 w-56 h-36 md:bottom-16 md:right-1/4 md:w-80 md:h-48 animate-float-3d animation-delay-2500 z-0 pointer-events-none hidden sm:block">
-          <div className="relative w-full h-full bg-white/20 backdrop-blur-xl rounded-2xl border border-slate-200/30 shadow-lg transform rotate-1 hover:rotate-0 transition-transform duration-500 opacity-60">
+        <div className="hidden hero-float-card hero-card-terminal animate-float-3d animation-delay-2500">
+          <div className="relative w-full h-full bg-white/32 dark:bg-slate-900/36 backdrop-blur-xl rounded-2xl border border-slate-200/45 shadow-lg transform rotate-1 hover:rotate-0 transition-transform duration-500 opacity-78">
             <div className="absolute inset-0 bg-gradient-to-br from-slate-50/40 to-transparent rounded-2xl"></div>
             <div className="p-3 md:p-5">
               <div className="flex items-center gap-1.5 mb-3">
@@ -236,8 +266,12 @@ const Hero = () => {
           {/* Profile Image with Orbit Ring */}
           <div className="mb-8 inline-block">
             <div className="relative w-40 h-40 sm:w-48 sm:h-48 mx-auto">
+              {/* Sun / Moon aura */}
+              <div className="absolute -inset-6 rounded-full bg-amber-300/55 blur-2xl hero-sun-glow dark:hidden"></div>
+              <div className="absolute hidden dark:block -inset-4 rounded-full bg-slate-100/10 blur-xl"></div>
+              <div className="absolute hidden dark:block inset-[-18%] rounded-full border border-slate-200/30"></div>
               {/* Big ring */}
-              <div className="absolute inset-0 rounded-full border-2 border-blue-200/70 dark:border-slate-700/80 shadow-[0_0_40px_rgba(59,130,246,0.25)]"></div>
+              <div className="absolute inset-0 rounded-full border-2 border-amber-300/65 dark:border-slate-600/85 shadow-[0_0_45px_rgba(251,191,36,0.38)] dark:shadow-[0_0_30px_rgba(148,163,184,0.25)]"></div>
               {/* Orbiting planets (solar-system inspired colors) */}
               <div className="absolute inset-0">
                 <div className="absolute left-1/2 top-1/2 w-3.5 h-3.5 sm:w-4 sm:h-4 rounded-full bg-orange-300/90 shadow-[0_0_8px_rgba(251,191,36,0.55)] animate-planet-orbit"></div>
@@ -253,7 +287,7 @@ const Hero = () => {
                 <img
                   src={personalInfo.profileImage}
                   alt={personalInfo.name}
-                  className="w-full h-full object-cover rounded-full"
+                  className="w-full h-full object-cover rounded-full dark:grayscale dark:brightness-95 dark:contrast-125"
                 />
               </div>
               {/* Pulse dot */}

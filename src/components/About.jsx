@@ -1,7 +1,7 @@
 import React from 'react';
 import { CheckCircle2 } from 'lucide-react';
 import * as Icons from 'lucide-react';
-import { about, experience, personalInfo } from '../data/portfolioData';
+import { about, experience } from '../data/portfolioData';
 
 const About = () => {
   const experienceYears = (() => {
@@ -36,6 +36,95 @@ const About = () => {
     const months = totalMonths % 12;
     return months === 0 ? `${years}` : `${years}y ${months}m`;
   })();
+
+  const renderInterestGraphic = (interest) => {
+    const name = (interest.name || "").toLowerCase();
+
+    if (name.includes("development")) {
+      return (
+        <div className="h-full p-4">
+          <div className="h-full rounded-xl bg-slate-900/92 border border-slate-700/80 p-3 font-mono text-[11px] text-emerald-300/90 shadow-inner">
+            <div className="flex items-center gap-1.5 mb-3">
+              <span className="w-2 h-2 rounded-full bg-rose-400/80"></span>
+              <span className="w-2 h-2 rounded-full bg-amber-300/80"></span>
+              <span className="w-2 h-2 rounded-full bg-emerald-400/80"></span>
+            </div>
+            <div className="space-y-2">
+              <div className="text-sky-300/85">const build = async () =&gt; {'{'}</div>
+              <div className="pl-4 text-emerald-300/90 beyond-code-flow">deploy("pipeline")</div>
+              <div className="pl-4 text-violet-300/85 beyond-code-flow" style={{ animationDelay: '0.6s' }}>optimize("speed")</div>
+              <div className="text-sky-300/85">{'}'}<span className="beyond-blink">|</span></div>
+            </div>
+          </div>
+        </div>
+      );
+    }
+
+    if (name.includes("photography")) {
+      return (
+        <div className="h-full p-4 flex items-center justify-center">
+          <div className="relative w-36 h-24 rounded-2xl bg-slate-800/90 border border-slate-600/70 shadow-xl">
+            <div className="absolute top-3 left-4 w-7 h-2 rounded-full bg-slate-600/80"></div>
+            <div className="absolute top-2 right-4 w-3 h-3 rounded-full bg-emerald-400/70"></div>
+            <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-16 h-16 rounded-full border border-slate-500/60 bg-slate-700/90 flex items-center justify-center">
+              <div className="w-10 h-10 rounded-full border border-blue-200/45 bg-gradient-to-br from-blue-400/30 to-slate-950/80 flex items-center justify-center">
+                <div className="w-5 h-5 rounded-full bg-blue-200/80 beyond-shutter"></div>
+              </div>
+            </div>
+            <div className="absolute inset-0 rounded-2xl beyond-camera-flash"></div>
+          </div>
+        </div>
+      );
+    }
+
+    if (name.includes("gaming")) {
+      return (
+        <div className="h-full p-4 flex items-center justify-center">
+          <div className="relative w-40 h-20 rounded-full bg-slate-900/90 border border-violet-500/35 shadow-[0_0_26px_rgba(139,92,246,0.28)] beyond-game-glow">
+            <div className="absolute left-5 top-1/2 -translate-y-1/2 w-8 h-8">
+              <div className="absolute left-1/2 top-0 -translate-x-1/2 w-1.5 h-8 bg-slate-200/75 rounded"></div>
+              <div className="absolute top-1/2 left-0 -translate-y-1/2 h-1.5 w-8 bg-slate-200/75 rounded"></div>
+            </div>
+            <div className="absolute left-[52%] top-[56%] w-3 h-3 rounded-full bg-slate-200/80 beyond-game-stick"></div>
+            <div className="absolute right-6 top-1/2 -translate-y-1/2 flex gap-2">
+              <span className="w-3 h-3 rounded-full bg-rose-400/90 beyond-float-soft"></span>
+              <span className="w-3 h-3 rounded-full bg-amber-400/90 beyond-float-soft" style={{ animationDelay: '0.4s' }}></span>
+              <span className="w-3 h-3 rounded-full bg-emerald-400/90 beyond-float-soft" style={{ animationDelay: '0.8s' }}></span>
+            </div>
+          </div>
+        </div>
+      );
+    }
+
+    if (name.includes("stock")) {
+      return (
+        <div className="h-full p-4">
+          <div className="h-full rounded-xl bg-slate-900/90 border border-emerald-400/30 p-3">
+            <div className="flex items-center justify-between text-[10px] mb-1">
+              <span className="text-emerald-300/90 font-semibold">NIFTY50</span>
+              <span className="text-emerald-300/90 beyond-float-soft">+1.86%</span>
+            </div>
+            <svg className="w-full h-full" viewBox="0 0 220 110" preserveAspectRatio="none">
+              <defs>
+                <linearGradient id="beyondStockGlow" x1="0%" y1="0%" x2="0%" y2="100%">
+                  <stop offset="0%" stopColor="#34d399" stopOpacity="0.35" />
+                  <stop offset="100%" stopColor="#34d399" stopOpacity="0.02" />
+                </linearGradient>
+              </defs>
+              <path d="M0 108 L18 98 L36 92 L54 76 L72 79 L90 62 L108 66 L126 50 L144 54 L162 40 L180 44 L198 30 L220 24 L220 110 L0 110 Z" fill="url(#beyondStockGlow)" />
+              <path d="M0 108 L18 98 L36 92 L54 76 L72 79 L90 62 L108 66 L126 50 L144 54 L162 40 L180 44 L198 30 L220 24" fill="none" stroke="#34d399" strokeWidth="3" className="beyond-line-animate" />
+            </svg>
+          </div>
+        </div>
+      );
+    }
+
+    return (
+      <div className="h-full p-5 flex items-center justify-center">
+        <div className="w-20 h-20 rounded-2xl bg-slate-900/80 border border-slate-700/80"></div>
+      </div>
+    );
+  };
 
   return (
     <section id="about" className="py-20 bg-gradient-to-b from-white to-gray-50 dark:from-slate-950 dark:to-slate-900">
@@ -128,26 +217,23 @@ const About = () => {
                   key={interest.id}
                   className="group relative rounded-2xl overflow-hidden shadow-xl hover:shadow-2xl transition-all duration-300 transform hover:scale-105"
                 >
-                  {/* Background Image */}
-                  <div className="relative h-64">
-                    <img
-                      src={interest.image}
-                      alt={interest.name}
-                      className="w-full h-full object-cover"
-                    />
-                    {/* Gradient Overlay */}
-                    <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/50 to-transparent"></div>
-                  </div>
-
-                  {/* Content */}
-                  <div className="absolute bottom-0 left-0 right-0 p-6 text-white">
-                    <div className="flex items-center gap-3 mb-3">
-                      <div className="w-12 h-12 bg-white/20 backdrop-blur-md rounded-full flex items-center justify-center">
-                        {IconComponent && <IconComponent size={24} />}
-                      </div>
-                      <h4 className="text-xl sm:text-2xl font-bold">{interest.name}</h4>
+                  <div className="relative h-64 bg-white/65 dark:bg-slate-900/55 backdrop-blur-xl border border-gray-200/70 dark:border-slate-700/80 flex flex-col">
+                    {/* Animated graphics area */}
+                    <div className="relative h-40 border-b border-gray-200/60 dark:border-slate-700/60">
+                      <div className="absolute inset-0 bg-gradient-to-br from-blue-100/70 via-white/15 to-teal-100/60 dark:from-blue-900/35 dark:via-slate-900/10 dark:to-teal-900/35"></div>
+                      {renderInterestGraphic(interest)}
                     </div>
-                    <p className="text-gray-200 text-sm">{interest.description}</p>
+
+                    {/* Content */}
+                    <div className="relative flex-1 p-4 text-gray-800 dark:text-slate-100">
+                      <div className="flex items-center gap-3 mb-2">
+                        <div className="w-10 h-10 bg-white/75 dark:bg-slate-800/70 backdrop-blur-md rounded-full flex items-center justify-center border border-gray-200 dark:border-slate-700 shadow-md">
+                          {IconComponent && <IconComponent size={20} />}
+                        </div>
+                        <h4 className="text-2xl font-bold">{interest.name}</h4>
+                      </div>
+                      <p className="text-gray-700 dark:text-slate-300 text-sm leading-snug">{interest.description}</p>
+                    </div>
                   </div>
                 </div>
               );
