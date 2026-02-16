@@ -410,3 +410,25 @@ video {
 ::-webkit-scrollbar-thumb:hover {
     background: linear-gradient(to bottom, #1d4ed8, #0d9488);
 }
+
+/* Shooting Star Animation */
+@keyframes shooting-star {
+    0% {
+        transform: translateX(0) translateY(0) rotate(135deg);
+        opacity: 1;
+    }
+    100% {
+        transform: translateX(-100vh) translateY(100vh) rotate(160deg);
+        opacity: 0;
+    }
+}
+
+.shooting-star {
+    position: absolute;
+    height: 2px;
+    background: linear-gradient(90deg, rgba(255, 255, 255, 0), rgba(255, 255, 255, 1));
+    border-radius: 999px;
+    filter: drop-shadow(0 0 6px rgba(255, 255, 255, 0.8));
+    animation: shooting-star ease-in-out infinite;
+    opacity: 0;
+}

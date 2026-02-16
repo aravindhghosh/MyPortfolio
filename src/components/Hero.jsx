@@ -3,8 +3,109 @@ import { ArrowDown, Github, Linkedin, Mail, MapPin } from 'lucide-react';
 import { personalInfo } from '../data/portfolioData';
 import { Button } from './ui/button';
 import GamesLauncher from './GamesLauncher';
+import { useTheme } from '../hooks/useTheme';
+
+// --- Helper Component: Solar System (Light Mode) ---
+const SolarSystem = () => {
+  return (
+    <div className="absolute inset-0 pointer-events-none flex items-center justify-center z-0">
+      {/* Mercury (Orbit 1) */}
+      <div className="absolute border border-gray-400/30 rounded-full w-[180px] h-[180px] animate-spin" style={{ animationDuration: '6s' }}>
+        <div className="absolute top-1/2 -right-1 w-3 h-3 bg-gray-400 rounded-full -translate-y-1/2 shadow-sm"></div>
+      </div>
+      
+      {/* Venus (Orbit 2) */}
+      <div className="absolute border border-gray-400/30 rounded-full w-[240px] h-[240px] animate-spin" style={{ animationDuration: '10s' }}>
+        <div className="absolute top-1/2 -right-1.5 w-4 h-4 bg-yellow-600 rounded-full -translate-y-1/2 shadow-sm"></div>
+      </div>
+
+      {/* Earth (Orbit 3) + Moon */}
+      <div className="absolute border border-gray-400/30 rounded-full w-[300px] h-[300px] animate-spin" style={{ animationDuration: '15s' }}>
+        <div className="absolute top-1/2 -right-2.5 -translate-y-1/2 w-6 h-6">
+           {/* Earth Planet */}
+           <div className="absolute inset-0 bg-blue-500 rounded-full shadow-sm z-10"></div>
+           {/* Moon Orbit */}
+           <div className="absolute inset-[-6px] border border-gray-400/30 rounded-full animate-spin" style={{ animationDuration: '3s' }}>
+              <div className="absolute top-1/2 -right-1 w-1.5 h-1.5 bg-gray-300 rounded-full -translate-y-1/2"></div>
+           </div>
+        </div>
+      </div>
+
+      {/* Mars (Orbit 4) */}
+      <div className="absolute border border-gray-400/30 rounded-full w-[380px] h-[380px] animate-spin" style={{ animationDuration: '20s' }}>
+        <div className="absolute top-1/2 -right-2 w-4 h-4 bg-red-500 rounded-full -translate-y-1/2 shadow-sm"></div>
+      </div>
+
+      {/* Asteroid Belt */}
+      <div className="absolute border-[6px] border-dotted border-gray-500/10 rounded-full w-[460px] h-[460px] animate-spin" style={{ animationDuration: '50s' }}></div>
+
+      {/* Jupiter (Orbit 5) */}
+      <div className="absolute border border-gray-400/30 rounded-full w-[580px] h-[580px] animate-spin" style={{ animationDuration: '35s' }}>
+        <div className="absolute top-1/2 -right-4 w-8 h-8 bg-orange-300 rounded-full -translate-y-1/2 shadow-sm"></div>
+      </div>
+
+      {/* Saturn (Orbit 6) */}
+      <div className="absolute border border-gray-400/30 rounded-full w-[720px] h-[720px] animate-spin" style={{ animationDuration: '45s' }}>
+        <div className="absolute top-1/2 -right-3.5 w-7 h-7 bg-yellow-200 rounded-full -translate-y-1/2 shadow-sm flex items-center justify-center">
+           <div className="w-[140%] h-[2px] bg-gray-400/50 rotate-45"></div>
+        </div>
+      </div>
+
+      {/* Uranus (Orbit 7) */}
+      <div className="absolute border border-gray-400/30 rounded-full w-[860px] h-[860px] animate-spin" style={{ animationDuration: '60s' }}>
+        <div className="absolute top-1/2 -right-3 w-6 h-6 bg-cyan-300 rounded-full -translate-y-1/2 shadow-sm"></div>
+      </div>
+
+      {/* Neptune (Orbit 8) */}
+      <div className="absolute border border-gray-400/30 rounded-full w-[1000px] h-[1000px] animate-spin" style={{ animationDuration: '75s' }}>
+        <div className="absolute top-1/2 -right-3 w-6 h-6 bg-blue-600 rounded-full -translate-y-1/2 shadow-sm"></div>
+      </div>
+
+      {/* Pluto (Orbit 9) */}
+      <div className="absolute border border-gray-400/30 rounded-full w-[1120px] h-[1120px] animate-spin" style={{ animationDuration: '90s' }}>
+        <div className="absolute top-1/2 -right-1 w-2 h-2 bg-gray-300 rounded-full -translate-y-1/2 shadow-sm"></div>
+      </div>
+
+      {/* Oort Cloud */}
+      <div className="absolute border border-dashed border-gray-500/10 rounded-full w-[1300px] h-[1300px] animate-spin" style={{ animationDuration: '200s' }}></div>
+    </div>
+  );
+};
+
+// --- Helper Component: Shooting Stars (Dark Mode) ---
+const ShootingStars = () => {
+  const [stars] = useState(() => 
+    Array.from({ length: 10 }).map((_, i) => ({
+      id: i,
+      left: Math.random() * 100 + '%',
+      top: Math.random() * 100 - 40 + '%', // Start higher (-40% to 60%) to cover top-left as they fall
+      width: Math.random() * 100 + 50 + 'px',
+      delay: Math.random() * 5 + 's',
+      duration: Math.random() * 3 + 4 + 's',
+    }))
+  );
+
+  return (
+    <div className="absolute inset-0 overflow-hidden pointer-events-none z-10">
+      {stars.map((star) => (
+        <div
+          key={star.id}
+          className="shooting-star"
+          style={{
+            left: star.left,
+            top: star.top,
+            width: star.width,
+            animationDelay: star.delay,
+            animationDuration: star.duration,
+          }}
+        />
+      ))}
+    </div>
+  );
+};
 
 const Hero = () => {
+  const { theme } = useTheme();
   const [gamesUnlocked, setGamesUnlocked] = useState(() => {
     if (typeof window === "undefined") return false;
     return localStorage.getItem("gamesUnlocked") === "true";
@@ -53,13 +154,22 @@ const Hero = () => {
         </div>
       </div> */}
 
-      <div className="absolute inset-0 bg-gradient-to-b from-sky-300 via-sky-200 to-blue-100 dark:from-slate-950 dark:via-slate-900 dark:to-slate-950 overflow-hidden">
+      <div className="absolute inset-0 bg-gradient-to-b from-sky-300 via-sky-200 to-blue-100 dark:from-black dark:via-slate-950 dark:to-black overflow-hidden">
         {/* Whole-hero theme wash */}
         <div className="absolute inset-0 dark:hidden opacity-50 bg-[radial-gradient(circle_at_50%_18%,rgba(255,255,255,0.8)_0%,rgba(191,219,254,0.35)_28%,transparent_62%)]"></div>
-        <div className="absolute inset-0 hidden dark:block opacity-80 bg-[radial-gradient(circle_at_52%_18%,rgba(148,163,184,0.22)_0%,rgba(30,41,59,0.48)_34%,transparent_68%)]"></div>
 
         {/* Dark mode: stars */}
         <div className="absolute inset-0 hidden dark:block pointer-events-none">
+          {/* Milky Way Effect */}
+          <div className="absolute inset-0 pointer-events-none overflow-hidden">
+            <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[160%] h-[50%] -rotate-45 opacity-70 blur-[60px]">
+              {/* Core: Yellowish White -> Yellow -> Blue Cloud -> Transparent */}
+              <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,rgba(255,253,230,0.25)_0%,rgba(255,220,150,0.15)_20%,rgba(60,100,220,0.15)_45%,transparent_70%)]"></div>
+              {/* Extra Glow Layer */}
+              <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,rgba(255,255,255,0.1)_0%,transparent_50%)] mix-blend-screen"></div>
+            </div>
+          </div>
+          <ShootingStars />
           {heroStars.map((star, index) => (
             <span
               key={`hero-star-${index}`}
@@ -267,21 +377,20 @@ const Hero = () => {
           <div className="mb-8 inline-block">
             <div className="relative w-40 h-40 sm:w-48 sm:h-48 mx-auto">
               {/* Sun / Moon aura */}
-              <div className="absolute -inset-6 rounded-full bg-amber-300/55 blur-2xl hero-sun-glow dark:hidden"></div>
-              <div className="absolute hidden dark:block -inset-4 rounded-full bg-slate-100/10 blur-xl"></div>
-              <div className="absolute hidden dark:block inset-[-18%] rounded-full border border-slate-200/30"></div>
-              {/* Big ring */}
-              <div className="absolute inset-0 rounded-full border-2 border-amber-300/65 dark:border-slate-600/85 shadow-[0_0_45px_rgba(251,191,36,0.38)] dark:shadow-[0_0_30px_rgba(148,163,184,0.25)]"></div>
-              {/* Orbiting planets (solar-system inspired colors) */}
-              <div className="absolute inset-0">
-                <div className="absolute left-1/2 top-1/2 w-3.5 h-3.5 sm:w-4 sm:h-4 rounded-full bg-orange-300/90 shadow-[0_0_8px_rgba(251,191,36,0.55)] animate-planet-orbit"></div>
-                <div className="absolute left-1/2 top-1/2 w-2.5 h-2.5 sm:w-3 sm:h-3 rounded-full bg-blue-500/85 ring-1 ring-emerald-300/80 shadow-md animate-planet-orbit-slow"></div>
-                <div className="absolute left-1/2 top-1/2 w-2 h-2 sm:w-2.5 sm:h-2.5 rounded-full bg-rose-400/90 shadow-[0_0_8px_rgba(251,113,133,0.45)] animate-planet-orbit-sm"></div>
+              <div className="absolute inset-0 rounded-full bg-gradient-to-br from-amber-300 to-orange-400 blur-xl opacity-50 dark:hidden"></div>
+              <div className="absolute -inset-10 rounded-full bg-amber-300/30 blur-3xl dark:hidden hero-sun-glow"></div>
+              
+              <div className="absolute inset-0 rounded-full bg-gradient-to-br from-blue-100 to-slate-200 blur-xl opacity-20 hidden dark:block"></div>
+              <div className="absolute -inset-10 rounded-full bg-blue-100/10 blur-3xl hidden dark:block"></div>
+              
+              {/* Solar System Layer (Only visible in Light Mode) */}
+              <div className="absolute inset-0 flex items-center justify-center dark:hidden">
+                <SolarSystem />
               </div>
               {/* Profile Image */}
               <div
                 onClick={handleSecretClick}
-                className="absolute inset-3 sm:inset-4 rounded-full overflow-hidden border-4 border-white dark:border-slate-800 shadow-2xl backdrop-blur-sm bg-white/30 dark:bg-slate-900/30 p-1 transform hover:scale-105 transition-transform duration-300 cursor-pointer"
+                className="absolute inset-3 sm:inset-4 rounded-full overflow-hidden border-4 border-amber-400 dark:border-slate-200 shadow-2xl transform hover:scale-105 transition-transform duration-300 cursor-pointer"
                 title="Secret"
               >
                 <img
@@ -289,10 +398,6 @@ const Hero = () => {
                   alt={personalInfo.name}
                   className="w-full h-full object-cover rounded-full dark:grayscale dark:brightness-95 dark:contrast-125"
                 />
-              </div>
-              {/* Pulse dot */}
-              <div className="absolute -bottom-1 right-6 sm:right-8 w-10 h-10 sm:w-12 sm:h-12 bg-gradient-to-r from-blue-600 to-teal-600 rounded-full flex items-center justify-center shadow-lg animate-pulse">
-                <div className="w-3 h-3 bg-white rounded-full"></div>
               </div>
             </div>
           </div>

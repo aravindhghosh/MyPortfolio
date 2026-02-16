@@ -25,6 +25,10 @@ export const personalInfo = {
   location: "Your City, Country", // Your location
   linkedin: "https://linkedin.com/in/yourprofile",  // Your LinkedIn
   github: "https://github.com/yourusername",        // Your GitHub
+  twitter: "https://twitter.com/yourhandle",        // Your Twitter (Optional)
+  instagram: "https://instagram.com/yourhandle",    // Your Instagram (Optional)
+  youtube: "https://youtube.com/yourchannel",       // Your YouTube (Optional)
+  resumeUrl: "/resume.pdf",       // Link to your resume (in public folder)
   profileImage: "image-url-here"  // Your profile photo URL
 };
 ```
