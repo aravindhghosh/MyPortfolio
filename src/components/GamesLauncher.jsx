@@ -449,17 +449,19 @@ const TwentyFortyEight = () => {
     if (!hasEmpty && !canMerge()) setLost(true);
   }, [grid]);
 
+  const swipeHandlers = useSwipeControls((direction) => {
+    if (direction === "up") move("up");
+    if (direction === "down") move("down");
+    if (direction === "left") move("left");
+    if (direction === "right") move("right");
+  });
+
   return (
     <div className="space-y-4">
       <div className="text-slate-700 dark:text-slate-300">Score: {score}</div>
       <div
         className="grid grid-cols-4 gap-2 max-w-xs touch-none"
-        {...useSwipeControls((direction) => {
-          if (direction === "up") move("up");
-          if (direction === "down") move("down");
-          if (direction === "left") move("left");
-          if (direction === "right") move("right");
-        })}
+        {...swipeHandlers}
       >
         {grid.flat().map((val, idx) => (
           <div

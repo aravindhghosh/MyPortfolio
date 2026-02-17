@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useState, useEffect, useRef, useMemo } from 'react';
 import { CheckCircle2, ChevronLeft, ChevronRight } from 'lucide-react';
 import * as Icons from 'lucide-react';
 import { about, experience } from '../data/portfolioData';
@@ -85,7 +85,7 @@ const About = () => {
     setIsPaused(false);
   };
 
-  const experienceYears = (() => {
+  const experienceYears = useMemo(() => {
     const monthMap = {
       january: 0, february: 1, march: 2, april: 3, may: 4, june: 5,
       july: 6, august: 7, september: 8, october: 9, november: 10, december: 11
@@ -116,7 +116,7 @@ const About = () => {
     const years = Math.floor(totalMonths / 12);
     const months = totalMonths % 12;
     return months === 0 ? `${years}` : `${years}y ${months}m`;
-  })();
+  }, []);
 
   const renderInterestGraphic = (interest) => {
     switch (interest.graphic) {

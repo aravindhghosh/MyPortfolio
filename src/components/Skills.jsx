@@ -1,14 +1,16 @@
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useState, useEffect, useRef, useMemo } from 'react';
 import { skills } from '../data/portfolioData';
 import * as Icons from 'lucide-react';
 import { ChevronLeft, ChevronRight } from 'lucide-react';
 
 const SkillsModal = ({ isOpen, onClose, skills }) => {
-  if (!isOpen) return null;
+  const uniqueSkills = useMemo(() => {
+    const allSkills = Object.values(skills).flatMap((category) => category.skills);
+    // Remove duplicates based on name
+    return Array.from(new Map(allSkills.map(item => [item.name, item])).values());
+  }, [skills]);
 
-  const allSkills = Object.values(skills).flatMap((category) => category.skills);
-  // Remove duplicates based on name
-  const uniqueSkills = Array.from(new Map(allSkills.map(item => [item.name, item])).values());
+  if (!isOpen) return null;
 
   return (
     <div 

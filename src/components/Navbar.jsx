@@ -3,20 +3,8 @@ import { Menu, X, Sun, Moon, Download } from 'lucide-react';
 import { personalInfo } from '../data/portfolioData';
 import { useTheme } from '../hooks/useTheme';
 
-const Navbar = () => {
-  const [isScrolled, setIsScrolled] = useState(false);
-  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+const Clock = () => {
   const [now, setNow] = useState(() => new Date());
-  const { theme, toggle } = useTheme();
-  const navRef = useRef(null);
-
-  useEffect(() => {
-    const handleScroll = () => {
-      setIsScrolled(window.scrollY > 50);
-    };
-    window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
-  }, []);
 
   useEffect(() => {
     const timer = setInterval(() => {
@@ -24,6 +12,44 @@ const Navbar = () => {
     }, 1000);
 
     return () => clearInterval(timer);
+  }, []);
+
+  const timeText = now.toLocaleTimeString(undefined, {
+    hour: "2-digit",
+    minute: "2-digit",
+    second: "2-digit",
+    hour12: true,
+  });
+
+  const dateText = now.toLocaleDateString(undefined, {
+    weekday: "short",
+    year: "numeric",
+    month: "short",
+    day: "2-digit",
+  });
+
+  return (
+    <div className="flex flex-col items-center px-2 sm:px-3 py-1 rounded-lg bg-white/70 dark:bg-slate-900/70 border border-gray-200 dark:border-slate-700 backdrop-blur-sm leading-tight">
+      <span className="text-[10px] sm:text-xs font-semibold text-gray-800 dark:text-slate-100 tabular-nums">{timeText}</span>
+      <span className="text-[9px] sm:text-[11px] text-gray-600 dark:text-slate-300 text-center leading-tight whitespace-nowrap">
+        {dateText}
+      </span>
+    </div>
+  );
+};
+
+const Navbar = () => {
+  const [isScrolled, setIsScrolled] = useState(false);
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const { theme, toggle } = useTheme();
+  const navRef = useRef(null);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      setIsScrolled(window.scrollY > 50);
+    };
+    window.addEventListener('scroll', handleScroll, { passive: true });
+    return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
   useEffect(() => {
@@ -75,20 +101,6 @@ const Navbar = () => {
     (theme === "system" &&
       typeof window !== "undefined" &&
       window.matchMedia("(prefers-color-scheme: dark)").matches);
-
-  const timeText = now.toLocaleTimeString(undefined, {
-    hour: "2-digit",
-    minute: "2-digit",
-    second: "2-digit",
-    hour12: true,
-  });
-
-  const dateText = now.toLocaleDateString(undefined, {
-    weekday: "short",
-    year: "numeric",
-    month: "short",
-    day: "2-digit",
-  });
 
   const firstName = (personalInfo.name.trim().split(/\s+/)[0] || "").toUpperCase();
 
@@ -148,12 +160,7 @@ const Navbar = () => {
 
           {/* Right Actions */}
           <div className="flex items-center gap-1 sm:gap-2">
-            <div className="flex flex-col items-center px-2 sm:px-3 py-1 rounded-lg bg-white/70 dark:bg-slate-900/70 border border-gray-200 dark:border-slate-700 backdrop-blur-sm leading-tight">
-              <span className="text-[10px] sm:text-xs font-semibold text-gray-800 dark:text-slate-100 tabular-nums">{timeText}</span>
-              <span className="text-[9px] sm:text-[11px] text-gray-600 dark:text-slate-300 text-center leading-tight whitespace-nowrap">
-                {dateText}
-              </span>
-            </div>
+            <Clock />
 
             {personalInfo.resumeUrl && (
               <a

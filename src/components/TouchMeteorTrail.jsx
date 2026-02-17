@@ -18,6 +18,7 @@ const TouchMeteorTrail = () => {
       sparkles: [],
       sparkleAt: 0,
       rafId: 0,
+      isRunning: false,
     };
 
     const resize = () => {
@@ -31,7 +32,7 @@ const TouchMeteorTrail = () => {
 
     const pushTrailPoint = (x, y, life = 1) => {
       state.trail.push({ x, y, life });
-      if (state.trail.length > 90) state.trail.splice(0, state.trail.length - 90);
+      if (state.trail.length > 40) state.trail.splice(0, state.trail.length - 40);
     };
 
     const pushInterpolated = (x, y) => {
@@ -46,7 +47,7 @@ const TouchMeteorTrail = () => {
       const dx = x - last.x;
       const dy = y - last.y;
       const distance = Math.hypot(dx, dy);
-      const steps = Math.min(12, Math.max(1, Math.floor(distance / 6)));
+      const steps = Math.min(5, Math.max(1, Math.floor(distance / 10)));
       for (let i = 1; i <= steps; i += 1) {
         const t = i / steps;
         pushTrailPoint(last.x + dx * t, last.y + dy * t);
@@ -55,19 +56,26 @@ const TouchMeteorTrail = () => {
       state.head = { x, y };
     };
 
+    const startLoop = () => {
+      if (!state.isRunning) {
+        state.isRunning = true;
+        draw();
+      }
+    };
+
     const addSparkle = (x, y) => {
       const now = performance.now();
-      if (now - state.sparkleAt < 22) return;
+      if (now - state.sparkleAt < 16) return;
       state.sparkleAt = now;
       state.sparkles.push({
-        x: x + (Math.random() - 0.5) * 18,
-        y: y + (Math.random() - 0.5) * 18,
-        vx: (Math.random() - 0.5) * 0.9,
-        vy: (Math.random() - 0.5) * 0.9,
-        size: 1.5 + Math.random() * 2.8,
+        x: x + (Math.random() - 0.5) * 24,
+        y: y + (Math.random() - 0.5) * 24,
+        vx: (Math.random() - 0.5) * 2,
+        vy: (Math.random() - 0.5) * 2,
+        size: 1 + Math.random() * 3,
         life: 1,
       });
-      if (state.sparkles.length > 70) state.sparkles.splice(0, state.sparkles.length - 70);
+      if (state.sparkles.length > 80) state.sparkles.splice(0, state.sparkles.length - 80);
     };
 
     const onTouchStart = (event) => {
@@ -78,6 +86,7 @@ const TouchMeteorTrail = () => {
       state.lastPoint = { x: touch.clientX, y: touch.clientY };
       state.head = { x: touch.clientX, y: touch.clientY };
       pushTrailPoint(touch.clientX, touch.clientY);
+      startLoop();
     };
 
     const onTouchMove = (event) => {
@@ -117,22 +126,18 @@ const TouchMeteorTrail = () => {
       ctx.clearRect(0, 0, window.innerWidth, window.innerHeight);
 
       if (state.isDark) {
+        ctx.globalCompositeOperation = "lighter";
         for (let i = 0; i < state.trail.length; i += 1) {
           const p = state.trail[i];
-          p.life -= 0.022;
+          p.life -= 0.04;
           if (p.life <= 0) continue;
           const t = i / Math.max(1, state.trail.length - 1);
-          const radius = 1.2 + t * 6.8;
-          const alpha = Math.max(0.04, p.life * (0.18 + t * 0.62));
+          const radius = 1 + t * 6;
+          const alpha = p.life * (0.2 + t * 0.6);
 
-          const g = ctx.createRadialGradient(p.x, p.y, 0, p.x, p.y, radius * 2.2);
-          g.addColorStop(0, `rgba(255,255,255,${alpha})`);
-          g.addColorStop(0.45, `rgba(125,211,252,${alpha * 0.85})`);
-          g.addColorStop(0.8, `rgba(253,224,71,${alpha * 0.35})`);
-          g.addColorStop(1, "rgba(253,224,71,0)");
-          ctx.fillStyle = g;
+          ctx.fillStyle = `rgba(255, ${Math.floor(220 + t * 35)}, ${Math.floor(180 + t * 75)}, ${alpha})`;
           ctx.beginPath();
-          ctx.arc(p.x, p.y, radius * 2.2, 0, Math.PI * 2);
+          ctx.arc(p.x, p.y, radius * 2, 0, Math.PI * 2);
           ctx.fill();
         }
         state.trail = state.trail.filter((p) => p.life > 0);
@@ -141,38 +146,40 @@ const TouchMeteorTrail = () => {
           const s = state.sparkles[i];
           s.x += s.vx;
           s.y += s.vy;
-          s.life -= 0.055;
+          s.life -= 0.04;
           if (s.life <= 0) continue;
-          const alpha = s.life;
-          ctx.fillStyle = `rgba(255,255,255,${alpha})`;
-          ctx.shadowColor = "rgba(125,211,252,0.8)";
-          ctx.shadowBlur = 12;
+          const alpha = s.life * (0.5 + Math.random() * 0.5);
+          ctx.fillStyle = `rgba(255, 255, ${200 + Math.random() * 55}, ${alpha})`;
           ctx.beginPath();
           ctx.arc(s.x, s.y, s.size, 0, Math.PI * 2);
           ctx.fill();
-          ctx.shadowBlur = 0;
         }
         state.sparkles = state.sparkles.filter((s) => s.life > 0);
 
         if (state.head) {
           const { x, y } = state.head;
-          const rg = ctx.createRadialGradient(x, y, 1, x, y, 20);
+          const rg = ctx.createRadialGradient(x, y, 1, x, y, 25);
           rg.addColorStop(0, "rgba(255,255,255,1)");
-          rg.addColorStop(0.35, "rgba(253,224,71,0.95)");
-          rg.addColorStop(0.7, "rgba(125,211,252,0.45)");
+          rg.addColorStop(0.3, "rgba(255,240,150,0.8)");
+          rg.addColorStop(0.6, "rgba(125,211,252,0.4)");
           rg.addColorStop(1, "rgba(125,211,252,0)");
           ctx.fillStyle = rg;
           ctx.beginPath();
-          ctx.arc(x, y, 20, 0, Math.PI * 2);
+          ctx.arc(x, y, 25, 0, Math.PI * 2);
           ctx.fill();
         }
+        ctx.globalCompositeOperation = "source-over";
       }
 
-      state.rafId = requestAnimationFrame(draw);
+      if (state.isDark && (state.trail.length > 0 || state.sparkles.length > 0 || state.activeTouchId !== null)) {
+        state.rafId = requestAnimationFrame(draw);
+      } else {
+        state.isRunning = false;
+        ctx.clearRect(0, 0, window.innerWidth, window.innerHeight);
+      }
     };
 
     resize();
-    draw();
 
     window.addEventListener("resize", resize);
     window.addEventListener("touchstart", onTouchStart, { passive: true });
