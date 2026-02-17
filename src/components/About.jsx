@@ -403,12 +403,50 @@ const About = () => {
 
         <div className="grid md:grid-cols-2 gap-10 md:gap-12 items-center mb-16">
           {/* Image Side */}
-          <div className="relative pb-4 md:pb-0">
+          <div className="relative">
             <div className="relative rounded-2xl overflow-hidden shadow-2xl transform hover:scale-105 transition-transform duration-300 bg-slate-950 border border-slate-800 aspect-square sm:aspect-[4/3] flex flex-col items-center justify-center p-8 group/graphic">
               <style>{`
                 @keyframes twinkle {
                   0%, 100% { opacity: 0.3; transform: scale(0.8); }
                   50% { opacity: 1; transform: scale(1.2); }
+                }
+                @keyframes node-pulse {
+                  0%, 16.66% { 
+                    border-color: var(--active-color);
+                    background-color: rgb(30 41 59);
+                  }
+                  16.67%, 100% {
+                    border-color: var(--inactive-color);
+                    background-color: rgb(15 23 42);
+                  }
+                }
+                @keyframes glow-pulse {
+                  0%, 16.66% { 
+                    transform: scale(1.5);
+                    opacity: 0.5;
+                    background-color: var(--active-color);
+                    box-shadow: 0 0 20px var(--active-shadow);
+                  }
+                  16.67%, 100% {
+                    transform: scale(1);
+                    opacity: 0;
+                  }
+                }
+                @keyframes icon-pulse {
+                  0%, 16.66% { color: var(--active-text); }
+                  16.67%, 100% { color: var(--inactive-text); }
+                }
+                @keyframes label-pulse {
+                  0%, 16.66% {
+                    color: var(--active-label-text);
+                    background-color: var(--active-label-bg);
+                    border-color: var(--active-label-border);
+                  }
+                  16.67%, 100% {
+                    color: var(--inactive-label-text);
+                    background-color: var(--inactive-label-bg);
+                    border-color: var(--inactive-label-border);
+                  }
                 }
               `}</style>
 
@@ -455,69 +493,72 @@ const About = () => {
                     strokeDasharray="3 3" 
                   />
 
-                  {/* Moving Particles */}
-                  <circle r="1" fill="#60a5fa">
-                    <animateMotion dur="12s" repeatCount="indefinite" path="M 50 15 L 80.3 32.5 L 80.3 67.5 L 50 85 L 19.7 67.5 L 19.7 32.5 Z" />
-                  </circle>
-                  <circle r="1" fill="#a78bfa">
-                    <animateMotion dur="12s" repeatCount="indefinite" begin="2s" path="M 50 15 L 80.3 32.5 L 80.3 67.5 L 50 85 L 19.7 67.5 L 19.7 32.5 Z" />
-                  </circle>
-                  <circle r="1" fill="#34d399">
-                    <animateMotion dur="12s" repeatCount="indefinite" begin="4s" path="M 50 15 L 80.3 32.5 L 80.3 67.5 L 50 85 L 19.7 67.5 L 19.7 32.5 Z" />
+                  {/* Moving Particle */}
+                  <circle r="1.5" fill="#60a5fa" className="drop-shadow-[0_0_4px_rgba(255,255,255,0.8)]">
+                    <animateMotion dur="12s" repeatCount="indefinite" path="M 50 15 L 80.3 32.5 L 80.3 67.5 L 50 85 L 19.7 67.5 L 19.7 32.5 Z" begin="0s" />
+                    <animate attributeName="fill" values="#60a5fa;#818cf8;#a78bfa;#f472b6;#fb923c;#34d399" dur="12s" repeatCount="indefinite" calcMode="discrete" begin="0s" />
                   </circle>
                 </svg>
 
-                {/* Node 1: Requirement (Top) */}
-                <div className="absolute top-[15%] left-[50%] -translate-x-1/2 -translate-y-1/2 flex flex-col items-center gap-1 z-10">
-                   <div className="w-10 h-10 bg-slate-900 border border-blue-500/50 rounded-full flex items-center justify-center shadow-[0_0_15px_rgba(59,130,246,0.3)]">
-                      <Icons.FileText size={18} className="text-blue-400" />
-                   </div>
-                   <span className="text-[8px] font-mono text-blue-300 font-bold tracking-wider bg-slate-900/80 px-1 rounded border border-blue-500/20">REQ</span>
-                </div>
-
-                {/* Node 2: Plan (Top Right) */}
-                <div className="absolute top-[32.5%] left-[80.3%] -translate-x-1/2 -translate-y-1/2 flex flex-col items-center gap-1 z-10">
-                   <div className="w-10 h-10 bg-slate-900 border border-indigo-500/50 rounded-full flex items-center justify-center shadow-[0_0_15px_rgba(99,102,241,0.3)]">
-                      <Icons.Calendar size={18} className="text-indigo-400" />
-                   </div>
-                   <span className="text-[8px] font-mono text-indigo-300 font-bold tracking-wider bg-slate-900/80 px-1 rounded border border-indigo-500/20">PLAN</span>
-                </div>
-
-                {/* Node 3: Develop (Bottom Right) */}
-                <div className="absolute top-[67.5%] left-[80.3%] -translate-x-1/2 -translate-y-1/2 flex flex-col items-center gap-1 z-10">
-                   <div className="w-10 h-10 bg-slate-900 border border-purple-500/50 rounded-full flex items-center justify-center shadow-[0_0_15px_rgba(168,85,247,0.3)]">
-                      <Icons.Code2 size={18} className="text-purple-400" />
-                   </div>
-                   <span className="text-[8px] font-mono text-purple-300 font-bold tracking-wider bg-slate-900/80 px-1 rounded border border-purple-500/20">DEV</span>
-                </div>
-
-                {/* Node 4: Test (Bottom) */}
-                <div className="absolute top-[85%] left-[50%] -translate-x-1/2 -translate-y-1/2 flex flex-col items-center gap-1 z-10">
-                   <div className="w-10 h-10 bg-slate-900 border border-pink-500/50 rounded-full flex items-center justify-center shadow-[0_0_15px_rgba(236,72,153,0.3)]">
-                      <Icons.Bug size={18} className="text-pink-400" />
-                   </div>
-                   <span className="text-[8px] font-mono text-pink-300 font-bold tracking-wider bg-slate-900/80 px-1 rounded border border-pink-500/20">TEST</span>
-                </div>
-
-                {/* Node 5: Automate (Bottom Left) */}
-                <div className="absolute top-[67.5%] left-[19.7%] -translate-x-1/2 -translate-y-1/2 flex flex-col items-center gap-1 z-10">
-                   <div className="w-10 h-10 bg-slate-900 border border-orange-500/50 rounded-full flex items-center justify-center shadow-[0_0_15px_rgba(249,115,22,0.3)]">
-                      <Icons.Settings size={18} className="text-orange-400 animate-[spin_4s_linear_infinite]" />
-                   </div>
-                   <span className="text-[8px] font-mono text-orange-300 font-bold tracking-wider bg-slate-900/80 px-1 rounded border border-orange-500/20">AUTO</span>
-                </div>
-
-                {/* Node 6: Deploy (Top Left) */}
-                <div className="absolute top-[32.5%] left-[19.7%] -translate-x-1/2 -translate-y-1/2 flex flex-col items-center gap-1 z-10">
-                   <div className="w-10 h-10 bg-slate-900 border border-emerald-500/50 rounded-full flex items-center justify-center shadow-[0_0_15px_rgba(16,185,129,0.3)]">
-                      <Icons.Rocket size={18} className="text-emerald-400" />
-                   </div>
-                   <span className="text-[8px] font-mono text-emerald-300 font-bold tracking-wider bg-slate-900/80 px-1 rounded border border-emerald-500/20">DEPLOY</span>
-                </div>
+                {[
+                  { id: 'REQ', label: 'REQ', icon: Icons.FileText, color: '#60a5fa', rgb: '59, 130, 246', pos: { top: '15%', left: '50%' } },
+                  { id: 'PLAN', label: 'PLAN', icon: Icons.Calendar, color: '#818cf8', rgb: '99, 102, 241', pos: { top: '32.5%', left: '80.3%' } },
+                  { id: 'DEV', label: 'DEV', icon: Icons.Code2, color: '#a78bfa', rgb: '168, 85, 247', pos: { top: '67.5%', left: '80.3%' } },
+                  { id: 'TEST', label: 'TEST', icon: Icons.Bug, color: '#f472b6', rgb: '236, 72, 153', pos: { top: '85%', left: '50%' } },
+                  { id: 'AUTO', label: 'AUTO', icon: Icons.Settings, color: '#fb923c', rgb: '249, 115, 22', pos: { top: '67.5%', left: '19.7%' }, iconClass: 'animate-[spin_4s_linear_infinite]' },
+                  { id: 'DEPLOY', label: 'DEPLOY', icon: Icons.Rocket, color: '#34d399', rgb: '16, 185, 129', pos: { top: '32.5%', left: '19.7%' } },
+                ].map((node, index) => (
+                  <div 
+                    key={node.id}
+                    className="absolute -translate-x-1/2 -translate-y-1/2 flex flex-col items-center gap-1 z-10"
+                    style={{ 
+                      top: node.pos.top, 
+                      left: node.pos.left,
+                    }}
+                  >
+                     <div 
+                       className="w-10 h-10 rounded-full flex items-center justify-center border"
+                       style={{
+                         animation: `node-pulse 12s linear infinite`,
+                         animationDelay: `-${12 - index * 2}s`,
+                         '--active-color': node.color,
+                         '--active-shadow': `rgba(${node.rgb}, 0.8)`,
+                         '--inactive-color': `rgba(${node.rgb}, 0.3)`,
+                         '--inactive-shadow': `rgba(${node.rgb}, 0.1)`,
+                       }}
+                     >
+                        <node.icon 
+                          size={18} 
+                          className={node.iconClass || ''}
+                          style={{
+                            animation: `icon-pulse 12s linear infinite`,
+                            animationDelay: `-${12 - index * 2}s`,
+                            '--active-text': '#e2e8f0', // slate-200
+                            '--inactive-text': `rgba(${node.rgb}, 0.7)`,
+                          }}
+                        />
+                     </div>
+                     <span 
+                       className="text-[8px] font-mono font-bold tracking-wider px-1 rounded border"
+                       style={{
+                         animation: `label-pulse 12s linear infinite`,
+                         animationDelay: `-${12 - index * 2}s`,
+                         '--active-label-text': '#e2e8f0',
+                         '--active-label-bg': `rgba(${node.rgb}, 0.5)`,
+                         '--active-label-border': `rgba(${node.rgb}, 0.5)`,
+                         '--inactive-label-text': `rgba(${node.rgb}, 0.7)`,
+                         '--inactive-label-bg': 'rgba(15, 23, 42, 0.8)',
+                         '--inactive-label-border': `rgba(${node.rgb}, 0.2)`,
+                       }}
+                     >
+                       {node.label}
+                     </span>
+                  </div>
+                ))}
               </div>
             </div>
             {/* Floating Card */}
-            <div className="relative md:absolute md:-bottom-6 md:-right-6 mt-4 md:mt-0 bg-white/90 dark:bg-slate-900/80 backdrop-blur-md rounded-xl p-4 sm:p-6 shadow-xl border border-gray-200 dark:border-slate-700 max-w-[220px] ml-auto">
+            <div className="absolute -bottom-6 -right-4 sm:-right-6 bg-white/90 dark:bg-slate-900/80 backdrop-blur-md rounded-xl p-4 sm:p-6 shadow-xl border border-gray-200 dark:border-slate-700 max-w-[220px] ml-auto">
               <div className="text-center">
                 <div className="text-3xl sm:text-4xl font-bold text-blue-600 tracking-tight">{experienceYears}</div>
                 <div className="text-[11px] uppercase tracking-widest text-gray-500 dark:text-slate-400 mt-2">Experience</div>
