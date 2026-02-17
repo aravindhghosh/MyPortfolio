@@ -404,14 +404,117 @@ const About = () => {
         <div className="grid md:grid-cols-2 gap-10 md:gap-12 items-center mb-16">
           {/* Image Side */}
           <div className="relative pb-4 md:pb-0">
-            <div className="relative rounded-2xl overflow-hidden shadow-2xl transform hover:scale-105 transition-transform duration-300">
-              <img
-                src="https://images.unsplash.com/photo-1604781109199-ced99b89b0f6?w=800"
-                alt="Coding workspace"
-                className="w-full h-auto"
-              />
-              {/* Glass Overlay */}
-              <div className="absolute inset-0 bg-gradient-to-t from-blue-600/20 to-transparent"></div>
+            <div className="relative rounded-2xl overflow-hidden shadow-2xl transform hover:scale-105 transition-transform duration-300 bg-slate-950 border border-slate-800 aspect-square sm:aspect-[4/3] flex flex-col items-center justify-center p-8 group/graphic">
+              <style>{`
+                @keyframes twinkle {
+                  0%, 100% { opacity: 0.3; transform: scale(0.8); }
+                  50% { opacity: 1; transform: scale(1.2); }
+                }
+              `}</style>
+
+              {/* Space Background */}
+              <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-[#1a2035] via-[#0B1120] to-black"></div>
+              
+              {/* Stars */}
+              <div className="absolute inset-0 overflow-hidden">
+                {[...Array(30)].map((_, i) => (
+                  <div 
+                    key={i}
+                    className="absolute bg-white rounded-full"
+                    style={{
+                      top: `${Math.random() * 100}%`,
+                      left: `${Math.random() * 100}%`,
+                      width: `${Math.random() * 2 + 1}px`,
+                      height: `${Math.random() * 2 + 1}px`,
+                      opacity: Math.random() * 0.7 + 0.3,
+                      animation: `twinkle ${Math.random() * 3 + 2}s infinite ${Math.random() * 2}s`
+                    }}
+                  ></div>
+                ))}
+              </div>
+
+              {/* Workflow System */}
+              <div className="relative w-full h-full max-w-[320px] max-h-[320px] flex items-center justify-center">
+                
+                {/* Connecting Lines (SVG) */}
+                <svg className="absolute inset-0 w-full h-full pointer-events-none" viewBox="0 0 100 100">
+                  <defs>
+                    <linearGradient id="lineGradient" x1="0%" y1="0%" x2="100%" y2="0%">
+                      <stop offset="0%" stopColor="#3b82f6" stopOpacity="0.2" />
+                      <stop offset="50%" stopColor="#8b5cf6" stopOpacity="0.5" />
+                      <stop offset="100%" stopColor="#10b981" stopOpacity="0.2" />
+                    </linearGradient>
+                  </defs>
+                  
+                  {/* Hexagon Path */}
+                  <path 
+                    d="M 50 15 L 80.3 32.5 L 80.3 67.5 L 50 85 L 19.7 67.5 L 19.7 32.5 Z" 
+                    stroke="url(#lineGradient)" 
+                    strokeWidth="0.5" 
+                    fill="none" 
+                    strokeDasharray="3 3" 
+                  />
+
+                  {/* Moving Particles */}
+                  <circle r="1" fill="#60a5fa">
+                    <animateMotion dur="12s" repeatCount="indefinite" path="M 50 15 L 80.3 32.5 L 80.3 67.5 L 50 85 L 19.7 67.5 L 19.7 32.5 Z" />
+                  </circle>
+                  <circle r="1" fill="#a78bfa">
+                    <animateMotion dur="12s" repeatCount="indefinite" begin="2s" path="M 50 15 L 80.3 32.5 L 80.3 67.5 L 50 85 L 19.7 67.5 L 19.7 32.5 Z" />
+                  </circle>
+                  <circle r="1" fill="#34d399">
+                    <animateMotion dur="12s" repeatCount="indefinite" begin="4s" path="M 50 15 L 80.3 32.5 L 80.3 67.5 L 50 85 L 19.7 67.5 L 19.7 32.5 Z" />
+                  </circle>
+                </svg>
+
+                {/* Node 1: Requirement (Top) */}
+                <div className="absolute top-[15%] left-[50%] -translate-x-1/2 -translate-y-1/2 flex flex-col items-center gap-1 z-10">
+                   <div className="w-10 h-10 bg-slate-900 border border-blue-500/50 rounded-full flex items-center justify-center shadow-[0_0_15px_rgba(59,130,246,0.3)]">
+                      <Icons.FileText size={18} className="text-blue-400" />
+                   </div>
+                   <span className="text-[8px] font-mono text-blue-300 font-bold tracking-wider bg-slate-900/80 px-1 rounded border border-blue-500/20">REQ</span>
+                </div>
+
+                {/* Node 2: Plan (Top Right) */}
+                <div className="absolute top-[32.5%] left-[80.3%] -translate-x-1/2 -translate-y-1/2 flex flex-col items-center gap-1 z-10">
+                   <div className="w-10 h-10 bg-slate-900 border border-indigo-500/50 rounded-full flex items-center justify-center shadow-[0_0_15px_rgba(99,102,241,0.3)]">
+                      <Icons.Calendar size={18} className="text-indigo-400" />
+                   </div>
+                   <span className="text-[8px] font-mono text-indigo-300 font-bold tracking-wider bg-slate-900/80 px-1 rounded border border-indigo-500/20">PLAN</span>
+                </div>
+
+                {/* Node 3: Develop (Bottom Right) */}
+                <div className="absolute top-[67.5%] left-[80.3%] -translate-x-1/2 -translate-y-1/2 flex flex-col items-center gap-1 z-10">
+                   <div className="w-10 h-10 bg-slate-900 border border-purple-500/50 rounded-full flex items-center justify-center shadow-[0_0_15px_rgba(168,85,247,0.3)]">
+                      <Icons.Code2 size={18} className="text-purple-400" />
+                   </div>
+                   <span className="text-[8px] font-mono text-purple-300 font-bold tracking-wider bg-slate-900/80 px-1 rounded border border-purple-500/20">DEV</span>
+                </div>
+
+                {/* Node 4: Test (Bottom) */}
+                <div className="absolute top-[85%] left-[50%] -translate-x-1/2 -translate-y-1/2 flex flex-col items-center gap-1 z-10">
+                   <div className="w-10 h-10 bg-slate-900 border border-pink-500/50 rounded-full flex items-center justify-center shadow-[0_0_15px_rgba(236,72,153,0.3)]">
+                      <Icons.Bug size={18} className="text-pink-400" />
+                   </div>
+                   <span className="text-[8px] font-mono text-pink-300 font-bold tracking-wider bg-slate-900/80 px-1 rounded border border-pink-500/20">TEST</span>
+                </div>
+
+                {/* Node 5: Automate (Bottom Left) */}
+                <div className="absolute top-[67.5%] left-[19.7%] -translate-x-1/2 -translate-y-1/2 flex flex-col items-center gap-1 z-10">
+                   <div className="w-10 h-10 bg-slate-900 border border-orange-500/50 rounded-full flex items-center justify-center shadow-[0_0_15px_rgba(249,115,22,0.3)]">
+                      <Icons.Settings size={18} className="text-orange-400 animate-[spin_4s_linear_infinite]" />
+                   </div>
+                   <span className="text-[8px] font-mono text-orange-300 font-bold tracking-wider bg-slate-900/80 px-1 rounded border border-orange-500/20">AUTO</span>
+                </div>
+
+                {/* Node 6: Deploy (Top Left) */}
+                <div className="absolute top-[32.5%] left-[19.7%] -translate-x-1/2 -translate-y-1/2 flex flex-col items-center gap-1 z-10">
+                   <div className="w-10 h-10 bg-slate-900 border border-emerald-500/50 rounded-full flex items-center justify-center shadow-[0_0_15px_rgba(16,185,129,0.3)]">
+                      <Icons.Rocket size={18} className="text-emerald-400" />
+                   </div>
+                   <span className="text-[8px] font-mono text-emerald-300 font-bold tracking-wider bg-slate-900/80 px-1 rounded border border-emerald-500/20">DEPLOY</span>
+                </div>
+              </div>
             </div>
             {/* Floating Card */}
             <div className="relative md:absolute md:-bottom-6 md:-right-6 mt-4 md:mt-0 bg-white/90 dark:bg-slate-900/80 backdrop-blur-md rounded-xl p-4 sm:p-6 shadow-xl border border-gray-200 dark:border-slate-700 max-w-[220px] ml-auto">

@@ -35,6 +35,17 @@ const SocialMedia = () => {
       ),
       gradient: 'from-blue-700 to-cyan-600',
       description: 'Professional network and career updates'
+    },
+    {
+      name: 'YouTube',
+      url: personalInfo.youtube,
+      icon: (
+        <svg className="w-12 h-12" fill="currentColor" viewBox="0 0 24 24">
+          <path d="M23.498 6.186a2.99 2.99 0 0 0-2.104-2.115C19.497 3.5 12 3.5 12 3.5s-7.497 0-9.394.571A2.99 2.99 0 0 0 .502 6.686C0 8.593 0 12 0 12s0 3.407.502 5.314a2.99 2.99 0 0 0 2.104 2.115C4.503 20 12 20 12 20s7.497 0 9.394-.571a2.99 2.99 0 0 0 2.104-2.115C24 15.407 24 12 24 12s0-3.407-.502-5.314zM9.545 15.568V8.432L15.818 12l-6.273 3.568z" />
+        </svg>
+      ),
+      gradient: 'from-red-600 to-rose-600',
+      description: 'Tech tutorials and coding sessions'
     }
   ];
 
@@ -53,20 +64,20 @@ const SocialMedia = () => {
         </div>
 
         {/* Social Links */}
-        <div className="grid md:grid-cols-3 gap-8 max-w-7xl mx-auto">
+        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8 max-w-7xl mx-auto">
           {socialLinks.map((social, index) => (
             <a
               key={index}
               href={social.url}
               target="_blank"
               rel="noopener noreferrer"
-              className="group relative bg-white dark:bg-slate-900 rounded-2xl p-8 shadow-xl border-2 border-gray-200 dark:border-slate-700 hover:border-transparent hover:shadow-2xl transition-all duration-300 transform hover:scale-105 overflow-hidden"
+              className="group relative bg-white dark:bg-slate-900 rounded-2xl p-8 shadow-xl border-2 border-gray-200 dark:border-slate-700 hover:border-transparent hover:shadow-2xl transition-all duration-300 transform hover:scale-105 overflow-hidden flex flex-col"
             >
               {/* Gradient Background on Hover */}
               <div className={`absolute inset-0 bg-gradient-to-r ${social.gradient} opacity-0 group-hover:opacity-100 transition-opacity duration-300`}></div>
 
               {/* Content */}
-              <div className="relative z-10">
+              <div className="relative z-10 flex flex-col flex-1">
                 <div className="flex items-center gap-6 mb-4">
                   {/* Icon */}
                   <div className={`text-gray-700 dark:text-slate-200 group-hover:text-white transition-colors duration-300`}>
@@ -85,7 +96,7 @@ const SocialMedia = () => {
                 </div>
 
                 {/* Arrow Icon */}
-                <div className="flex justify-end">
+                <div className="flex justify-end mt-auto">
                   <svg
                     className="w-6 h-6 text-gray-400 dark:text-slate-400 group-hover:text-white transform group-hover:translate-x-2 transition-all duration-300"
                     fill="none"

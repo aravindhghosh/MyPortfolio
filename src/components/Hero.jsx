@@ -37,7 +37,7 @@ const SolarSystem = () => {
       </div>
 
       {/* Asteroid Belt */}
-      <div className="absolute border-[6px] border-dotted border-gray-500/10 rounded-full w-[460px] h-[460px] animate-spin" style={{ animationDuration: '50s' }}></div>
+      <div className="absolute border-[8px] border-dotted border-slate-500/40 rounded-full w-[460px] h-[460px] animate-spin" style={{ animationDuration: '50s' }}></div>
 
       {/* Jupiter (Orbit 5) */}
       <div className="absolute border border-gray-400/30 rounded-full w-[580px] h-[580px] animate-spin" style={{ animationDuration: '35s' }}>
@@ -62,12 +62,21 @@ const SolarSystem = () => {
       </div>
 
       {/* Pluto (Orbit 9) */}
-      <div className="absolute border border-gray-400/30 rounded-full w-[1120px] h-[1120px] animate-spin" style={{ animationDuration: '90s' }}>
-        <div className="absolute top-1/2 -right-1 w-2 h-2 bg-gray-300 rounded-full -translate-y-1/2 shadow-sm"></div>
+      <div className="absolute flex items-center justify-center" style={{ transform: 'rotate(-17deg)' }}>
+        <div className="relative w-[1120px] h-[1120px]" style={{ transform: 'scaleY(0.85)' }}>
+          <div className="absolute inset-0 border border-gray-400/30 rounded-full"></div>
+          <div className="absolute inset-0 animate-spin" style={{ animationDuration: '90s' }}>
+            <div className="absolute top-1/2 -right-1 w-2 h-2 -translate-y-1/2">
+              <div className="w-full h-full" style={{ animation: 'spin 90s linear infinite reverse' }}>
+                <div className="w-full h-full bg-gray-300 rounded-full shadow-sm" style={{ transform: 'scaleY(1.17)' }}></div>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
 
       {/* Oort Cloud */}
-      <div className="absolute border border-dashed border-gray-500/10 rounded-full w-[1300px] h-[1300px] animate-spin" style={{ animationDuration: '200s' }}></div>
+      <div className="absolute border-2 border-dashed border-slate-400/50 rounded-full w-[1300px] h-[1300px] animate-spin" style={{ animationDuration: '200s' }}></div>
     </div>
   );
 };
@@ -154,7 +163,7 @@ const Hero = () => {
         </div>
       </div> */}
 
-      <div className="absolute inset-0 bg-gradient-to-b from-sky-300 via-sky-200 to-blue-100 dark:from-black dark:via-slate-950 dark:to-black overflow-hidden">
+      <div className="absolute inset-0 bg-gradient-to-b from-sky-400 via-sky-300 to-blue-200 dark:from-black dark:via-slate-950 dark:to-black overflow-hidden">
         {/* Whole-hero theme wash */}
         <div className="absolute inset-0 dark:hidden opacity-50 bg-[radial-gradient(circle_at_50%_18%,rgba(255,255,255,0.8)_0%,rgba(191,219,254,0.35)_28%,transparent_62%)]"></div>
 
