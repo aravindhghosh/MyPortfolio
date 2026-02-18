@@ -98,7 +98,7 @@ const Certifications = () => {
                     <h3 className="text-xl font-bold text-gray-900 dark:text-slate-100 mb-2">
                       {achievement.title}
                     </h3>
-                    <p className="text-gray-700 dark:text-slate-300 leading-relaxed">{achievement.description}</p>
+                    <p className="text-gray-700 dark:text-slate-300 leading-relaxed text-justify">{achievement.description}</p>
                   </div>
                 </div>
               </div>

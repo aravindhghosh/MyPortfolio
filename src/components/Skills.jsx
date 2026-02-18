@@ -316,40 +316,41 @@ const Skills = () => {
             Expertise across multiple domains of modern software development
           </p>
         </div>
+      </div>
 
-        {/* Carousel Container */}
-        <div className="relative group">
-          {/* Navigation Buttons */}
-          <button 
-            onClick={() => scroll('left')}
-            className="absolute left-0 top-1/2 -translate-y-1/2 z-20 p-2 bg-white/80 dark:bg-slate-800/80 rounded-full shadow-lg hover:bg-white dark:hover:bg-slate-800 transition-all backdrop-blur-sm border border-gray-200 dark:border-slate-700 opacity-0 group-hover:opacity-100 duration-300"
-            aria-label="Scroll left"
-          >
-            <ChevronLeft size={24} className="text-gray-800 dark:text-slate-200" />
-          </button>
+      {/* Carousel Container */}
+      <div className="relative group w-full">
+        {/* Navigation Buttons */}
+        <button 
+          onClick={() => scroll('left')}
+          className="absolute left-4 top-1/2 -translate-y-1/2 z-20 p-2 bg-white/80 dark:bg-slate-800/80 rounded-full shadow-lg hover:bg-white dark:hover:bg-slate-800 transition-all backdrop-blur-sm border border-gray-200 dark:border-slate-700 opacity-0 group-hover:opacity-100 duration-300"
+          aria-label="Scroll left"
+        >
+          <ChevronLeft size={24} className="text-gray-800 dark:text-slate-200" />
+        </button>
 
-          <button 
-            onClick={() => scroll('right')}
-            className="absolute right-0 top-1/2 -translate-y-1/2 z-20 p-2 bg-white/80 dark:bg-slate-800/80 rounded-full shadow-lg hover:bg-white dark:hover:bg-slate-800 transition-all backdrop-blur-sm border border-gray-200 dark:border-slate-700 opacity-0 group-hover:opacity-100 duration-300"
-            aria-label="Scroll right"
-          >
-            <ChevronRight size={24} className="text-gray-800 dark:text-slate-200" />
-          </button>
+        <button 
+          onClick={() => scroll('right')}
+          className="absolute right-4 top-1/2 -translate-y-1/2 z-20 p-2 bg-white/80 dark:bg-slate-800/80 rounded-full shadow-lg hover:bg-white dark:hover:bg-slate-800 transition-all backdrop-blur-sm border border-gray-200 dark:border-slate-700 opacity-0 group-hover:opacity-100 duration-300"
+          aria-label="Scroll right"
+        >
+          <ChevronRight size={24} className="text-gray-800 dark:text-slate-200" />
+        </button>
 
-          <div 
-            ref={scrollRef}
-            className="flex overflow-x-hidden py-8 -my-8 select-none"
-            style={{
-              maskImage: 'linear-gradient(to right, transparent, black 5%, black 95%, transparent)',
-              WebkitMaskImage: 'linear-gradient(to right, transparent, black 5%, black 95%, transparent)'
-            }}
-            onMouseEnter={() => setIsPaused(true)}
-            onMouseLeave={() => setIsPaused(false)}
-            onTouchStart={handleTouchStart}
-            onTouchMove={handleTouchMove}
-            onTouchEnd={handleTouchEnd}
-          >
-          <div className="flex gap-6 w-max">
+        <div 
+          ref={scrollRef}
+          className="flex overflow-x-hidden py-8 -my-8 select-none w-full"
+          style={{
+            maskImage: 'linear-gradient(to right, transparent, black 5%, black 95%, transparent)',
+            WebkitMaskImage: 'linear-gradient(to right, transparent, black 5%, black 95%, transparent)'
+          }}
+          onMouseEnter={() => setIsPaused(true)}
+          onMouseLeave={() => setIsPaused(false)}
+          onTouchStart={handleTouchStart}
+          onTouchMove={handleTouchMove}
+          onTouchEnd={handleTouchEnd}
+        >
+          <div className="flex gap-6 w-max px-4 sm:px-6 lg:px-8">
           {[...skillsList, ...skillsList].map(([category, data], index) => {
             return (
               <div
@@ -405,8 +406,9 @@ const Skills = () => {
           </div>
           </div>
 
-        </div>
+      </div>
 
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* View All Button */}
         <div className="mt-12 flex justify-center">
           <button

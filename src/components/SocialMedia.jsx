@@ -89,7 +89,7 @@ const SocialMedia = () => {
                     <h3 className="text-2xl font-bold text-gray-900 dark:text-slate-100 group-hover:text-white transition-colors duration-300">
                       {social.name}
                     </h3>
-                    <p className="text-gray-600 dark:text-slate-300 group-hover:text-white/90 transition-colors duration-300 mt-1">
+                    <p className="text-gray-600 dark:text-slate-300 group-hover:text-white/90 transition-colors duration-300 mt-1 text-justify">
                       {social.description}
                     </p>
                   </div>

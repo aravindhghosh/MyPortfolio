@@ -36,7 +36,7 @@ export const personalInfo = {
 };
 
 export const about = {
-  summary: "Results-driven Automation Developer with 5+ years of experience in cloud infrastructure, CI/CD, and database automation. Proficient in Python, Ansible, GitHub Actions, and Azure, with a strong track record of building automation for monitoring, incident management, and self-service workflows to improve efficiency and delivery.",
+  summary: "Automation and DevOps Engineer with 5+ years of experience designing and operating cloud and database automation platforms in Azure environments. Proven track record of leading ServiceNow and iAutomate workflow orchestration, building CI/CD pipelines with GitHub Actions, and implementing Infrastructure Automation using Ansible, Terraform, Python, and PowerShell. Delivered 70% reduction in DR execution effort, eliminated 100% manual DBA tasks through database refresh automation, and generated $5M in cost savings via SQL license optimization. Experienced in production operations, incident ownership, and mentoring engineers while driving reliability, scalability, and continuous improvement in remote, distributed teams.",
   highlights: [
     "Led teams managing automated ticketing with ServiceNow and Ansible",
     "Reduced manual effort by 70% through DR automation in Azure",

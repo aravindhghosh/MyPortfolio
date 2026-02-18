@@ -37,7 +37,7 @@ const Blog = () => {
                 <h3 className="text-xl font-bold text-gray-900 dark:text-slate-100 mb-3 group-hover:text-blue-600 transition-colors duration-200">
                   {post.title}
                 </h3>
-                <p className="text-gray-700 dark:text-slate-300 mb-4 leading-relaxed">
+                <p className="text-gray-700 dark:text-slate-300 mb-4 leading-relaxed text-justify">
                   {post.excerpt}
                 </p>
 

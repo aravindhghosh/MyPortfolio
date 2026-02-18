@@ -39,7 +39,7 @@ const ProjectModal = ({ project, isOpen, onClose }) => {
 
           {/* Description */}
           <div className="mb-6">
-            <p className="text-gray-700 dark:text-slate-300 leading-relaxed text-lg">{project.description}</p>
+            <p className="text-gray-700 dark:text-slate-300 leading-relaxed text-lg text-justify">{project.description}</p>
           </div>
 
           {/* Technologies */}
@@ -79,7 +79,7 @@ const ProjectModal = ({ project, isOpen, onClose }) => {
           {/* Overview */}
           <div className="mb-6">
             <h3 className="text-lg font-semibold text-gray-900 dark:text-slate-100 mb-3">Project Overview</h3>
-            <p className="text-gray-700 dark:text-slate-300 leading-relaxed">{project.details.overview}</p>
+            <p className="text-gray-700 dark:text-slate-300 leading-relaxed text-justify">{project.details.overview}</p>
           </div>
 
           {/* Challenges */}
@@ -89,7 +89,7 @@ const ProjectModal = ({ project, isOpen, onClose }) => {
               {project.details.challenges.map((challenge, idx) => (
                 <li key={idx} className="flex items-start gap-3">
                   <span className="text-red-500 mt-1.5">•</span>
-                  <span className="text-gray-700 dark:text-slate-300">{challenge}</span>
+                  <span className="text-gray-700 dark:text-slate-300 text-justify">{challenge}</span>
                 </li>
               ))}
             </ul>
@@ -102,7 +102,7 @@ const ProjectModal = ({ project, isOpen, onClose }) => {
               {project.details.solutions.map((solution, idx) => (
                 <li key={idx} className="flex items-start gap-3">
                   <CheckCircle size={18} className="text-green-500 mt-1 flex-shrink-0" />
-                  <span className="text-gray-700 dark:text-slate-300">{solution}</span>
+                  <span className="text-gray-700 dark:text-slate-300 text-justify">{solution}</span>
                 </li>
               ))}
             </ul>
@@ -119,7 +119,7 @@ const ProjectModal = ({ project, isOpen, onClose }) => {
                 >
                   <div className="flex items-start gap-3">
                     <CheckCircle size={20} className="text-green-600 mt-0.5 flex-shrink-0" />
-                    <span className="text-gray-800 dark:text-slate-200 text-sm">{result}</span>
+                    <span className="text-gray-800 dark:text-slate-200 text-sm text-justify">{result}</span>
                   </div>
                 </div>
               ))}
@@ -191,7 +191,7 @@ const Projects = () => {
                   <h3 className="text-2xl font-bold text-gray-900 dark:text-slate-100 mb-3 group-hover:text-blue-600 transition-colors duration-200">
                     {project.title}
                   </h3>
-                  <p className="text-gray-700 dark:text-slate-300 mb-4 leading-relaxed line-clamp-3 flex-grow">
+                  <p className="text-gray-700 dark:text-slate-300 mb-4 leading-relaxed line-clamp-3 flex-grow text-justify">
                     {project.description}
                   </p>
 

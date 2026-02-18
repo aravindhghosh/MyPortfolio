@@ -48,7 +48,7 @@ const ExperienceModal = ({ exp, isOpen, onClose }) => {
         <div className="p-4 sm:p-6">
           {/* Description */}
           <div className="mb-6">
-            <p className="text-gray-700 dark:text-slate-300 leading-relaxed text-lg">{exp.description}</p>
+            <p className="text-gray-700 dark:text-slate-300 leading-relaxed text-lg text-justify">{exp.description}</p>
           </div>
 
           {/* Duration & Location */}
@@ -68,7 +68,7 @@ const ExperienceModal = ({ exp, isOpen, onClose }) => {
           {/* Overview */}
           <div className="mb-6">
             <h3 className="text-lg font-semibold text-gray-900 dark:text-slate-100 mb-3">Overview</h3>
-            <p className="text-gray-700 dark:text-slate-300 leading-relaxed">{exp.details.overview}</p>
+            <p className="text-gray-700 dark:text-slate-300 leading-relaxed text-justify">{exp.details.overview}</p>
           </div>
 
           {/* Role Progression */}
@@ -91,7 +91,7 @@ const ExperienceModal = ({ exp, isOpen, onClose }) => {
                     {role.responsibilities.map((resp, respIdx) => (
                       <li key={respIdx} className="flex items-start gap-2">
                         <CheckCircle size={16} className="text-green-600 mt-1 flex-shrink-0" />
-                        <span className="text-sm text-gray-700 dark:text-slate-300">{resp}</span>
+                        <span className="text-sm text-gray-700 dark:text-slate-300 text-justify">{resp}</span>
                       </li>
                     ))}
                   </ul>
@@ -107,7 +107,7 @@ const ExperienceModal = ({ exp, isOpen, onClose }) => {
               {exp.details.keyProjects.map((project, idx) => (
                 <li key={idx} className="flex items-start gap-3">
                   <CheckCircle size={18} className="text-green-500 mt-1 flex-shrink-0" />
-                  <span className="text-gray-700 dark:text-slate-300">{project}</span>
+                  <span className="text-gray-700 dark:text-slate-300 text-justify">{project}</span>
                 </li>
               ))}
             </ul>
@@ -124,7 +124,7 @@ const ExperienceModal = ({ exp, isOpen, onClose }) => {
                 >
                   <div className="flex items-start gap-3">
                     <Zap size={20} className="text-green-600 mt-0.5 flex-shrink-0" />
-                    <span className="text-gray-800 dark:text-slate-200 text-sm">{achievement}</span>
+                    <span className="text-gray-800 dark:text-slate-200 text-sm text-justify">{achievement}</span>
                   </div>
                 </div>
               ))}
@@ -263,7 +263,7 @@ const Experience = () => {
                       )}
 
                       {/* Description */}
-                      <p className="text-gray-700 dark:text-slate-300 leading-relaxed mb-4">
+                      <p className="text-gray-700 dark:text-slate-300 leading-relaxed mb-4 text-justify">
                         {exp.description}
                       </p>
 

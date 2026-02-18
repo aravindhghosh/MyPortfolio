@@ -448,6 +448,15 @@ const About = () => {
                     border-color: var(--inactive-label-border);
                   }
                 }
+                @keyframes particle-move {
+                  0% { top: 15%; left: 50%; background-color: #60a5fa; }
+                  16.66% { top: 32.5%; left: 80.3%; background-color: #818cf8; }
+                  33.33% { top: 67.5%; left: 80.3%; background-color: #a78bfa; }
+                  50% { top: 85%; left: 50%; background-color: #f472b6; }
+                  66.66% { top: 67.5%; left: 19.7%; background-color: #fb923c; }
+                  83.33% { top: 32.5%; left: 19.7%; background-color: #34d399; }
+                  100% { top: 15%; left: 50%; background-color: #60a5fa; }
+                }
               `}</style>
 
               {/* Space Background */}
@@ -492,13 +501,16 @@ const About = () => {
                     fill="none" 
                     strokeDasharray="3 3" 
                   />
-
-                  {/* Moving Particle */}
-                  <circle r="1.5" fill="#60a5fa" className="drop-shadow-[0_0_4px_rgba(255,255,255,0.8)]">
-                    <animateMotion dur="12s" repeatCount="indefinite" path="M 50 15 L 80.3 32.5 L 80.3 67.5 L 50 85 L 19.7 67.5 L 19.7 32.5 Z" begin="0s" />
-                    <animate attributeName="fill" values="#60a5fa;#818cf8;#a78bfa;#f472b6;#fb923c;#34d399" dur="12s" repeatCount="indefinite" calcMode="discrete" begin="0s" />
-                  </circle>
                 </svg>
+
+                {/* Moving Particle */}
+                <div
+                  className="absolute w-2.5 h-2.5 rounded-full shadow-[0_0_4px_rgba(255,255,255,0.8)] z-0"
+                  style={{
+                    animation: 'particle-move 12s linear infinite',
+                    transform: 'translate(-50%, -50%)'
+                  }}
+                ></div>
 
                 {[
                   { id: 'REQ', label: 'REQ', icon: Icons.FileText, color: '#60a5fa', rgb: '59, 130, 246', pos: { top: '15%', left: '50%' } },
@@ -570,7 +582,7 @@ const About = () => {
           <div>
             {/* Summary */}
             <div className="mb-8">
-              <p className="text-base sm:text-lg text-gray-700 dark:text-slate-300 leading-relaxed">
+              <p className="text-base sm:text-lg text-gray-700 dark:text-slate-300 leading-relaxed text-justify">
                 {about.summary}
               </p>
             </div>
@@ -583,7 +595,7 @@ const About = () => {
                   className="flex items-start gap-3 p-3 sm:p-4 rounded-xl bg-white/50 dark:bg-slate-900/50 backdrop-blur-sm border border-gray-200 dark:border-slate-700 hover:border-blue-300 hover:shadow-md transition-all duration-300"
                 >
                   <CheckCircle2 className="text-blue-600 flex-shrink-0 mt-1" size={20} />
-                  <p className="text-gray-700 dark:text-slate-300">{highlight}</p>
+                  <p className="text-gray-700 dark:text-slate-300 text-justify">{highlight}</p>
                 </div>
               ))}
             </div>
@@ -607,21 +619,22 @@ const About = () => {
             */}
           </div>
         </div>
+      </div>
 
-        {/* Interests Section */}
-        <div className="mt-20">
-          <div className="text-center mb-12">
+      {/* Interests Section */}
+      <div className="mt-20">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center mb-12">
             <h3 className="text-3xl font-bold text-gray-900 dark:text-slate-100 mb-2">
               What I Do Beyond Code
             </h3>
             <p className="text-gray-600 dark:text-slate-300">My passions and interests outside of development</p>
           </div>
 
-          <div className="relative group">
+          <div className="relative group w-full">
             {/* Navigation Buttons */}
             <button 
               onClick={() => scroll('left')}
-              className="absolute left-0 top-1/2 -translate-y-1/2 z-20 p-2 bg-white/80 dark:bg-slate-800/80 rounded-full shadow-lg hover:bg-white dark:hover:bg-slate-800 transition-all backdrop-blur-sm border border-gray-200 dark:border-slate-700 opacity-0 group-hover:opacity-100 duration-300"
+              className="absolute left-4 top-1/2 -translate-y-1/2 z-20 p-2 bg-white/80 dark:bg-slate-800/80 rounded-full shadow-lg hover:bg-white dark:hover:bg-slate-800 transition-all backdrop-blur-sm border border-gray-200 dark:border-slate-700 opacity-0 group-hover:opacity-100 duration-300"
               aria-label="Scroll left"
             >
               <ChevronLeft size={24} className="text-gray-800 dark:text-slate-200" />
@@ -629,7 +642,7 @@ const About = () => {
 
             <button 
               onClick={() => scroll('right')}
-              className="absolute right-0 top-1/2 -translate-y-1/2 z-20 p-2 bg-white/80 dark:bg-slate-800/80 rounded-full shadow-lg hover:bg-white dark:hover:bg-slate-800 transition-all backdrop-blur-sm border border-gray-200 dark:border-slate-700 opacity-0 group-hover:opacity-100 duration-300"
+              className="absolute right-4 top-1/2 -translate-y-1/2 z-20 p-2 bg-white/80 dark:bg-slate-800/80 rounded-full shadow-lg hover:bg-white dark:hover:bg-slate-800 transition-all backdrop-blur-sm border border-gray-200 dark:border-slate-700 opacity-0 group-hover:opacity-100 duration-300"
               aria-label="Scroll right"
             >
               <ChevronRight size={24} className="text-gray-800 dark:text-slate-200" />
@@ -637,7 +650,7 @@ const About = () => {
 
             <div 
               ref={scrollRef}
-              className="flex overflow-x-hidden py-8 -my-8 select-none"
+              className="flex overflow-x-hidden py-8 -my-8 select-none w-full"
               style={{
                 maskImage: 'linear-gradient(to right, transparent, black 5%, black 95%, transparent)',
                 WebkitMaskImage: 'linear-gradient(to right, transparent, black 5%, black 95%, transparent)'
@@ -648,7 +661,7 @@ const About = () => {
               onTouchMove={handleTouchMove}
               onTouchEnd={handleTouchEnd}
             >
-            <div className="flex gap-6 w-max">
+            <div className="flex gap-6 w-max px-4 sm:px-6 lg:px-8">
             {[...about.interests, ...about.interests].map((interest, index) => {
               const IconComponent = Icons[interest.icon];
               return (
@@ -672,7 +685,7 @@ const About = () => {
                         </div>
                         <h4 className="text-2xl font-bold">{interest.name}</h4>
                       </div>
-                      <p className="text-gray-700 dark:text-slate-300 text-sm leading-snug">{interest.description}</p>
+                      <p className="text-gray-700 dark:text-slate-300 text-sm leading-snug text-justify">{interest.description}</p>
                     </div>
                   </div>
                   </div>
@@ -682,7 +695,6 @@ const About = () => {
             </div>
             </div>
           </div>
-        </div>
       </div>
     </section>
   );
