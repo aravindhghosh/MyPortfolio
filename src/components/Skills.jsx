@@ -308,7 +308,7 @@ const Skills = () => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
         <div className="text-center mb-16 animate-fade-in">
-          <h2 className="text-4xl md:text-5xl font-bold text-gray-900 dark:text-slate-100 mb-4">
+          <h2 className="text-4xl md:text-5xl font-bold apple-gradient-text mb-4">
             Skills & Technologies
           </h2>
           <div className="w-24 h-1 bg-gradient-to-r from-blue-600 to-teal-600 mx-auto rounded-full"></div>
@@ -355,9 +355,9 @@ const Skills = () => {
             return (
               <div
                 key={index}
-                className="flex-shrink-0 w-60 sm:w-72 md:w-80 lg:w-96"
+                className={`flex-shrink-0 w-60 sm:w-72 md:w-80 lg:w-96 apple-reveal-scale stagger-${(index % 6) + 1}`}
               >
-                <div className="group relative rounded-2xl overflow-hidden shadow-xl hover:shadow-2xl transition-all duration-500 transform hover:scale-105 h-full">
+                <div className="group relative rounded-2xl overflow-hidden shadow-xl hover:shadow-2xl transition-all duration-500 transform hover:scale-105 h-full apple-card">
                 {/* Background Image */}
                 <div className="relative h-36 sm:h-44 md:h-48">
                   {/* Gradient Overlay */}

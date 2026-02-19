@@ -10,7 +10,7 @@ const Certifications = () => {
         <div className="mb-20">
           {/* Section Header */}
           <div className="text-center mb-16">
-            <h2 className="text-4xl md:text-5xl font-bold text-gray-900 dark:text-slate-100 mb-4">
+            <h2 className="text-4xl md:text-5xl font-bold apple-gradient-text mb-4">
               Certifications
             </h2>
             <div className="w-24 h-1 bg-gradient-to-r from-blue-600 to-teal-600 mx-auto rounded-full"></div>
@@ -21,7 +21,7 @@ const Certifications = () => {
 
           {/* Certifications Grid */}
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
-            {certifications.map((cert) => {
+            {certifications.map((cert, index) => {
               const IconComponent = Icons[cert.icon] || Icons.Award;
               return (
                 <a
@@ -29,7 +29,7 @@ const Certifications = () => {
                   href={cert.credentialUrl}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="group relative rounded-2xl overflow-hidden shadow-xl hover:shadow-2xl transition-all duration-300 transform hover:scale-105 cursor-pointer"
+                  className={`group relative rounded-2xl overflow-hidden shadow-xl hover:shadow-2xl transition-all duration-300 transform hover:scale-105 cursor-pointer apple-reveal-scale stagger-${(index % 5) + 1} apple-card`}
                 >
                   {/* Background Image */}
                   <div className="relative h-48">
@@ -74,7 +74,7 @@ const Certifications = () => {
         <div>
           {/* Section Header */}
           <div className="text-center mb-12">
-            <h2 className="text-4xl md:text-5xl font-bold text-gray-900 dark:text-slate-100 mb-4">
+            <h2 className="text-4xl md:text-5xl font-bold apple-gradient-text mb-4">
               Achievements
             </h2>
             <div className="w-24 h-1 bg-gradient-to-r from-blue-600 to-teal-600 mx-auto rounded-full"></div>

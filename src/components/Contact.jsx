@@ -71,7 +71,7 @@ const Contact = () => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
         <div className="text-center mb-16">
-          <h2 className="text-4xl md:text-5xl font-bold text-gray-900 dark:text-slate-100 mb-4">
+          <h2 className="text-4xl md:text-5xl font-bold apple-gradient-text mb-4">
             Get In Touch
           </h2>
           <div className="w-24 h-1 bg-gradient-to-r from-blue-600 to-teal-600 mx-auto rounded-full"></div>
@@ -82,7 +82,7 @@ const Contact = () => {
 
         <div className="grid lg:grid-cols-2 gap-12">
           {/* Contact Info */}
-          <div>
+          <div className="apple-reveal-left">
             <h3 className="text-xl sm:text-2xl font-bold text-gray-900 dark:text-slate-100 mb-6">Contact Information</h3>
             <div className="space-y-6 mb-8">
               {/* Email */}
@@ -180,7 +180,7 @@ const Contact = () => {
           </div>
 
           {/* Contact Form */}
-          <div>
+          <div className="apple-reveal-right">
             <form onSubmit={handleSubmit} className="bg-white/70 dark:bg-slate-900/70 backdrop-blur-md rounded-2xl p-5 sm:p-8 shadow-xl border border-gray-200 dark:border-slate-700">
               <div className="space-y-6">
                 {/* Name */}

@@ -3,27 +3,223 @@ import { CheckCircle2, ChevronLeft, ChevronRight } from 'lucide-react';
 import * as Icons from 'lucide-react';
 import { about, experience } from '../data/portfolioData';
 
-const About = () => {
+const StockGraphic = () => {
   const [stockPhase, setStockPhase] = useState(0);
-  const [drivingVehicle, setDrivingVehicle] = useState('car');
-  const [isPaused, setIsPaused] = useState(false);
-  const scrollRef = useRef(null);
-  const [touchStart, setTouchStart] = useState(null);
 
   useEffect(() => {
     const stockInterval = setInterval(() => {
       setStockPhase(prev => (prev + 1) % 4);
     }, 2000);
+    return () => clearInterval(stockInterval);
+  }, []);
 
+  const stockData = [
+    { // Phase 0: Open/Neutral
+      change: "+0.00%",
+      color: "text-slate-400",
+      stroke: "#94a3b8",
+      border: "border-slate-500/20",
+      path: "M0 20 L10 20 L20 20 L30 20 L40 20 L50 20 L60 20 L70 20 L80 20 L90 20 L100 20",
+      cy: "20"
+    },
+    { // Phase 1: Bearish Dip
+      change: "-1.25%",
+      color: "text-rose-400",
+      stroke: "#fb7185",
+      border: "border-rose-500/20",
+      path: "M0 20 L10 22 L20 28 L30 35 L40 32 L50 38 L60 35 L70 30 L80 32 L90 35 L100 38",
+      cy: "38"
+    },
+    { // Phase 2: Recovery
+      change: "+0.45%",
+      color: "text-emerald-400",
+      stroke: "#34d399",
+      border: "border-emerald-500/20",
+      path: "M0 20 L10 25 L20 20 L30 22 L40 18 L50 20 L60 15 L70 12 L80 15 L90 10 L100 12",
+      cy: "12"
+    },
+    { // Phase 3: Bullish Peak
+      change: "+1.86%",
+      color: "text-emerald-400",
+      stroke: "#34d399",
+      border: "border-emerald-500/20",
+      path: "M0 20 L10 18 L20 15 L30 10 L40 12 L50 5 L60 8 L70 2 L80 5 L90 2 L100 2",
+      cy: "2"
+    }
+  ];
+  const currentStock = stockData[stockPhase];
+
+  return (
+    <div className="w-full h-full flex items-center justify-center p-4">
+      <div className={`w-full max-w-[200px] rounded-lg bg-slate-900/95 border ${currentStock.border} p-3 shadow-lg shadow-slate-900/20 flex flex-col justify-center transition-colors duration-500`}>
+        <div className="flex items-center justify-between text-[10px] mb-1.5">
+          <span className="text-slate-400 font-semibold tracking-wider">NIFTY50</span>
+          <span className={`${currentStock.color} font-bold animate-pulse transition-colors duration-500`}>
+            {currentStock.change}
+          </span>
+        </div>
+        <div className="relative h-8 w-full">
+           <svg className="w-full h-full overflow-visible" viewBox="0 0 100 40" preserveAspectRatio="none">
+              <path d={currentStock.path} 
+                    fill="none" 
+                    stroke={currentStock.stroke} 
+                    strokeWidth="2" 
+                    strokeLinecap="round" 
+                    strokeLinejoin="round"
+                    className="transition-all duration-1000 ease-in-out"
+                    style={{ filter: `drop-shadow(0 0 2px ${currentStock.stroke}80)` }}
+              />
+              <circle cx="100" cy={currentStock.cy} r="2" fill={currentStock.stroke} className="animate-ping transition-all duration-1000 ease-in-out" />
+              <circle cx="100" cy={currentStock.cy} r="2" fill={currentStock.stroke} className="transition-all duration-1000 ease-in-out" />
+           </svg>
+        </div>
+      </div>
+    </div>
+  );
+};
+
+const DrivingGraphic = () => {
+  const [drivingVehicle, setDrivingVehicle] = useState('car');
+
+  useEffect(() => {
     const drivingInterval = setInterval(() => {
       setDrivingVehicle(prev => prev === 'car' ? 'bike' : 'car');
     }, 3000);
-
-    return () => {
-      clearInterval(stockInterval);
-      clearInterval(drivingInterval);
-    };
+    return () => clearInterval(drivingInterval);
   }, []);
+
+  return (
+    <div className="w-full h-full flex items-center justify-center p-4">
+      <div className="w-full max-w-[200px] h-[180px] bg-slate-900/95 rounded-xl border border-slate-700/50 relative overflow-hidden group-hover:border-slate-500 transition-colors flex flex-col shadow-2xl">
+         
+         <style>
+           {`
+             @keyframes road-scroll {
+               0% { background-position: 0 0; }
+               100% { background-position: 0 20px; }
+             }
+             @keyframes drive-3d {
+               0% { transform: translateY(-60px) scale(0.1); opacity: 0; }
+               5% { opacity: 1; }
+               100% { transform: translateY(100px) scale(4); opacity: 0; }
+             }
+             @keyframes bounce-car {
+               0%, 100% { transform: translateY(0); }
+               50% { transform: translateY(-1px); }
+             }
+           `}
+         </style>
+
+         {/* Sky */}
+         <div className="absolute inset-0 h-1/2 bg-gradient-to-b from-indigo-950 to-slate-900">
+            <div className="absolute top-0 left-1/2 -translate-x-1/2 w-20 h-10 bg-blue-500/20 blur-xl rounded-full"></div>
+         </div>
+         
+         {/* 3D Road Container */}
+         <div className="absolute inset-0 flex items-end justify-center overflow-hidden" style={{ perspective: '150px' }}>
+            {/* The Road Plane */}
+            <div className="relative w-32 h-[200%] bg-slate-800 origin-bottom transform-gpu"
+                 style={{ transform: 'rotateX(60deg) translateY(0px)' }}>
+                
+                {/* Road Texture/Markings */}
+                <div className="absolute inset-0 flex justify-center">
+                    <div className="w-2 h-full opacity-70" 
+                         style={{ 
+                           backgroundImage: 'linear-gradient(to bottom, transparent 50%, rgba(255,255,255,0.8) 50%)', 
+                           backgroundSize: '100% 40px',
+                           animation: 'road-scroll 0.2s linear infinite'
+                         }}>
+                    </div>
+                </div>
+                
+                {/* Road Edges */}
+                <div className="absolute left-0 top-0 bottom-0 w-1 bg-gradient-to-r from-transparent to-white/30"></div>
+                <div className="absolute right-0 top-0 bottom-0 w-1 bg-gradient-to-l from-transparent to-white/30"></div>
+            </div>
+         </div>
+
+         {/* Vehicle Animation Layer */}
+         <div className="absolute inset-0 flex items-center justify-center pt-12 pointer-events-none">
+            <div 
+              key={drivingVehicle} 
+              className="flex flex-col items-center origin-center"
+              style={{ animation: 'drive-3d 3s cubic-bezier(0.5, 0, 0.2, 1) infinite' }}
+            >
+               {drivingVehicle === 'car' ? (
+                 // 3D-ish Car (White Altroz)
+                 <div className="relative w-14 h-10" style={{ animation: 'bounce-car 0.2s infinite' }}>
+                    {/* Shadow */}
+                    <div className="absolute bottom-0 left-1 right-1 h-2 bg-black/60 blur-sm rounded-full"></div>
+                    
+                    {/* Wheels */}
+                    <div className="absolute bottom-1 -left-0.5 w-2 h-3 bg-slate-950 rounded-sm"></div>
+                    <div className="absolute bottom-1 -right-0.5 w-2 h-3 bg-slate-950 rounded-sm"></div>
+                    
+                    {/* Body Lower */}
+                    <div className="absolute bottom-1.5 left-0.5 right-0.5 h-4 bg-slate-100 rounded-sm border-b-2 border-slate-300 flex items-center justify-between px-1 shadow-inner">
+                       <div className="w-2.5 h-1.5 bg-red-600 rounded-[1px] shadow-[0_0_2px_red]"></div>
+                       <div className="text-[3px] font-bold text-slate-800 tracking-tighter">ALTROZ</div>
+                       <div className="w-2.5 h-1.5 bg-red-600 rounded-[1px] shadow-[0_0_2px_red]"></div>
+                    </div>
+                    
+                    {/* Body Upper (Cabin) */}
+                    <div className="absolute bottom-5 left-2 right-2 h-3 bg-slate-200 rounded-t-sm border-x border-t border-slate-300">
+                       <div className="w-full h-full bg-slate-800/20 rounded-t-sm"></div>
+                    </div>
+                 </div>
+               ) : (
+                 // 3D-ish Bike (Black Apache)
+                 <div className="relative w-6 h-12 flex flex-col items-center" style={{ animation: 'bounce-car 0.15s infinite' }}>
+                    {/* Shadow */}
+                    <div className="absolute bottom-0 w-6 h-2 bg-black/60 blur-sm rounded-full"></div>
+                    
+                    {/* Rear Tire */}
+                    <div className="w-2.5 h-4 bg-slate-950 rounded-sm mt-auto"></div>
+                    
+                    {/* Body/Tail */}
+                    <div className="w-5 h-4 bg-slate-900 rounded-sm -mt-1 flex justify-center pt-1 relative z-10">
+                       <div className="w-3 h-1.5 bg-red-600 rounded-full shadow-[0_0_4px_red]"></div>
+                    </div>
+                    
+                    {/* Rider Body */}
+                    <div className="w-6 h-5 bg-slate-800 rounded-t-lg -mt-1 relative z-20 flex justify-center">
+                       <div className="w-5 h-full bg-slate-900/50 rounded-t-lg"></div>
+                    </div>
+                    
+                    {/* Helmet */}
+                    <div className="w-4 h-4 bg-slate-950 rounded-full -mt-1 border border-slate-700 relative z-30">
+                       <div className="absolute top-1 left-1 right-1 h-1 bg-slate-800 rounded-full opacity-50"></div>
+                    </div>
+                 </div>
+               )}
+            </div>
+         </div>
+         
+         {/* Dashboard Overlay */}
+         <div className="absolute bottom-0 w-full bg-gradient-to-t from-slate-900 to-transparent p-2 pt-4 flex items-end justify-between">
+            <div className="flex items-center gap-1 bg-slate-800/80 rounded px-1.5 py-0.5 border border-slate-700">
+                <span className="text-[8px] text-slate-400 font-mono">RPM</span>
+                <div className="flex gap-0.5 h-1.5 items-end">
+                   <div className="w-0.5 h-1 bg-emerald-500"></div>
+                   <div className="w-0.5 h-1.5 bg-emerald-500"></div>
+                   <div className="w-0.5 h-2 bg-emerald-500"></div>
+                   <div className="w-0.5 h-2.5 bg-emerald-500 animate-pulse"></div>
+                   <div className="w-0.5 h-2.5 bg-red-500 opacity-50"></div>
+                </div>
+            </div>
+            <div className="text-[8px] font-mono text-emerald-400 animate-pulse">
+                {drivingVehicle === 'car' ? '120 km/h' : '108 km/h'}
+            </div>
+         </div>
+      </div>
+    </div>
+  );
+};
+
+const About = () => {
+  const [isPaused, setIsPaused] = useState(false);
+  const scrollRef = useRef(null);
+  const [touchStart, setTouchStart] = useState(null);
 
   useEffect(() => {
     const el = scrollRef.current;
@@ -174,69 +370,7 @@ const About = () => {
       );
 
       case "Stock":
-      const stockData = [
-        { // Phase 0: Open/Neutral
-          change: "+0.00%",
-          color: "text-slate-400",
-          stroke: "#94a3b8",
-          border: "border-slate-500/20",
-          path: "M0 20 L10 20 L20 20 L30 20 L40 20 L50 20 L60 20 L70 20 L80 20 L90 20 L100 20",
-          cy: "20"
-        },
-        { // Phase 1: Bearish Dip
-          change: "-1.25%",
-          color: "text-rose-400",
-          stroke: "#fb7185",
-          border: "border-rose-500/20",
-          path: "M0 20 L10 22 L20 28 L30 35 L40 32 L50 38 L60 35 L70 30 L80 32 L90 35 L100 38",
-          cy: "38"
-        },
-        { // Phase 2: Recovery
-          change: "+0.45%",
-          color: "text-emerald-400",
-          stroke: "#34d399",
-          border: "border-emerald-500/20",
-          path: "M0 20 L10 25 L20 20 L30 22 L40 18 L50 20 L60 15 L70 12 L80 15 L90 10 L100 12",
-          cy: "12"
-        },
-        { // Phase 3: Bullish Peak
-          change: "+1.86%",
-          color: "text-emerald-400",
-          stroke: "#34d399",
-          border: "border-emerald-500/20",
-          path: "M0 20 L10 18 L20 15 L30 10 L40 12 L50 5 L60 8 L70 2 L80 5 L90 2 L100 2",
-          cy: "2"
-        }
-      ];
-      const currentStock = stockData[stockPhase];
-
-      return (
-        <div className="w-full h-full flex items-center justify-center p-4">
-          <div className={`w-full max-w-[200px] rounded-lg bg-slate-900/95 border ${currentStock.border} p-3 shadow-lg shadow-slate-900/20 flex flex-col justify-center transition-colors duration-500`}>
-            <div className="flex items-center justify-between text-[10px] mb-1.5">
-              <span className="text-slate-400 font-semibold tracking-wider">NIFTY50</span>
-              <span className={`${currentStock.color} font-bold animate-pulse transition-colors duration-500`}>
-                {currentStock.change}
-              </span>
-            </div>
-            <div className="relative h-8 w-full">
-               <svg className="w-full h-full overflow-visible" viewBox="0 0 100 40" preserveAspectRatio="none">
-                  <path d={currentStock.path} 
-                        fill="none" 
-                        stroke={currentStock.stroke} 
-                        strokeWidth="2" 
-                        strokeLinecap="round" 
-                        strokeLinejoin="round"
-                        className="transition-all duration-1000 ease-in-out"
-                        style={{ filter: `drop-shadow(0 0 2px ${currentStock.stroke}80)` }}
-                  />
-                  <circle cx="100" cy={currentStock.cy} r="2" fill={currentStock.stroke} className="animate-ping transition-all duration-1000 ease-in-out" />
-                  <circle cx="100" cy={currentStock.cy} r="2" fill={currentStock.stroke} className="transition-all duration-1000 ease-in-out" />
-               </svg>
-            </div>
-          </div>
-        </div>
-      );
+      return <StockGraphic />;
 
       case "Pet":
       return (
@@ -252,132 +386,7 @@ const About = () => {
       );
 
       case "Driving":
-      return (
-        <div className="w-full h-full flex items-center justify-center p-4">
-          <div className="w-full max-w-[200px] h-[180px] bg-slate-900/95 rounded-xl border border-slate-700/50 relative overflow-hidden group-hover:border-slate-500 transition-colors flex flex-col shadow-2xl">
-             
-             <style>
-               {`
-                 @keyframes road-scroll {
-                   0% { background-position: 0 0; }
-                   100% { background-position: 0 20px; }
-                 }
-                 @keyframes drive-3d {
-                   0% { transform: translateY(-60px) scale(0.1); opacity: 0; }
-                   5% { opacity: 1; }
-                   100% { transform: translateY(100px) scale(4); opacity: 0; }
-                 }
-                 @keyframes bounce-car {
-                   0%, 100% { transform: translateY(0); }
-                   50% { transform: translateY(-1px); }
-                 }
-               `}
-             </style>
-
-             {/* Sky */}
-             <div className="absolute inset-0 h-1/2 bg-gradient-to-b from-indigo-950 to-slate-900">
-                <div className="absolute top-0 left-1/2 -translate-x-1/2 w-20 h-10 bg-blue-500/20 blur-xl rounded-full"></div>
-             </div>
-             
-             {/* 3D Road Container */}
-             <div className="absolute inset-0 flex items-end justify-center overflow-hidden" style={{ perspective: '150px' }}>
-                {/* The Road Plane */}
-                <div className="relative w-32 h-[200%] bg-slate-800 origin-bottom transform-gpu"
-                     style={{ transform: 'rotateX(60deg) translateY(0px)' }}>
-                    
-                    {/* Road Texture/Markings */}
-                    <div className="absolute inset-0 flex justify-center">
-                        <div className="w-2 h-full opacity-70" 
-                             style={{ 
-                               backgroundImage: 'linear-gradient(to bottom, transparent 50%, rgba(255,255,255,0.8) 50%)', 
-                               backgroundSize: '100% 40px',
-                               animation: 'road-scroll 0.2s linear infinite'
-                             }}>
-                        </div>
-                    </div>
-                    
-                    {/* Road Edges */}
-                    <div className="absolute left-0 top-0 bottom-0 w-1 bg-gradient-to-r from-transparent to-white/30"></div>
-                    <div className="absolute right-0 top-0 bottom-0 w-1 bg-gradient-to-l from-transparent to-white/30"></div>
-                </div>
-             </div>
-
-             {/* Vehicle Animation Layer */}
-             <div className="absolute inset-0 flex items-center justify-center pt-12 pointer-events-none">
-                <div 
-                  key={drivingVehicle} 
-                  className="flex flex-col items-center origin-center"
-                  style={{ animation: 'drive-3d 3s cubic-bezier(0.5, 0, 0.2, 1) infinite' }}
-                >
-                   {drivingVehicle === 'car' ? (
-                     // 3D-ish Car (White Altroz)
-                     <div className="relative w-14 h-10" style={{ animation: 'bounce-car 0.2s infinite' }}>
-                        {/* Shadow */}
-                        <div className="absolute bottom-0 left-1 right-1 h-2 bg-black/60 blur-sm rounded-full"></div>
-                        
-                        {/* Wheels */}
-                        <div className="absolute bottom-1 -left-0.5 w-2 h-3 bg-slate-950 rounded-sm"></div>
-                        <div className="absolute bottom-1 -right-0.5 w-2 h-3 bg-slate-950 rounded-sm"></div>
-                        
-                        {/* Body Lower */}
-                        <div className="absolute bottom-1.5 left-0.5 right-0.5 h-4 bg-slate-100 rounded-sm border-b-2 border-slate-300 flex items-center justify-between px-1 shadow-inner">
-                           <div className="w-2.5 h-1.5 bg-red-600 rounded-[1px] shadow-[0_0_2px_red]"></div>
-                           <div className="text-[3px] font-bold text-slate-800 tracking-tighter">ALTROZ</div>
-                           <div className="w-2.5 h-1.5 bg-red-600 rounded-[1px] shadow-[0_0_2px_red]"></div>
-                        </div>
-                        
-                        {/* Body Upper (Cabin) */}
-                        <div className="absolute bottom-5 left-2 right-2 h-3 bg-slate-200 rounded-t-sm border-x border-t border-slate-300">
-                           <div className="w-full h-full bg-slate-800/20 rounded-t-sm"></div>
-                        </div>
-                     </div>
-                   ) : (
-                     // 3D-ish Bike (Black Apache)
-                     <div className="relative w-6 h-12 flex flex-col items-center" style={{ animation: 'bounce-car 0.15s infinite' }}>
-                        {/* Shadow */}
-                        <div className="absolute bottom-0 w-6 h-2 bg-black/60 blur-sm rounded-full"></div>
-                        
-                        {/* Rear Tire */}
-                        <div className="w-2.5 h-4 bg-slate-950 rounded-sm mt-auto"></div>
-                        
-                        {/* Body/Tail */}
-                        <div className="w-5 h-4 bg-slate-900 rounded-sm -mt-1 flex justify-center pt-1 relative z-10">
-                           <div className="w-3 h-1.5 bg-red-600 rounded-full shadow-[0_0_4px_red]"></div>
-                        </div>
-                        
-                        {/* Rider Body */}
-                        <div className="w-6 h-5 bg-slate-800 rounded-t-lg -mt-1 relative z-20 flex justify-center">
-                           <div className="w-5 h-full bg-slate-900/50 rounded-t-lg"></div>
-                        </div>
-                        
-                        {/* Helmet */}
-                        <div className="w-4 h-4 bg-slate-950 rounded-full -mt-1 border border-slate-700 relative z-30">
-                           <div className="absolute top-1 left-1 right-1 h-1 bg-slate-800 rounded-full opacity-50"></div>
-                        </div>
-                     </div>
-                   )}
-                </div>
-             </div>
-             
-             {/* Dashboard Overlay */}
-             <div className="absolute bottom-0 w-full bg-gradient-to-t from-slate-900 to-transparent p-2 pt-4 flex items-end justify-between">
-                <div className="flex items-center gap-1 bg-slate-800/80 rounded px-1.5 py-0.5 border border-slate-700">
-                    <span className="text-[8px] text-slate-400 font-mono">RPM</span>
-                    <div className="flex gap-0.5 h-1.5 items-end">
-                       <div className="w-0.5 h-1 bg-emerald-500"></div>
-                       <div className="w-0.5 h-1.5 bg-emerald-500"></div>
-                       <div className="w-0.5 h-2 bg-emerald-500"></div>
-                       <div className="w-0.5 h-2.5 bg-emerald-500 animate-pulse"></div>
-                       <div className="w-0.5 h-2.5 bg-red-500 opacity-50"></div>
-                    </div>
-                </div>
-                <div className="text-[8px] font-mono text-emerald-400 animate-pulse">
-                    {drivingVehicle === 'car' ? '120 km/h' : '108 km/h'}
-                </div>
-             </div>
-          </div>
-        </div>
-      );
+      return <DrivingGraphic />;
 
       default:
         return (
@@ -395,7 +404,7 @@ const About = () => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
         <div className="text-center mb-16">
-          <h2 className="text-4xl md:text-5xl font-bold text-gray-900 dark:text-slate-100 mb-4">
+          <h2 className="text-4xl md:text-5xl font-bold apple-gradient-text mb-4">
             About Me
           </h2>
           <div className="w-24 h-1 bg-gradient-to-r from-blue-600 to-teal-600 mx-auto rounded-full"></div>
@@ -403,7 +412,7 @@ const About = () => {
 
         <div className="grid md:grid-cols-2 gap-10 md:gap-12 items-center mb-16">
           {/* Image Side */}
-          <div className="relative">
+          <div className="relative apple-reveal-left">
             <div className="relative rounded-2xl overflow-hidden shadow-2xl transform hover:scale-105 transition-transform duration-300 bg-slate-950 border border-slate-800 aspect-square sm:aspect-[4/3] flex flex-col items-center justify-center p-8 group/graphic">
               <style>{`
                 @keyframes twinkle {
@@ -579,7 +588,7 @@ const About = () => {
           </div>
 
           {/* Content Side */}
-          <div>
+          <div className="apple-reveal-right">
             {/* Summary */}
             <div className="mb-8">
               <p className="text-base sm:text-lg text-gray-700 dark:text-slate-300 leading-relaxed text-justify">

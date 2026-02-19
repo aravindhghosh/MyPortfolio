@@ -54,7 +54,7 @@ const SocialMedia = () => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
         <div className="text-center mb-16 animate-fade-in">
-          <h2 className="text-4xl md:text-5xl font-bold text-gray-900 dark:text-slate-100 mb-4">
+          <h2 className="text-4xl md:text-5xl font-bold apple-gradient-text mb-4">
             Connect With Me
           </h2>
           <div className="w-24 h-1 bg-gradient-to-r from-blue-600 to-teal-600 mx-auto rounded-full"></div>
@@ -71,7 +71,7 @@ const SocialMedia = () => {
               href={social.url}
               target="_blank"
               rel="noopener noreferrer"
-              className="group relative bg-white dark:bg-slate-900 rounded-2xl p-8 shadow-xl border-2 border-gray-200 dark:border-slate-700 hover:border-transparent hover:shadow-2xl transition-all duration-300 transform hover:scale-105 overflow-hidden flex flex-col"
+              className={`group relative bg-white dark:bg-slate-900 rounded-2xl p-8 shadow-xl border-2 border-gray-200 dark:border-slate-700 hover:border-transparent hover:shadow-2xl transition-all duration-300 transform hover:scale-105 overflow-hidden flex flex-col apple-reveal-scale stagger-${(index % 4) + 1} apple-card`}
             >
               {/* Gradient Background on Hover */}
               <div className={`absolute inset-0 bg-gradient-to-r ${social.gradient} opacity-0 group-hover:opacity-100 transition-opacity duration-300`}></div>

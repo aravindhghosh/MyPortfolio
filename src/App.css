@@ -432,3 +432,217 @@ video {
     animation: shooting-star ease-in-out infinite;
     opacity: 0;
 }
+
+/* ============================================================
+   Apple-Style Scroll Transitions — Add to src/App.css
+   ============================================================ */
+
+/* ── Smooth scroll ─────────────────────────────────── */
+html {
+  scroll-behavior: smooth;
+}
+
+/* ── Section entrance animations ───────────────────── */
+
+/* Base state (before JS triggers visibility) */
+.apple-reveal {
+  opacity: 0;
+  transform: translateY(40px);
+  transition: opacity 0.9s cubic-bezier(0.25, 0.46, 0.45, 0.94),
+              transform 0.9s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  will-change: opacity, transform;
+}
+
+.apple-reveal.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Variants */
+.apple-reveal-left {
+  opacity: 0;
+  transform: translateX(-60px);
+  transition: opacity 0.9s cubic-bezier(0.25, 0.46, 0.45, 0.94),
+              transform 0.9s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.apple-reveal-left.is-visible {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+.apple-reveal-right {
+  opacity: 0;
+  transform: translateX(60px);
+  transition: opacity 0.9s cubic-bezier(0.25, 0.46, 0.45, 0.94),
+              transform 0.9s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.apple-reveal-right.is-visible {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+.apple-reveal-scale {
+  opacity: 0;
+  transform: scale(0.88);
+  transition: opacity 0.9s cubic-bezier(0.25, 0.46, 0.45, 0.94),
+              transform 0.9s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.apple-reveal-scale.is-visible {
+  opacity: 1;
+  transform: scale(1);
+}
+
+.apple-reveal-blur {
+  opacity: 0;
+  filter: blur(10px);
+  transform: translateY(20px);
+  transition: opacity 0.9s ease,
+              filter 0.9s ease,
+              transform 0.9s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.apple-reveal-blur.is-visible {
+  opacity: 1;
+  filter: blur(0);
+  transform: translateY(0);
+}
+
+/* ── Stagger delays for child items ──────────────────── */
+.stagger-1  { transition-delay: 0ms   !important; }
+.stagger-2  { transition-delay: 80ms  !important; }
+.stagger-3  { transition-delay: 160ms !important; }
+.stagger-4  { transition-delay: 240ms !important; }
+.stagger-5  { transition-delay: 320ms !important; }
+.stagger-6  { transition-delay: 400ms !important; }
+.stagger-7  { transition-delay: 480ms !important; }
+.stagger-8  { transition-delay: 560ms !important; }
+
+/* ── Section divider: Apple fade ─────────────────────── */
+.section-fade-edge {
+  -webkit-mask-image: linear-gradient(to bottom, transparent 0%, black 10%, black 90%, transparent 100%);
+          mask-image: linear-gradient(to bottom, transparent 0%, black 10%, black 90%, transparent 100%);
+}
+
+/* ── Hover lift card effect (Apple product grid) ───── */
+.apple-card {
+  transition: transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1),
+              box-shadow 0.4s ease;
+}
+
+.apple-card:hover {
+  transform: translateY(-6px) scale(1.01);
+  box-shadow: 0 24px 48px -8px rgba(0, 0, 0, 0.18);
+}
+
+/* Dark mode card hover */
+.dark .apple-card:hover {
+  box-shadow: 0 24px 48px -8px rgba(0, 0, 0, 0.5);
+}
+
+/* ── Gradient text (Apple headline style) ───────────── */
+.apple-gradient-text {
+  background: linear-gradient(135deg, #1d1d1f 0%, #515154 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.dark .apple-gradient-text {
+  background: linear-gradient(135deg, #f5f5f7 0%, #86868b 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* ── Page section transitions ────────────────────────── */
+.page-section {
+  position: relative;
+  overflow: hidden;
+}
+
+/* ── Parallax image container ────────────────────────── */
+.parallax-img {
+  transition: transform 0.1s linear;
+  will-change: transform;
+}
+
+/* ── Hero kinetic blur ───────────────────────────────── */
+@keyframes heroFadeIn {
+  from {
+    opacity: 0;
+    filter: blur(20px);
+    transform: scale(1.04) translateY(20px);
+  }
+  to {
+    opacity: 1;
+    filter: blur(0);
+    transform: scale(1) translateY(0);
+  }
+}
+
+.hero-kinetic {
+  animation: heroFadeIn 1.2s cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
+}
+
+.hero-kinetic-delay-1 { animation-delay: 0.15s; }
+.hero-kinetic-delay-2 { animation-delay: 0.3s;  }
+.hero-kinetic-delay-3 { animation-delay: 0.45s; }
+.hero-kinetic-delay-4 { animation-delay: 0.6s;  }
+.hero-kinetic-delay-5 { animation-delay: 0.75s; }
+
+/* ── Text character reveal (Apple-style word by word) ── */
+.word-reveal span {
+  display: inline-block;
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.6s ease, transform 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.word-reveal.is-visible span {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Auto-stagger each word */
+.word-reveal.is-visible span:nth-child(1)  { transition-delay: 0ms;   }
+.word-reveal.is-visible span:nth-child(2)  { transition-delay: 60ms;  }
+.word-reveal.is-visible span:nth-child(3)  { transition-delay: 120ms; }
+.word-reveal.is-visible span:nth-child(4)  { transition-delay: 180ms; }
+.word-reveal.is-visible span:nth-child(5)  { transition-delay: 240ms; }
+.word-reveal.is-visible span:nth-child(6)  { transition-delay: 300ms; }
+.word-reveal.is-visible span:nth-child(7)  { transition-delay: 360ms; }
+.word-reveal.is-visible span:nth-child(8)  { transition-delay: 420ms; }
+.word-reveal.is-visible span:nth-child(9)  { transition-delay: 480ms; }
+.word-reveal.is-visible span:nth-child(10) { transition-delay: 540ms; }
+
+/* ── Horizontal scroll-driven progress bar ──────────── */
+.scroll-progress-bar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 2px;
+  background: linear-gradient(90deg, #6366f1, #818cf8);
+  transform-origin: left;
+  z-index: 9999;
+  transition: transform 0.1s linear;
+}
+
+/* ── Reduce motion for accessibility ─────────────────── */
+@media (prefers-reduced-motion: reduce) {
+  .apple-reveal,
+  .apple-reveal-left,
+  .apple-reveal-right,
+  .apple-reveal-scale,
+  .apple-reveal-blur,
+  .hero-kinetic,
+  .word-reveal span {
+    transition: none !important;
+    animation: none !important;
+    opacity: 1 !important;
+    transform: none !important;
+    filter: none !important;
+  }
+}

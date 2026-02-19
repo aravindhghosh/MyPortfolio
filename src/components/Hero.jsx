@@ -412,13 +412,13 @@ const Hero = () => {
           </div>
 
           {/* Name and Title */}
-          <h1 className="font-bold mb-4 animate-fade-in text-[clamp(1.9rem,9vw,4.5rem)] leading-tight">
+          <h1 className="font-bold mb-4 hero-kinetic hero-kinetic-delay-1 text-[clamp(1.9rem,9vw,4.5rem)] leading-tight">
             <span className="whitespace-nowrap bg-gradient-to-r from-gray-900 via-blue-900 to-gray-900 dark:from-slate-100 dark:via-blue-300 dark:to-slate-100 bg-clip-text text-transparent drop-shadow-[0_2px_16px_rgba(37,99,235,0.25)]">
               {personalInfo.name.toUpperCase()}
             </span>
           </h1>
 
-          <div className="mb-6">
+          <div className="mb-6 hero-kinetic hero-kinetic-delay-2">
             <span className="inline-block px-3 sm:px-4 py-2 rounded-xl bg-white/30 dark:bg-slate-900/30 backdrop-blur-sm shadow-[0_8px_30px_rgba(15,23,42,0.08)]">
               <h2 className="text-xl sm:text-2xl md:text-3xl font-semibold text-gray-700 dark:text-slate-200 mb-2">
                 {personalInfo.title}
@@ -430,7 +430,7 @@ const Hero = () => {
           </div>
 
           {/* Location */}
-          <div className="mb-8">
+          <div className="mb-8 hero-kinetic hero-kinetic-delay-2">
             <span className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-white/30 dark:bg-slate-900/30 backdrop-blur-sm shadow-[0_8px_30px_rgba(15,23,42,0.08)] text-gray-600 dark:text-slate-300">
               <MapPin size={18} className="text-blue-600 dark:text-teal-300" />
               <span>{personalInfo.location}</span>
@@ -438,7 +438,7 @@ const Hero = () => {
           </div>
 
           {/* CTA Buttons */}
-          <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center items-center mb-10 sm:mb-12 w-full">
+          <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center items-center mb-10 sm:mb-12 w-full hero-kinetic hero-kinetic-delay-3">
             <Button
               onClick={scrollToContact}
               size="lg"

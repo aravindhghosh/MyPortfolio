@@ -546,20 +546,26 @@ export default function GamesLauncher({ unlocked }) {
   }, [unlocked]);
 
   useEffect(() => {
+    let rafId;
     const handleMove = (e) => {
       if (!draggingRef.current) return;
-      const x = clamp(e.clientX - offsetRef.current.x, 8, window.innerWidth - 64);
-      const y = clamp(e.clientY - offsetRef.current.y, 8, window.innerHeight - 64);
-      setPos({ x, y });
+      cancelAnimationFrame(rafId);
+      rafId = requestAnimationFrame(() => {
+        const x = clamp(e.clientX - offsetRef.current.x, 8, window.innerWidth - 64);
+        const y = clamp(e.clientY - offsetRef.current.y, 8, window.innerHeight - 64);
+        setPos({ x, y });
+      });
     };
     const handleUp = () => {
       draggingRef.current = false;
+      cancelAnimationFrame(rafId);
     };
     window.addEventListener("pointermove", handleMove);
     window.addEventListener("pointerup", handleUp);
     return () => {
       window.removeEventListener("pointermove", handleMove);
       window.removeEventListener("pointerup", handleUp);
+      cancelAnimationFrame(rafId);
     };
   }, []);
 

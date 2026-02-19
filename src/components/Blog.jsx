@@ -9,7 +9,7 @@ const Blog = () => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
         <div className="text-center mb-16">
-          <h2 className="text-4xl md:text-5xl font-bold text-gray-900 dark:text-slate-100 mb-4">
+          <h2 className="text-4xl md:text-5xl font-bold apple-gradient-text mb-4">
             Latest Articles
           </h2>
           <div className="w-24 h-1 bg-gradient-to-r from-blue-600 to-teal-600 mx-auto rounded-full"></div>
@@ -20,10 +20,10 @@ const Blog = () => {
 
         {/* Blog Grid */}
         <div className="grid md:grid-cols-3 gap-8">
-          {blogPosts.map((post) => (
+          {blogPosts.map((post, index) => (
             <article
               key={post.id}
-              className="group bg-white/70 dark:bg-slate-900/70 backdrop-blur-md rounded-2xl overflow-hidden shadow-lg border border-gray-200 dark:border-slate-700 hover:shadow-2xl hover:border-blue-300 transition-all duration-300 transform hover:scale-105"
+              className={`group bg-white/70 dark:bg-slate-900/70 backdrop-blur-md rounded-2xl overflow-hidden shadow-lg border border-gray-200 dark:border-slate-700 hover:shadow-2xl hover:border-blue-300 transition-all duration-300 transform hover:scale-105 apple-reveal stagger-${(index % 3) + 1} apple-card`}
             >
               {/* Category Badge */}
               <div className="p-6 pb-0">

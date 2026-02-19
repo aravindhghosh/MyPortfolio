@@ -1,4 +1,6 @@
 import React from "react";
+import { useGlobalAppleReveal } from './hooks/useAppleReveal';
+import ScrollProgressBar from './components/ScrollProgressBar';
 import "./App.css";
 import Navbar from "./components/Navbar";
 import Hero from "./components/Hero";
@@ -15,8 +17,12 @@ import TouchMeteorTrail from "./components/TouchMeteorTrail";
 import { Toaster } from "./components/ui/toaster";
 
 function App() {
+  // This single call activates all .apple-reveal elements on the page
+  useGlobalAppleReveal();
+
   return (
     <div className="App">
+      <ScrollProgressBar />   {/* thin line at top of page */}
       <Navbar />
       <Hero />
       <About />
