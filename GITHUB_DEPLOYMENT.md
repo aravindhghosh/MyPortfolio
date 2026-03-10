@@ -93,10 +93,12 @@ yarn deploy
 
 Want to use a custom domain like `yourname.com`?
 
-1. Add a `CNAME` file in `public/` with your domain:
+1. Add a tracked `CNAME` file in `public/` with your domain:
    ```
    yourname.com
    ```
+
+   This project deploys with `gh-pages -d build`, so every publish replaces the contents of the `gh-pages` branch. If `public/CNAME` is missing, GitHub Pages removes the custom domain on the next deploy.
 
 2. In your domain registrar (Namecheap, GoDaddy, etc.), add these DNS records:
    ```

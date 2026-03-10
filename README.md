@@ -5,7 +5,7 @@ A modern, responsive portfolio website built with React.js featuring a beautiful
 ![Portfolio Preview](https://img.shields.io/badge/React-19.0.0-blue) ![Tailwind CSS](https://img.shields.io/badge/TailwindCSS-3.4.17-38B2AC) ![License](https://img.shields.io/badge/license-MIT-green)
 
 ---
-**For Sample Click Here ->** **[Live URL](https://aravindhghosh.github.io/MyPortfolio/)**
+**Live URL:** **[https://aravindhghosh.in](https://aravindhghosh.in)**
 
 ---
 
@@ -69,6 +69,7 @@ A modern, responsive portfolio website built with React.js featuring a beautiful
 ./
 ├── public/
 │   ├── index.html                 # HTML entry point
+│   ├── CNAME                      # GitHub Pages custom domain
 │   └── portfolio-aravindhghosh.zip # Downloadable portfolio
 │
 ├── src/
@@ -261,14 +262,16 @@ This creates an optimized production build in the `build/` folder.
 
 2. **Add to package.json**
    ```json
-   {
-     "homepage": "https://yourusername.github.io/repository-name",
-     "scripts": {
-       "predeploy": "yarn build",
-       "deploy": "gh-pages -d build"
-     }
-   }
+    {
+      "homepage": ".",
+      "scripts": {
+        "predeploy": "node scripts/ensure-cname.js && yarn build",
+        "deploy": "gh-pages -d build"
+      }
+    }
    ```
+
+   For this repo, `homepage` stays `"."` so asset paths remain relative, and the custom domain is preserved via `public/CNAME`.
 
 3. **Deploy**
    ```bash
@@ -281,6 +284,10 @@ This creates an optimized production build in the `build/` folder.
    - Save
 
 📖 **Complete Deployment Guide:** See `GITHUB_DEPLOYMENT.md`
+
+5. **Custom domain**
+   - This site is configured for `https://aravindhghosh.in`
+   - Keep `public/CNAME` committed so GitHub Pages does not remove the domain on deploy
 
 ---
 
@@ -394,7 +401,7 @@ This project is open source and available under the [MIT License](LICENSE).
 ## 👨‍💻 Author
 
 **Aravindhghosh P**
-- 🌐 Portfolio: [Your Portfolio URL]
+- 🌐 Portfolio: [aravindhghosh.in](https://aravindhghosh.in)
 - 💼 LinkedIn: [linkedin.com/in/aravindhghosh](https://linkedin.com/in/aravindhghosh)
 - 📧 Email: aravindhghosh@outlook.com
 - 📱 Phone: -

@@ -20,7 +20,7 @@ import project_sql_downgrade from '../assets/images/project_sql_downgrade.png';
 
 export const personalInfo = {
   name: "Aravindhghosh P",
-  title: "Automation Developer | DevOps Specialist",
+  title: "Backend/Automation Engineer | DevOps Specialist",
   tagline: "Building scalable automation solutions for cloud infrastructure",
   resumeUrl: "https://1drv.ms/b/c/ec88d1c6a2f291d9/IQDEJ7ErWVBFSbPLsdi4SwogAacSCAipgCM3iuVXQ4T9w7Y?e=d4Amhw",
   email: "aravindhghosh@outlook.com",
